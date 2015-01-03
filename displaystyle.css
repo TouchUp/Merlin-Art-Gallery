@@ -1,0 +1,14 @@
+html, body {
+	margin:0;
+	padding: 0;
+	background-color: rgba(100,100,100,1);
+}
+
+#description {
+	position: absolute;
+	bottom: 0px;
+	height: 200px;
+	width: 100%;
+	background-color: rgba(0,0,0,1);
+	color: white;
+}
