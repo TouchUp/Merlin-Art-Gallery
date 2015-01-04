@@ -12,3 +12,13 @@ html, body {
 	background-color: rgba(0,0,0,1);
 	color: white;
 }
+
+img {
+	width: 50%;
+	height: 50%;
+}
+
+#picture {
+	text-align:center;
+	width: 100%;
+}
