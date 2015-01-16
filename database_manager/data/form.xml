@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<items>
+
+    <item type="settings"  inputWidth="220"  position="label-left"  
+    labelWidth="70"/>
+
+
+    <item type="label"  label="Basic Info"/>
+    	<item type="input"  label="ID"  name="code"   id="code"  offsetLeft="15" />
+	    <item type="input"  label="Title"  name="name" id="name"    offsetLeft="15"/>
+	    <item type="input"  label="Artist"   name="artist" id="artist"   offsetLeft="15"/>
+	    <item type="input"  label="Price"      name= "price" id= "price"  offsetLeft="15"/>
+
+
+    <item type="label"  label="Dimensions"/>
+	    <item type="input"  label="Height (cm)"       name="cmheight"  id="cmheight"  offsetLeft="15"/>
+		<item type="input"  label="Width (cm)"       name="cmwidth"  id="cmwidth"  offsetLeft="15"/>
+		<item type="input"  label="Height (in)"       name="inheight"  id="inheight"  offsetLeft="15"/>
+	    <item type="input"  label="Width (in)"       name="inwidth"  id="inwidth"   offsetLeft="15"/>
+		
+	<item type="label" label= "Painting Information" />
+		 <item type="input"  label="Biography"  name= "bio"   id= "bio"  offsetLeft="15"/>
+	    <item type="input"  label="Sold"      name="sold"  id="sold"  offsetLeft="15"/>
+	    <item type="input"  label="Other Info"      name="others"   id="others" offsetLeft="15"/>
+		
+
+    <item type="button"  name = "save"  value="Save"   offsetTop="15" offsetLeft="230"/>
+</items>

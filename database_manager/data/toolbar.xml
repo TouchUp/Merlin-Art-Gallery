@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<toolbar>
+   <item id="newimage" type="button" text="Add Image"/>
+   <item id="delimage" type="button" text="Delete Image" />   
+</toolbar>
