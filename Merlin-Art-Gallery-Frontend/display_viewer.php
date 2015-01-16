@@ -69,8 +69,7 @@
 				imageInfo.push(temp);
 				alert(prop + "=" + obj[prop]);
 			}
-
-
+			
 			//concatenate all the innerHTML; loops through all
 			for (i=0; i <= imageInfo.length; i ++) {
 				var temp = imageInfo[i].toString();

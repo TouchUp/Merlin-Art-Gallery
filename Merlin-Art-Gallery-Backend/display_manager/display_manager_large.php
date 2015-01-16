@@ -23,19 +23,19 @@
                     	<form name="search" action="display_manager_large.php" method="post">
                         <input type="hidden" name="doSearch" value="1">
                     <li>
-						<label for 'search_box'> ID </label>
+						<label class = 'search' for 'search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
                     </li>
                     <li>
-						<label for 'search_box'> Painting Name </label>
+						<label class = 'search' for 'search_box'> Painting Name </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
                     </li>
                      <li>   
-                        <label for 'search_box'> Artist </label>
+                        <label class = 'search' for 'search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
                     </li>
                     <li>
-                        <label for 'search_box'> Others </label>
+                        <label class = 'search' for 'search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
 					</li>
 

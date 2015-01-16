@@ -3,8 +3,8 @@
 ===== CSS Styling for Forms =====
 */
 
-label {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+label.search {
+	display:block;
 }
 
 li {
