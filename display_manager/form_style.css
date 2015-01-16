@@ -1,0 +1,83 @@
+
+/* 
+===== CSS Styling for Forms =====
+*/
+
+label {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+li {
+	padding-top: 20px;
+	padding-left: 20px;
+	list-style: none;
+
+}
+
+input[type = 'number'] {
+	height: 50px;
+	font-size: 1em;
+}
+
+
+input[type = 'text'] {
+
+	width: 100%;
+	max-width: 100%;
+}
+
+input[type='search']{
+
+	-webkit-appearance:none;
+	appearance:none;
+
+	width:90%;
+	height:75px;
+	font-size: 1em;
+	box-shadow:none;
+	border: 5px solid rgba(142, 68, 173,1.0);
+}
+
+select{
+	-webkit-appearance:none;
+	appearance:none;
+
+	height: 50px;
+	font-size:1em;
+	background-color:rgba(165, 99, 192,1.0);
+	padding-left:10px;
+	padding-right: 10px;
+	color:white;
+}
+
+
+input[type='checkbox']{
+    -webkit-appearance:none;
+    appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid rgba(155, 89, 182,1.0);
+}
+
+input[type='checkbox']:checked {
+    background: rgba(165, 99, 192,1.0);
+}
+
+input[type='submit']{
+	/* to override browser default styling */
+	-webkit-appearance:none;
+	appearance:none;
+
+	padding: 20px;
+	font-size: 1em;
+	background-color: rgba(142, 68, 173,1.0);
+	color: white;
+	border:none;
+}
+
+#checkbox_grid {
+		column-count: 3;
+		-webkit-column-count: 3;
+}

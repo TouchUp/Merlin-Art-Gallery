@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Display Manager</title>
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<div id = "wrapper">	
+		<div id = "col1">
+			<div id = "col1half">
+			<h1> Advanced Search </h1>
+
+				<ul>
+					<li>
+						<label for 'search_box'> General Search (search for ANYTHING here: name, type, artist etc) </label>
+						<input type = 'search' results = '5' id = 'search_box' placeholder = 'Search'>
+					</li>
+
+					<li>
+						<label for 'price_range'> Price </label>
+						<select>
+							<option value = "<"> less than </option>
+							<option value = "="> equal </option>
+							<option value = ">"> more than </option>
+						</select>
+						<input type = 'number' id = 'min_price'> and/or 
+						<select>
+							<option value = "<"> less than </option>
+							<option value = "="> equal </option>>
+						</select>
+						<input type = 'number' id = 'max_price'>
+					</li>
+
+					<li>
+						<label for 'size_range'> Size </label>
+						<select>
+							<option value = "<"> less than </option>
+							<option value = "="> equal </option>
+							<option value = ">"> more than </option>
+						</select>
+						<input type = 'number' id = 'min_size'> 
+						<select>
+							<option value = "cm"> cm </option>
+							<option value = "in"> in </option>
+						</select>	
+						and/or 
+						<select>
+							<option value = "<"> less than </option>
+							<option value = "="> equal </option>
+						</select>
+						<input type = 'number' id = 'max_size'>
+						<select>
+							<option value = "cm"> cm </option>
+							<option value = "in"> in </option>
+						</select>						
+					</li>
+
+				<li>
+				<input type = "submit" value = "Search">
+				</li>
+
+			</ul>
+
+			</div>
+
+			<div id = "col1half2">
+			<h1> Images </h1>
+			A grid here 
+			</div>
+		</div>
+		<div id = "col2">
+			<form>
+			<ul>
+				<h1>Display Settings</h1>
+
+				<li>
+				<label for "trans_time">Transition Time (in seconds):</label>
+				<input type = "number" id = "trans_time" value = "Transition Time" min = '1'> 
+				</li>
+
+				<h2> What to display </h2>
+
+				<div id = "checkbox_grid">
+
+					<li>
+						<input type = "checkbox" id = "painting_name" value = "Painting Name">
+						<label for = "painting_name"> Painting Name </label>
+					</li>
+					
+					<li>
+						<input type = "checkbox" id = "artist_name" value = "Artist"> 
+						<label for = "artist_name"> Artist Name </label>
+					</li>
+
+					<li>
+						<input type = "checkbox" id = "price" value = "Price"> 
+						<label for =  'price'> Price </label> 
+					</li>
+
+					<li>
+						<input type = "checkbox" id = "painting_name" value = "Painting Name">
+						<label for = "painting_name"> Height (cm) </label>
+					</li>
+					
+					<li>
+						<input type = "checkbox" id = "artist_name" value = "Artist"> 
+						<label for = "artist_name"> Width (cm) </label>
+					</li>
+
+					<li>
+						<input type = "checkbox" id = "price" value = "Price"> 
+						<label for =  'price'> Height (in) </label> 
+					</li>
+
+					<li>
+						<input type = "checkbox" id = "painting_name" value = "Painting Name">
+						<label for = "painting_name"> Width (in) </label>
+					</li>
+					
+					<li>
+						<input type = "checkbox" id = "artist_name" value = "Artist"> 
+						<label for = "artist_name"> Biography </label>
+					</li>
+
+					<li>
+						<input type = "checkbox" id = "price" value = "Price"> 
+						<label for =  'price'> Other info </label> 
+					</li>	
+				</div>
+
+				<h2> Other Settings </h2>
+
+				<li>
+				<input type =  "checkbox" id = "random" value = "random">
+				<label for = "random"> Randomise paintings </label>
+				</li>
+
+				<li>
+				<label for = 'text_area'> I don't know what this text field is for, I just wanted to show off text fields </label>
+				<input type = "text" id = "text_area" value = 'You can type anything here'>
+
+				</li>							
+
+				<li>
+				<input type = "submit" value = "Display Images">
+				</li>
+
+
+			</ul>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
