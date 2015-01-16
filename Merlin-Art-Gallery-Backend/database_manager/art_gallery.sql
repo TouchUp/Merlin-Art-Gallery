@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2015 at 02:47 PM
+-- Generation Time: Jan 16, 2015 at 06:43 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -18,11 +18,9 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `artgallery`
+--
 
 CREATE DATABASE IF NOT EXISTS `artgallery`;
-
-USE `artgallery`;   
---
 
 -- --------------------------------------------------------
 
@@ -44,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `sold` tinyint(1) NOT NULL,
   `others` text NOT NULL,
   `image` longblob NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `images`
@@ -52,8 +50,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 
 INSERT INTO `images` (`PRIMARY_ID`, `code`, `name`, `artist`, `price`, `cmheight`, `cmwidth`, `inheight`, `inwidth`, `bio`, `sold`, `others`, `image`) VALUES
 (2, '0', 'ahhh', 'asdf', 500, 30, 30, 15, 15, 'asdf', 0, 'aaaaaaaa', ''),
-(3, '1', 'asdf', 'aaa', 50, 50, 60, 15, 15, 'asdf', 1, 'asdfasdf', ''),
-(4, '', 'New Image', '', 0, 0, 0, 0, 0, '', 0, '', '');
+(3, '1', 'asdf', 'aaa', 50, 50, 60, 15, 15, 'asdf', 1, 'asdfasdf', '');
 
 --
 -- Indexes for dumped tables
@@ -73,7 +70,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-MODIFY `PRIMARY_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `PRIMARY_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
