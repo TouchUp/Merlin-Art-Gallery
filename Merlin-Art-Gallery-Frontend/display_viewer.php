@@ -36,6 +36,7 @@
 			boolArray["in_width"] = false;
 			boolArray["biography"] = false;
 			boolArray["other"] = false;
+			boolArray['random'] = false;
 
 			//This checks which checkboxes the user has checked
 			boolArray["id"] = <?php isset($_POST)['id'];?>;
@@ -48,7 +49,7 @@
 			boolArray["in_width"] = <?php isset($_POST)['in_width'];?>;
 			boolArray["biography"] = <?php isset($_POST)['biography'];?>;
 			boolArray["other"] = <?php isset($_POST)['other'];?>;
-
+			boolArray['random'] = <?php isset($_POST)['random'];?>;
 			}	
 
 		function displayInfo(){
@@ -62,6 +63,13 @@
 				imageInfo.push;
 			}
 			*/
+
+			for (var prop in obj){ //iterates over each property in boolArray
+				//temp = <?php ?> //get the information from database corresponding to that object property
+				imageInfo.push(temp);
+				alert(prop + "=" + obj[prop]);
+			}
+
 
 			//concatenate all the innerHTML; loops through all
 			for (i=0; i <= imageInfo.length; i ++) {
