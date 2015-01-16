@@ -17,7 +17,16 @@
 
 				<ul>
 					<li>
-						<label for 'search_box'> General Search (search for ANYTHING here: name, type, artist etc) </label>
+						<label for 'search_box'> General Search </label>
+						<select>
+							<option value = "id">ID</option>
+							<option value = "painting_name">Painting Name</option>
+							<option value = "price">Price</option>
+							<option value = "artist_name">Artist Name</option>
+							<option value = "biography">Biography</option>
+							<option value = "other">Other info </option>
+						</select>
+
 						<input type = 'search' results = '5' id = 'search_box' placeholder = 'Search'>
 					</li>
 
@@ -106,27 +115,27 @@
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "cm_height" name = 'cm_height_checkbox' value = "Height">
+						<input type = "checkbox" id = "cm_height" name = 'cm_height_checkbox' value = "Height (cm)">
 						<label for = "cm_height"> Height (cm) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "cm_width" name = 'cm_width_checkbox' value = "Artist"> 
+						<input type = "checkbox" id = "cm_width" name = 'cm_width_checkbox' value = "Width (cm)"> 
 						<label for = "cm_width"> Width (cm) </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_height" name = 'in_height_checkbox' value = "Price"> 
+						<input type = "checkbox" id = "in_height" name = 'in_height_checkbox' value = "Height (in)"> 
 						<label for =  'in_height'> Height (in) </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_width" name = 'in_width_checkbox' value = "Painting Name">
+						<input type = "checkbox" id = "in_width" name = 'in_width_checkbox' value = "Width (in)">
 						<label for = "in_width"> Width (in) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "biography" name = 'biography_checkbox' value = "Artist"> 
+						<input type = "checkbox" id = "biography" name = 'biography_checkbox' value = "Biography"> 
 						<label for = "biography"> Biography </label>
 					</li>
 
