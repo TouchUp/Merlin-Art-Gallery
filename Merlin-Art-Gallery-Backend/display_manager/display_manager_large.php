@@ -182,7 +182,7 @@
     					die('Invalid query: ' . mysql_error());
 					}
 					while($row=mysql_fetch_array($result)){ 
-						$key = $row['key'];
+						$pkey = $row['pkey'];
 						$code = $row['code'];
 						$name = $row['name'];
 						$artist = $row['artist'];
@@ -198,7 +198,7 @@
 						$flocation = $row['flocation'];
 						$fname = $row['fname'];
 						echo "<tr>";
-						echo '<td><input type="checkbox" name="check_list[]" value="'.$key.'"></td>';
+						echo '<td><input type="checkbox" name="check_list[]" value="'.$pkey.'"></td>';
 						//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
 						echo '<td><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
 						echo '<td>'.$code.'</td>';

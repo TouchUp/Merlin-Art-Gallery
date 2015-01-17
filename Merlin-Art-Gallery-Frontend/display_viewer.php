@@ -94,34 +94,41 @@
 	?>
     <script language="javascript">
 		var i = 0;
-		var imagecount = <?php echo $nopic ?>
-		var imagearray = new Array ([]);
+		var imagecount = <?php echo $nopic ?>;
+		var imagearray = [];
 		<?php $a = 0; ?>
 		for (a=0;a<imagecount;a++){
 			
-			imagearray[a][0] = <?php echo $imagedata[$a][0] ?>;
-			imagearray[a][1] = <?php echo $imagedata[$a][1] ?>;
-			imagearray[a][2] = <?php echo $imagedata[$a][2] ?>;
-			imagearray[a][3] = <?php echo $imagedata[$a][3] ?>;
-			imagearray[a][4] = <?php echo $imagedata[$a][4] ?>;
-			imagearray[a][5] = <?php echo $imagedata[$a][5] ?>;
-			imagearray[a][6] = <?php echo $imagedata[$a][6] ?>;
-			imagearray[a][7] = <?php echo $imagedata[$a][7] ?>;
-			imagearray[a][8] = <?php echo $imagedata[$a][8] ?>;
-			imagearray[a][9] = <?php echo $imagedata[$a][9] ?>;
-			imagearray[a][10] = <?php echo $imagedata[$a][10] ?>;
-			imagearray[a][11] = <?php echo $imagedata[$a][11] ?>;
-			imagearray[a][12] = <?php echo $imagedata[$a][12] ?>;
+			imagearray[a][0] = <?php echo $imagedata[$a][0]; ?>;
+			imagearray[a][1] = <?php echo $imagedata[$a][1]; ?>;
+			imagearray[a][2] = <?php echo $imagedata[$a][2]; ?>;
+			imagearray[a][3] = <?php echo $imagedata[$a][3]; ?>;
+			imagearray[a][4] = <?php echo $imagedata[$a][4]; ?>;
+			imagearray[a][5] = <?php echo $imagedata[$a][5]; ?>;
+			imagearray[a][6] = <?php echo $imagedata[$a][6]; ?>;
+			imagearray[a][7] = <?php echo $imagedata[$a][7]; ?>;
+			imagearray[a][8] = <?php echo $imagedata[$a][8]; ?>;
+			imagearray[a][9] = <?php echo $imagedata[$a][9]; ?>;
+			imagearray[a][10] = <?php echo $imagedata[$a][10]; ?>;
+			imagearray[a][11] = <?php echo $imagedata[$a][11]; ?>;
+			imagearray[a][12] = <?php echo $imagedata[$a][12]; ?>;
 			
 			
 			<?php $a++ ?>
 		}
 	</script>
+
+
 </head>
 
-<body>
+<body onload = "pageLoad()">	
 
 	<script>
+		function pageLoad(){
+			setTransitionProperties();
+			displayOrNot();
+		}
+
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
 			setTimeout(nextPicture(), transition_time);
@@ -213,9 +220,7 @@
 
 
 	</script>
-
-
-	<div id = "picture"><img src = "landscape.jpg"></div>
+	<div id = "picture"></div>
 	<div id = "description"></div>
 </body>
 </html>

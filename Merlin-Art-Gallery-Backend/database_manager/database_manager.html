@@ -25,7 +25,7 @@
     			var layout = new dhtmlXLayoutObject(document.body,"2U");
     			layout.cells("a").setText("Contacts");
     			layout.cells("b").setText("Contact Details");
-    			layout.cells("b").setWidth(500); 
+    			layout.cells("b").setWidth(300); 
 				
 				
 				
@@ -62,7 +62,7 @@
 				
 				imageGrid.setHeader("ID,Name,Artist,Price,Height(cm),Width(cm),Height(in),Width(in),Biography,Sold,Others,File Path,File Name");   //sets the headers of columns
               	imageGrid.setColumnIds("code,name,artist,price,cmheight,cmwidth,inheight,inwidth,bio,sold,others,flocation,fname");         //sets the columns' ids
-              	imageGrid.setInitWidths("100,200,200,80,80,80,80,80,300,100,150,400,600,100");   //sets the initial widths of columns
+              	imageGrid.setInitWidths("100,200,100,80,80,80,80,80,200,100,100,200,*");   //sets the initial widths of columns
               	imageGrid.setColAlign("left,left,left,left,left,left,left,left,left,left,left,left,left");     //sets the alignment of columns
              	imageGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro");               //sets the types of columns
               	imageGrid.setColSorting("str,str,str,int,int,int,int,int,str,str,str,str,str");  //sets the sorting types of column
