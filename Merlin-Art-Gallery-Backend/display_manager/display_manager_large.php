@@ -226,7 +226,7 @@
 
 				<li>
 				<label for "trans_time">Transition Time (in seconds):</label>
-				<input type = "number" id = "trans_time" value = "Transition Time" min = '1' placeholder = '10'> 
+				<input type = "number" id = "trans_time" value = "Transition Time" name="transtime" min = '1' placeholder = '10'> 
 				</li>
 
 				<h2> What to display </h2>
