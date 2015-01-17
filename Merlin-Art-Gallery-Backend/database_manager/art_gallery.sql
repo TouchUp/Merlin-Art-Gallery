@@ -3,9 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2015 at 04:58 AM
+-- Generation Time: Jan 17, 2015 at 06:07 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
+
+CREATE DATABASE IF NOT EXISTS imageserver
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,8 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `images`
 --
 
+
 CREATE TABLE IF NOT EXISTS `images` (
-`key` int(4) NOT NULL,
+`pkey` int(8) NOT NULL,
   `code` varchar(15) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `artist` varchar(64) DEFAULT NULL,
@@ -48,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`key`, `code`, `name`, `artist`, `price`, `cmheight`, `cmwidth`, `inheight`, `inwidth`, `bio`, `sold`, `others`, `image`, `flocation`, `fname`) VALUES
+INSERT INTO `images` (`pkey`, `code`, `name`, `artist`, `price`, `cmheight`, `cmwidth`, `inheight`, `inwidth`, `bio`, `sold`, `others`, `image`, `flocation`, `fname`) VALUES
 (140, '55', 'lolwut', 'artist1', '1000', 30, 0, '0.000', '0.000', '50', 50, '30', 0x2e2e2f73616d706c65, '../../sampledata', 'carbotanimation.png');
 
 --
@@ -59,7 +62,7 @@ INSERT INTO `images` (`key`, `code`, `name`, `artist`, `price`, `cmheight`, `cmw
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
- ADD PRIMARY KEY (`key`);
+ ADD PRIMARY KEY (`pkey`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -69,7 +72,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-MODIFY `key` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=141;
+MODIFY `pkey` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=141;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
