@@ -23,19 +23,19 @@
                     	<form name="search" action="display_manager_large.php" method="post">
                         <input type="hidden" name="doSearch" value="1">
                     <li>
-						<label class = 'search' for 'search_box'> ID </label>
+						<label for 'search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
                     </li>
                     <li>
-						<label class = 'search' for 'search_box'> Painting Name </label>
+						<label for 'search_box'> Painting Name </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
                     </li>
                      <li>   
-                        <label class = 'search' for 'search_box'> Artist </label>
+                        <label for 'search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
                     </li>
                     <li>
-                        <label class = 'search' for 'search_box'> Others </label>
+                        <label for 'search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
 					</li>
 
@@ -101,7 +101,7 @@
             	<tr>
                 	
                 	<th>
-                	<form action = "../../merlin-art-gallery-frontend/display_viewer.php" method = "POST">
+                    <form action = "../../merlin-art-gallery-frontend/display_viewer.php" method = "POST">
                     Select
                     </th>
                 	<th>Image</th>
@@ -159,6 +159,18 @@
 					else{
 						$maxprice = 2147483647;	
 					}
+					if (isset($_POST['min_size'])){
+						$minsize = $_POST['min_size'];
+					}
+					else{
+						$minsize = 0;
+					}
+					if (isset($_POST['max_price'])){
+						$maxsize = $_POST['max_price'];
+					}
+					else{
+						$maxsize = 2147483647;	
+					}
 						
 
 					$sql = 'SELECT * FROM images WHERE 
@@ -184,10 +196,12 @@
 						$sold = $row['sold'];
 						$others = $row['others'];
 						$image = $row['image'];
-						
+						$flocation = $row['flocation'];
+						$fname = $row['fname'];
 						echo "<tr>";
 						echo '<td><input type="checkbox" name="check_list[]" value="'.$key.'"></td>';
-						echo '<td><img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80"></td>';
+						//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
+						echo '<td><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
 						echo '<td>'.$code.'</td>';
 						echo '<td>'.$name.'</td>';
 						echo '<td>'.$artist.'</td>';
@@ -208,7 +222,6 @@
 		</div>
 
 		<div id = 'page_3'>
-			
 			<ul>
 				<h1>Step 3: Display Settings.</h1>
 
