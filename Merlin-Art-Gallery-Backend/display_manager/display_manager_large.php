@@ -13,10 +13,10 @@
 </head>
 
 <body>
-	<div id = 'header'>
+	<section id = 'header'>
 		<h1>Display Manager </h1>
-	</div>	
-	<div id = 'page_1'>
+	</section>	
+	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
 
 				<ul>
@@ -92,9 +92,9 @@
 
 			</ul>
 
-		</div>
+		</section>
 
-		<div id = "page_2">
+		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
             <table border ="1" width = "100%">
             	<tr>
@@ -219,9 +219,9 @@
             </table>
 			<div id = 'image_gallery' >
 			</div>
-		</div>
+		</section>
 
-		<div id = 'page_3'>
+		<section id = 'page_3'>
 			<ul>
 				<h1>Step 3: Display Settings.</h1>
 
@@ -300,7 +300,7 @@
 
 			</ul>
 			</form>
-		</div>
+		</section>
 	</div>
 
 </body>

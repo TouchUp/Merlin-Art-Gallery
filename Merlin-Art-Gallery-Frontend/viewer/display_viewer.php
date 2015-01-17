@@ -134,6 +134,7 @@
 
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
+			alert(transition_time);
 			setTimeout(nextPicture(), transition_time);
 		}
 
@@ -143,9 +144,11 @@
 			}
 			else{
 				i++;
+				alert(i);
 			}
 			imagepath = imagearray[i][11];
 			imagename = imagearray[i][12];
+			alert(imagename);
 			document.getElementById('picture').innerHTML =  '<img src = "' + imagepath + '/'+ imagename +'">';
 			displayInfo(); //calls the function to display related info as well
 		}

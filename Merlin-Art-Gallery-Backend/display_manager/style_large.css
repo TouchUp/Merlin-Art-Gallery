@@ -31,14 +31,12 @@ html, body {
 	*/
 
 	width:80%;
-	height: 100%;
 	margin: auto;
 }
 
 #page_2{
 
 	width:80%;
-	height: 100%;
 	margin:auto;
 
 }
@@ -49,10 +47,17 @@ html, body {
 	*/
 
 	width:80%;
-	height: 100%;
 	margin:auto;
 	}
 
+/* elegant way to set div heights actually */ 
+
+section{
+	height:100vh;
+}
+section:first-of-type{
+	height:10vh;
+}
 
 
 /*
