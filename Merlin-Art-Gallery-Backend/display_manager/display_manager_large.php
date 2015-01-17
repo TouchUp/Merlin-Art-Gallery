@@ -282,7 +282,7 @@
 				<h2> Other Settings </h2>
 
 				<li>
-				<input type =  "checkbox" id = "random" value = true>
+				<input type =  "checkbox" id = "random" name = "showrandom" value = true>
 				<label for = "random"> Randomise paintings </label>
 				</li>
 
