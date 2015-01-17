@@ -100,7 +100,7 @@
             	<tr>
                 	
                 	<th>
-                    <form action = "../../merlin-art-gallery-frontend/display_viewer.php" method = "POST">
+                    <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST">
                     Select
                     </th>
                 	<th>Image</th>
@@ -173,7 +173,8 @@
 						
 
 					$sql = 'SELECT * FROM images WHERE 
-					(artist LIKE "'.$artistsearch.'%") 
+					(code LIKE "'.$idsearch.'%")
+					AND (artist LIKE "'.$artistsearch.'%") 
 					AND (code LIKE "'.$idsearch.'%") 
 					AND (name LIKE "'.$namesearch.'%") 
 					';

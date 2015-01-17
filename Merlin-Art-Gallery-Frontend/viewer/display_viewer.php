@@ -95,23 +95,26 @@
     <script language="javascript">
 		var i = 0;
 		var imagecount = <?php echo $nopic ?>;
-		var imagearray = [];
+		var imagearray = new Array([]);
+		var boolArray = new Array([]);
+		var imageInfo = {};
 		<?php $a = 0; ?>
 		for (a=0;a<imagecount;a++){
 			
-			imagearray[a][0] = <?php echo $imagedata[$a][0]; ?>;
-			imagearray[a][1] = <?php echo $imagedata[$a][1]; ?>;
+			imagearray[a]={};
+			imagearray[a][0] = "<?php echo $imagedata[$a][0]; ?>";
+			imagearray[a][1] = "<?php echo $imagedata[$a][1]; ?>";
 			imagearray[a][2] = <?php echo $imagedata[$a][2]; ?>;
 			imagearray[a][3] = <?php echo $imagedata[$a][3]; ?>;
 			imagearray[a][4] = <?php echo $imagedata[$a][4]; ?>;
 			imagearray[a][5] = <?php echo $imagedata[$a][5]; ?>;
 			imagearray[a][6] = <?php echo $imagedata[$a][6]; ?>;
-			imagearray[a][7] = <?php echo $imagedata[$a][7]; ?>;
+			imagearray[a][7] = "<?php echo $imagedata[$a][7]; ?>";
 			imagearray[a][8] = <?php echo $imagedata[$a][8]; ?>;
-			imagearray[a][9] = <?php echo $imagedata[$a][9]; ?>;
-			imagearray[a][10] = <?php echo $imagedata[$a][10]; ?>;
-			imagearray[a][11] = <?php echo $imagedata[$a][11]; ?>;
-			imagearray[a][12] = <?php echo $imagedata[$a][12]; ?>;
+			imagearray[a][9] = "<?php echo $imagedata[$a][9]; ?>";
+			imagearray[a][10] = "<?php echo $imagedata[$a][10]; ?>";
+			imagearray[a][11] = "<?php echo $imagedata[$a][11]; ?>";
+			imagearray[a][12] = "<?php echo $imagedata[$a][12]; ?>";
 			
 			
 			<?php $a++ ?>
@@ -141,8 +144,8 @@
 			else{
 				i++;
 			}
-			imagepath == imagearray[i][11];
-			imagename == imagearray[i][12];
+			imagepath = imagearray[i][11];
+			imagename = imagearray[i][12];
 			document.getElementById('picture').innerHTML =  '<img src = "' + imagepath + '/'+ imagename +'">';
 			displayInfo(); //calls the function to display related info as well
 		}
@@ -151,17 +154,87 @@
 			//This function controls what information of the painting to display
 
 			//Initialise an array that will take in all the parameters
-			var boolArray = [];
-			boolArray["painting_name"] = <?php echo $dpname ?>;
-			boolArray["artist_name"] = <?php echo $dpartist ?>;
-			boolArray["price"]=<?php echo $dpprice ?>;
-			boolArray["cm_height"] = <?php echo $dpcmheight ?>;
-			boolArray["cm_width"] = <?php echo $dpcmwidth ?>;
-			boolArray["in_height"] = <?php echo $dpinheight ?>;
-			boolArray["in_width"] = <?php echo $dpinwidth ?>;
-			boolArray["biography"] = <?php echo $dpbio ?>;
-			boolArray["other"] = <?php echo $dpothers ?>;
-			boolArray['random'] = <?php echo $dprandom ?>;
+			
+			boolArray["painting_name"] = <?php 
+			if ($dpname == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["artist_name"] = <?php 
+			if ($dpartist == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["price"]=<?php
+			if ($dpprice == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["cm_height"] = <?php 
+			if ($dpcmheight == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["cm_width"] = <?php 
+			if ($dpcmwidth == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["in_height"] = <?php 
+			if ($dpinheight == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["in_width"] = <?php 
+			if ($dpinwidth == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["biography"] = <?php 
+			if ($dpbio == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray["other"] = <?php 
+			if ($dpothers == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
+			boolArray['random'] = <?php 
+			if ($dprandom == true){
+				echo 'true';
+			}
+			else{
+				echo 'false';	
+			}
+			?>;
 
 
 			}	
@@ -207,9 +280,6 @@
 			if (boolArray["others"] == true){
 				imageInfo.push(imagearray[i][9]);
 			}
-			
-			imageInfo.push(temp);
-			alert(prop + "=" + obj[prop]);
 			
 			//concatenate all the innerHTML; loops through all
 			for (d=0; d <= imageInfo.length; d ++) {
