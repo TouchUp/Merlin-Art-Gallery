@@ -6,7 +6,7 @@
 
 
 /*
- ===== Body: Two-column layout =====
+ ===== Body: 3-paged layout =====
  */
 
 
@@ -53,16 +53,7 @@ html, body {
 	margin:auto;
 	}
 
-#image_gallery {
 
-	background-color:rgba(189, 195, 199,1.0);
-	margin: auto;
-	width: 100%;
-	height:80%;
-
-	/* height actually overflows, but overflow is set to hidden */
-
-}
 
 /*
 ===== CSS Styling for ELEMENTS =====
