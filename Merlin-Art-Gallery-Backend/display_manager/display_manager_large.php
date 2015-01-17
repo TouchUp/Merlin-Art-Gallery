@@ -234,42 +234,42 @@
 				<div id = "checkbox_grid">
 
 					<li>
-						<input type = "checkbox" id = "painting_name" name = 'painting_checkbox' value = true>
+						<input type = "checkbox" id = "painting_name" name = "painting_checkbox" value = true>
 						<label for = "painting_name"> Painting Name </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "artist_name" name = 'artist_checkbox' value = true> 
+						<input type = "checkbox" id = "artist_name" name = "artist_checkbox" value = true> 
 						<label for = "artist_name"> Artist Name </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "price" name = 'price_checkbox' value = true> 
+						<input type = "checkbox" id = "price" name = "price_checkbox" value = true> 
 						<label for =  'price'> Price </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "cm_height" name = 'cm_height_checkbox' value = true>
+						<input type = "checkbox" id = "cm_height" name = "cm_height_checkbox" value = true>
 						<label for = "cm_height"> Height (cm) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "cm_width" name = 'cm_width_checkbox' value = true> 
+						<input type = "checkbox" id = "cm_width" name = "cm_width_checkbox" value = true> 
 						<label for = "cm_width"> Width (cm) </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_height" name = 'in_height_checkbox' value = true> 
+						<input type = "checkbox" id = "in_height" name = "in_height_checkbox" value = true> 
 						<label for =  'in_height'> Height (in) </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_width" name = 'in_width_checkbox' value = true>
+						<input type = "checkbox" id = "in_width" name = "in_width_checkbox" value = true>
 						<label for = "in_width"> Width (in) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "biography" name = 'biography_checkbox' value = true> 
+						<input type = "checkbox" id = "biography" name = "biography_checkbox" value = true> 
 						<label for = "biography"> Biography </label>
 					</li>
 
