@@ -19,9 +19,14 @@
 	    <item type="input"  label="Width (in)"       name="inwidth"  id="inwidth"   offsetLeft="15"/>
 		
 	<item type="label" label= "Painting Information" />
-		 <item type="input"  label="Biography"  name= "bio"   id= "bio"  offsetLeft="15"/>
+		<item type="input"  label="Biography"  name= "bio"   id= "bio"  offsetLeft="15"/>
 	    <item type="input"  label="Sold"      name="sold"  id="sold"  offsetLeft="15"/>
 	    <item type="input"  label="Other Info"      name="others"   id="others" offsetLeft="15"/>
+		<!-- Ignore image upload first <item type="upload" name="image" offsetLeft="15"/>  -->
+		
+	<item type="label" label="Location"/>
+		<item type="input" label="File path" name="flocation" offsetLeft="15"/>
+		<item type="input" label="File name" name="fname" offsetLeft="15"/>
 		
 
     <item type="button"  name = "save"  value="Save"   offsetTop="15" offsetLeft="230"/>
