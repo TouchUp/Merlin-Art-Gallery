@@ -23,19 +23,19 @@
                     	<form name="search" action="display_manager_large.php" method="post">
                         <input type="hidden" name="doSearch" value="1">
                     <li>
-						<label for 'search_box'> ID </label>
+						<label class ="search" for 'search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
                     </li>
                     <li>
-						<label for 'search_box'> Painting Name </label>
+						<label  class ="search" for 'search_box'> Painting Name </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
                     </li>
                      <li>   
-                        <label for 'search_box'> Artist </label>
+                        <label  class ="search" for 'search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
                     </li>
                     <li>
-                        <label for 'search_box'> Others </label>
+                        <label  class ="search" for 'search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
 					</li>
 
@@ -85,7 +85,6 @@
                         
                         </li>						
 					</li>
-
 				<li>
 				<input id =  'test' type = "submit" value = "Search">
                 </form>
@@ -235,47 +234,47 @@
 				<div id = "checkbox_grid">
 
 					<li>
-						<input type = "checkbox" id = "painting_name" name = 'painting_checkbox' value = "Painting Name">
+						<input type = "checkbox" id = "painting_name" name = 'painting_checkbox' value = true>
 						<label for = "painting_name"> Painting Name </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "artist_name" name = 'artist_checkbox' value = "Artist"> 
+						<input type = "checkbox" id = "artist_name" name = 'artist_checkbox' value = true> 
 						<label for = "artist_name"> Artist Name </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "price" name = 'price_checkbox' value = "Price"> 
+						<input type = "checkbox" id = "price" name = 'price_checkbox' value = true> 
 						<label for =  'price'> Price </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "cm_height" name = 'cm_height_checkbox' value = "Height (cm)">
+						<input type = "checkbox" id = "cm_height" name = 'cm_height_checkbox' value = true>
 						<label for = "cm_height"> Height (cm) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "cm_width" name = 'cm_width_checkbox' value = "Width (cm)"> 
+						<input type = "checkbox" id = "cm_width" name = 'cm_width_checkbox' value = true> 
 						<label for = "cm_width"> Width (cm) </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_height" name = 'in_height_checkbox' value = "Height (in)"> 
+						<input type = "checkbox" id = "in_height" name = 'in_height_checkbox' value = true> 
 						<label for =  'in_height'> Height (in) </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_width" name = 'in_width_checkbox' value = "Width (in)">
+						<input type = "checkbox" id = "in_width" name = 'in_width_checkbox' value = true>
 						<label for = "in_width"> Width (in) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "biography" name = 'biography_checkbox' value = "Biography"> 
+						<input type = "checkbox" id = "biography" name = 'biography_checkbox' value = true> 
 						<label for = "biography"> Biography </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "other" name = 'other' value = "Other Info"> 
+						<input type = "checkbox" id = "other" name = 'other' value = true> 
 						<label for =  'other'> Other info </label> 
 					</li>	
 				</div>
@@ -283,7 +282,7 @@
 				<h2> Other Settings </h2>
 
 				<li>
-				<input type =  "checkbox" id = "random" value = "random">
+				<input type =  "checkbox" id = "random" value = true>
 				<label for = "random"> Randomise paintings </label>
 				</li>
 
