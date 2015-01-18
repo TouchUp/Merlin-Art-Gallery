@@ -121,6 +121,7 @@
 			
 		?>
 		var i = 0;
+		var temp;
 		function pageLoad(){
 			displayOrNot();
 			setTransitionProperties();
@@ -130,17 +131,16 @@
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
 			temp = transition_time * 1000;
-			setInterval(nextPicture(), temp);
+			var start = setInterval(function(){nextPicture()}, temp);
 		}
 
 		function nextPicture (){
-			alert("nextPicture function called")
+			
 			if (i >= imagecount-1){
-				alert(imagecount);
 				i = 0;
 			}
 			else{
-				alert(imagecount);
+				
 				i++;
 			}
 			imagepath = imagearray[i][11];
@@ -241,7 +241,6 @@
 
 		function displayInfo(){
 
-			alert("displayInfo is Running!")
 
 			/* This is pseudocode 
 			for (each element in boolArray){
@@ -251,7 +250,7 @@
 			*/
 			var dptoshow = 0;
 			var temp;
-			
+			document.getElementById('description').innerHTML = '';
 			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
@@ -261,47 +260,38 @@
 			}
 			if (boolArray["artist_name"] == 1){
 				temp = imagearray[i][1].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["price"] == 1){
 				temp = imagearray[i][2].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["cm_height"] == 1){
 				temp = imagearray[i][3].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["cm_width"] == 1){
 				temp = imagearray[i][4].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["in_height"] == 1){
 				temp = imagearray[i][5].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["in_width"] == 1){
 				temp = imagearray[i][6].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["biography"] == 1){
 				temp = imagearray[i][7].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["sold"] == 1){
 				temp = imagearray[i][8].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			if (boolArray["others"] == 1){
 				temp = imagearray[i][9].toString();
-				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			
