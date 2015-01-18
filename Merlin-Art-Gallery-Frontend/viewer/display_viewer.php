@@ -122,8 +122,9 @@
 		?>
 		var i = 0;
 		function pageLoad(){
-			setTransitionProperties();
 			displayOrNot();
+			setTransitionProperties();
+			
 		}
 
 		function setTransitionProperties(){
@@ -150,91 +151,92 @@
 
 		function displayOrNot(){
 			//This function controls what information of the painting to display
-
+			
 			//Initialise an array that will take in all the parameters
 			
 			boolArray["painting_name"] = <?php 
 			if ($dpname == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
+			
+			
 			boolArray["artist_name"] = <?php 
 			if ($dpartist == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["price"]=<?php
 			if ($dpprice == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["cm_height"] = <?php 
 			if ($dpcmheight == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["cm_width"] = <?php 
 			if ($dpcmwidth == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["in_height"] = <?php 
 			if ($dpinheight == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["in_width"] = <?php 
 			if ($dpinwidth == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["biography"] = <?php 
 			if ($dpbio == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray["other"] = <?php 
 			if ($dpothers == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 			boolArray['random'] = <?php 
 			if ($dprandom == true){
-				echo 'true';
+				echo '1';
 			}
 			else{
-				echo 'false';	
+				echo '0';	
 			}
 			?>;
 
-			alert ()
 			}	
 
 		function displayInfo(){
@@ -247,44 +249,70 @@
 				imageInfo.push;
 			}
 			*/
-
-			if (boolArray["painting_name"] == true){
-				imageInfo.push(imagearray[i][0]);
+			var dptoshow = 0;
+			var temp;
+			
+			
+			if (boolArray["painting_name"] == 1){
+				temp = imagearray[i][0].toString();
+				document.getElementById('description').innerHTML += "<br>" + temp;	
+				
+				
 			}
-			if (boolArray["artist_name"] == true){
-				imageInfo.push(imagearray[i][1]);
+			if (boolArray["artist_name"] == 1){
+				temp = imagearray[i][1].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["price"] == true){
-				imageInfo.push(imagearray[i][2]);
+			if (boolArray["price"] == 1){
+				temp = imagearray[i][2].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["cm_height"] == true){
-				imageInfo.push(imagearray[i][3]);
+			if (boolArray["cm_height"] == 1){
+				temp = imagearray[i][3].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["cm_width"] == true){
-				imageInfo.push(imagearray[i][4]);
+			if (boolArray["cm_width"] == 1){
+				temp = imagearray[i][4].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["in_height"] == true){
-				imageInfo.push(imagearray[i][5]);
+			if (boolArray["in_height"] == 1){
+				temp = imagearray[i][5].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["in_width"] == true){
-				imageInfo.push(imagearray[i][6]);
+			if (boolArray["in_width"] == 1){
+				temp = imagearray[i][6].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["biography"] == true){
-				imageInfo.push(imagearray[i][7]);
+			if (boolArray["biography"] == 1){
+				temp = imagearray[i][7].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["sold"] == true){
-				imageInfo.push(imagearray[i][8]);
+			if (boolArray["sold"] == 1){
+				temp = imagearray[i][8].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
-			if (boolArray["others"] == true){
-				imageInfo.push(imagearray[i][9]);
+			if (boolArray["others"] == 1){
+				temp = imagearray[i][9].toString();
+				alert(imageInfo);
+				document.getElementById('description').innerHTML += "<br>" + temp;
 			}
 			
 			//concatenate all the innerHTML; loops through all
+			/*
 			for (d=0; d <= imageInfo.length; d ++) {	
 				var temp = imageInfo[d].toString();
 				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;			
 			}
+			*/
 	}
 
 
