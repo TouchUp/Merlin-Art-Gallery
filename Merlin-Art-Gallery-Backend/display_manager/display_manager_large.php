@@ -5,6 +5,8 @@
 	<title>Display Manager</title>
 	<link rel = "stylesheet" type = "text/css" href = "style_large.css">
 	<link rel = "stylesheet" type = "text/css" href = "form_style.css">
+	<link rel = "stylesheet" type = "text/css" href = "table_style.css">
+
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <?php
         $db = mysql_connect("localhost", "root", "") or die ('I cannot connect to the database  because: ' . mysql_error());
@@ -224,9 +226,10 @@
 		<section id = 'page_3'>
 			<ul>
 				<h1>Step 3: Display Settings.</h1>
-
+				
+				<h2>Transition Time</h2>
 				<li>
-				<label for "trans_time">Transition Time (in seconds):</label>
+				<label for "trans_time"></label>
 				<input type = "number" id = "trans_time" value = "Transition Time" name="transtime" min = '1' placeholder = '10'> 
 				</li>
 
@@ -285,13 +288,7 @@
 				<li>
 				<input type =  "checkbox" id = "random" name = "showrandom" value = true>
 				<label for = "random"> Randomise paintings </label>
-				</li>
-
-				<li>
-				<label for = 'text_area'> I don't know what this text field is for, I just wanted to show off text fields </label>
-				<input type = "text" id = "text_area" value = 'You can type anything here'>
-
-				</li>							
+				</li>						
 
 				<li>
 				<input type = "submit" value = "Display Images" >

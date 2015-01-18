@@ -285,7 +285,7 @@
 			}
 			
 			//concatenate all the innerHTML; loops through all
-			for (d=0; d <= imageInfo.length; d ++) {
+			for (d=0; d <= imageInfo.length; d ++) {	
 				var temp = imageInfo[d].toString();
 				document.getElementById('description').innerHTML += "<br>" + temp;			
 			}
