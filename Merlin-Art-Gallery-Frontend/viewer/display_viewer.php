@@ -140,15 +140,15 @@
 
 		function nextPicture (){
 			if (i >= imagecount-1){
+				alert(imagecount);
 				i = 0;
 			}
 			else{
+				alert(imagecount);
 				i++;
-				alert(i);
 			}
 			imagepath = imagearray[i][11];
 			imagename = imagearray[i][12];
-			alert(imagename);
 			document.getElementById('picture').innerHTML =  '<img src = "' + imagepath + '/'+ imagename +'">';
 			displayInfo(); //calls the function to display related info as well
 		}
