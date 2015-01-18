@@ -102,7 +102,7 @@
             	<tr>
                 	
                 	<th>
-                    <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST">
+                    <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST" target = "blank">
                     Select
                     </th>
                 	<th>Image</th>
