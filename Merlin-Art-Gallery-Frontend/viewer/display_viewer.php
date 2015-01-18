@@ -128,12 +128,12 @@
 
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
-			temp = transition_time * 100;
-			alert(temp);
-			setTimeout(nextPicture(), temp);
+			temp = transition_time * 1000;
+			setInterval(nextPicture(), temp);
 		}
 
 		function nextPicture (){
+			alert("nextPicture function called")
 			if (i >= imagecount-1){
 				alert(imagecount);
 				i = 0;
@@ -239,7 +239,7 @@
 
 		function displayInfo(){
 
-			
+			alert("displayInfo is Running!")
 
 			/* This is pseudocode 
 			for (each element in boolArray){
@@ -282,6 +282,7 @@
 			//concatenate all the innerHTML; loops through all
 			for (d=0; d <= imageInfo.length; d ++) {	
 				var temp = imageInfo[d].toString();
+				alert(imageInfo);
 				document.getElementById('description').innerHTML += "<br>" + temp;			
 			}
 	}
