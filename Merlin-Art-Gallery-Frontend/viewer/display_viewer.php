@@ -92,41 +92,35 @@
 			
 		}
 	?>
-    <script language="javascript">
-		var i = 0;
+    
+</head>
+
+<body onload = "pageLoad()">	
+	<script language="javascript">
 		var imagecount = <?php echo $nopic ?>;
 		var imagearray = new Array([]);
 		var boolArray = new Array([]);
 		var imageInfo = {};
-		<?php $a = 0; ?>
-		for (a=0;a<imagecount;a++){
+		<?php
+			for ($x = 0; $x<$nopic; $x++){
+				echo 'imagearray['.$x.']={};'; echo "\n";
+				echo 'imagearray['.$x.'][0] ="'.$imagedata[$x][0].'";'; echo "\n";
+				echo 'imagearray['.$x.'][1] ="'.$imagedata[$x][1].'";'; echo "\n";
+				echo 'imagearray['.$x.'][2] ="'.$imagedata[$x][2].'";'; echo "\n";
+				echo 'imagearray['.$x.'][3] ="'.$imagedata[$x][3].'";'; echo "\n";
+				echo 'imagearray['.$x.'][4] ="'.$imagedata[$x][4].'";'; echo "\n";
+				echo 'imagearray['.$x.'][5] ="'.$imagedata[$x][5].'";'; echo "\n";
+				echo 'imagearray['.$x.'][6] ="'.$imagedata[$x][6].'";'; echo "\n";
+				echo 'imagearray['.$x.'][7] ="'.$imagedata[$x][7].'";'; echo "\n";
+				echo 'imagearray['.$x.'][8] ="'.$imagedata[$x][8].'";'; echo "\n";
+				echo 'imagearray['.$x.'][9] ="'.$imagedata[$x][9].'";'; echo "\n";
+				echo 'imagearray['.$x.'][10] ="'.$imagedata[$x][10].'";'; echo "\n";
+				echo 'imagearray['.$x.'][11] ="'.$imagedata[$x][11].'";'; echo "\n";
+				echo 'imagearray['.$x.'][12] ="'.$imagedata[$x][12].'";'; echo "\n";
+			}
 			
-			imagearray[a]={};
-			imagearray[a][0] = "<?php echo $imagedata[$a][0]; ?>";
-			imagearray[a][1] = "<?php echo $imagedata[$a][1]; ?>";
-			imagearray[a][2] = <?php echo $imagedata[$a][2]; ?>;
-			imagearray[a][3] = <?php echo $imagedata[$a][3]; ?>;
-			imagearray[a][4] = <?php echo $imagedata[$a][4]; ?>;
-			imagearray[a][5] = <?php echo $imagedata[$a][5]; ?>;
-			imagearray[a][6] = <?php echo $imagedata[$a][6]; ?>;
-			imagearray[a][7] = "<?php echo $imagedata[$a][7]; ?>";
-			imagearray[a][8] = <?php echo $imagedata[$a][8]; ?>;
-			imagearray[a][9] = "<?php echo $imagedata[$a][9]; ?>";
-			imagearray[a][10] = "<?php echo $imagedata[$a][10]; ?>";
-			imagearray[a][11] = "<?php echo $imagedata[$a][11]; ?>";
-			imagearray[a][12] = "<?php echo $imagedata[$a][12]; ?>";
-			
-			
-			<?php $a++ ?>
-		}
-	</script>
-
-
-</head>
-
-<body onload = "pageLoad()">	
-
-	<script>
+		?>
+		var i = 0;
 		function pageLoad(){
 			setTransitionProperties();
 			displayOrNot();
@@ -134,7 +128,7 @@
 
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
-			temp = transition_time * 1000;
+			temp = transition_time * 100;
 			alert(temp);
 			setTimeout(nextPicture(), temp);
 		}
@@ -294,6 +288,7 @@
 
 
 	</script>
+	
 	<div id = "picture"></div>
 	<div id = "description"></div>
 </body>

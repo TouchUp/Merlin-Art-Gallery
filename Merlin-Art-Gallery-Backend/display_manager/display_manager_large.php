@@ -143,10 +143,10 @@
 						$artistsearch="";
 					}
 					if (isset($_POST['othersearch'])){
-						$idsearch = $_POST['othersearch'];
+						$othersearch = $_POST['othersearch'];
 					}
 					else{
-						$idsearch = "";	
+						$othersearch = "";	
 					}
 					if (isset($_POST['min_price'])){
 						$minprice = $_POST['min_price'];
@@ -175,10 +175,10 @@
 						
 
 					$sql = 'SELECT * FROM images WHERE 
-					(code LIKE "'.$idsearch.'%")
-					AND (artist LIKE "'.$artistsearch.'%") 
+					(artist LIKE "'.$artistsearch.'%") 
 					AND (code LIKE "'.$idsearch.'%") 
 					AND (name LIKE "'.$namesearch.'%") 
+					AND (others LIKE "'.$othersearch.'%")
 					';
 					$result=mysql_query($sql); 
 					if (!$result) { // add this check.
