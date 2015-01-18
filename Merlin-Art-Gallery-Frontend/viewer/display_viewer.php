@@ -134,8 +134,9 @@
 
 		function setTransitionProperties(){
 			var transition_time = <?php echo $transtime;?>;
-			alert(transition_time);
-			setTimeout(nextPicture(), transition_time);
+			temp = transition_time * 1000;
+			alert(temp);
+			setTimeout(nextPicture(), temp);
 		}
 
 		function nextPicture (){
@@ -239,7 +240,7 @@
 			}
 			?>;
 
-
+			alert ()
 			}	
 
 		function displayInfo(){
