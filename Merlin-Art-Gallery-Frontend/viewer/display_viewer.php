@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type = "text/css" href="displaystyle.css">
+<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 <head>
 
 	<?php
@@ -129,6 +130,7 @@
 		}
 
 		function setTransitionProperties(){
+			nextPicture(); //So that it displays the first picture instantly
 			var transition_time = <?php echo $transtime;?>;
 			temp = transition_time * 1000;
 			var start = setInterval(function(){nextPicture()}, temp);
@@ -145,7 +147,7 @@
 			}
 			imagepath = imagearray[i][11];
 			imagename = imagearray[i][12];
-			document.getElementById('picture').innerHTML =  '<img src = "' + imagepath + '/'+ imagename +'">';
+			document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
 			displayInfo(); //calls the function to display related info as well
 		}
 
@@ -254,45 +256,45 @@
 			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;	
+				document.getElementById('description').innerHTML += "<br>" + "Painting name: " + temp;	
 				
 				
 			}
 			if (boolArray["artist_name"] == 1){
 				temp = imagearray[i][1].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Artist: " + temp;
 			}
 			if (boolArray["price"] == 1){
 				temp = imagearray[i][2].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Price: " + temp + " SGD";
 			}
 			if (boolArray["cm_height"] == 1){
 				temp = imagearray[i][3].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Height (cm): " + temp;
 			}
 			if (boolArray["cm_width"] == 1){
 				temp = imagearray[i][4].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Width (cm): " + temp;
 			}
 			if (boolArray["in_height"] == 1){
 				temp = imagearray[i][5].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Height (in): " + temp;
 			}
 			if (boolArray["in_width"] == 1){
 				temp = imagearray[i][6].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Width (in): " +temp;
 			}
 			if (boolArray["biography"] == 1){
 				temp = imagearray[i][7].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Biography: " + temp;
 			}
 			if (boolArray["sold"] == 1){
 				temp = imagearray[i][8].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Sold: " + temp;
 			}
 			if (boolArray["others"] == 1){
 				temp = imagearray[i][9].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<br>" + "Other information: " + temp;
 			}
 			
 			//concatenate all the innerHTML; loops through all

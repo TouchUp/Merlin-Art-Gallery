@@ -11,6 +11,10 @@ html, body {
 	width: 100%;
 	background-color: rgba(0,0,0,1);
 	color: white;
+	text-align:center;
+	font-size: 1.5em;
+	padding:20px;
+	font-family: 'Raleway', sans-serif;
 }
 
 img {
@@ -22,3 +26,4 @@ img {
 	text-align:center;
 	width: 100%;
 }
+

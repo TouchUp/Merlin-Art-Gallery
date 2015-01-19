@@ -22,6 +22,7 @@
 			<h1> Step 1: Advanced Search.</h1>
 
 				<ul>
+				<div id = 'searchboxes'>
                     	<form name="search" action="display_manager_large.php" method="post">
                         <input type="hidden" name="doSearch" value="1">
                     <li>
@@ -40,24 +41,21 @@
                         <label  class ="search" for 'search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
 					</li>
-
+				</div>
 					<li>
-                        <!--
+					<label for 'price_range'>Price</label>
+					<br>
 						<select>
 							<option value = "<"> less than </option>
 							<option value = "="> equal </option>
 							<option value = ">" selected='selected'> more than </option>
 						</select>
-                        -->
-                        Minimum price : 
 						<input type = 'number' name = 'min_price' placeholder = '5000'> 
-                        <!--
+						and/or
 						<select>
 							<option value = "<"> less than </option>
 							<option value = "="> equal </option>>
 						</select>
-                        -->
-                        &nbsp;Maximum price : 
 						<input type = 'number' name = 'max_price' placeholder = '10000'>
 					</li>
 
@@ -98,7 +96,7 @@
 
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
-            <table border ="1" width = "100%">
+            <table>
             	<tr>
                 	
                 	<th>
@@ -219,8 +217,7 @@
 					}
                 ?>
             </table>
-			<div id = 'image_gallery' >
-			</div>
+            </form>
 		</section>
 
 		<section id = 'page_3'>
