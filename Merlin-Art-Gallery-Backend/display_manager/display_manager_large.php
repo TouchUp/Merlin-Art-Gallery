@@ -9,8 +9,11 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <?php
-        $db = mysql_connect("localhost", "root", "") or die ('I cannot connect to the database  because: ' . mysql_error());
-        $mydb = mysql_select_db("imageserver");
+		$mysqli = new mysqli("localhost", "root", "", "imageserver");
+		if ($mysqli->connect_errno){
+			printf('I cannot connect to the database  because: ' . $mysqli->connect_error);
+			exit();
+		}
 	?>
 </head>
 
@@ -175,11 +178,11 @@
 					AND (name LIKE "'.$namesearch.'%") 
 					AND (others LIKE "'.$othersearch.'%")
 					';
-					$result=mysql_query($sql); 
-					if (!$result) { // add this check.
-    					die('Invalid query: ' . mysql_error());
+					$result=$mysqli->query($sql); 
+					if ($mysqli->error) { // add this check.
+    					die('Invalid query: ' . $mysqli->error);
 					}
-					while($row=mysql_fetch_array($result)){ 
+					while($row=$result->fetch_array()){ 
 						$pkey = $row['pkey'];
 						$code = $row['code'];
 						$name = $row['name'];
@@ -212,6 +215,8 @@
 						echo '<td>'.$others.'</td>';
 						echo '</tr>';
 					}
+					$result->free();
+					$mysqli->close();
                 ?>
             </table>
 
