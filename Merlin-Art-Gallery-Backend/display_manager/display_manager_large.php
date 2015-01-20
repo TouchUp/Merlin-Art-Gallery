@@ -90,6 +90,7 @@
 				</li>
 
 			</ul>
+			</form>
 
 		</section>
 
@@ -216,7 +217,7 @@
 					}
                 ?>
             </table>
-            </form>
+
 		</section>
 
 		<section id = 'page_3'>
