@@ -22,28 +22,27 @@
 			<h1> Step 1: Advanced Search.</h1>
 
 				<ul>
-				<div id = 'searchboxes'>
                     	<form name="search" action="display_manager_large.php" method="post">
                         <input type="hidden" name="doSearch" value="1">
                     <li>
-						<label class ="search" for 'search_box'> ID </label>
+						<label class ="search" for ='search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
                     </li>
                     <li>
-						<label  class ="search" for 'search_box'> Painting Name </label>
+						<label  class ="search" for ='search_box'> Painting Name </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
                     </li>
                      <li>   
-                        <label  class ="search" for 'search_box'> Artist </label>
+                        <label  class ="search" for ='search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
                     </li>
                     <li>
-                        <label  class ="search" for 'search_box'> Others </label>
+                        <label  class ="search" for ='search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
 					</li>
-				</div>
+
 					<li>
-					<label for 'price_range'>Price</label>
+					<label for ='price_range'>Price</label>
 					<br>
 						<select>
 							<option value = "<"> less than </option>
@@ -60,7 +59,7 @@
 					</li>
 
 					<li>
-						<label for 'size_range'> Size </label>
+						<label for ='size_range'> Size </label>
 						<br>
 						<select>
 							<option value = "<"> less than </option>
@@ -84,7 +83,6 @@
 						</select>
                         
                         </li>						
-					</li>
 				<li>
 				<input id =  'test' type = "submit" value = "Search">
 				</li>
@@ -117,8 +115,7 @@
                     <th>Others</th>
                     
                 </tr>
-                <tr>
-                </tr>
+
 					<?php
 					
 					
@@ -221,12 +218,12 @@
 		</section>
 
 		<section id = 'page_3'>
-			<ul>
+			<div id = 'form'>
 				<h1>Step 3: Display Settings.</h1>
 				
 				<h2>Transition Time</h2>
 				<li>
-				<label for "trans_time"></label>
+				<label for ="trans_time"></label>
 				<input type = "number" id = "trans_time" value = "Transition Time" name="transtime" min = '1' placeholder = '10'> 
 				</li>
 
@@ -246,7 +243,7 @@
 
 					<li>
 						<input type = "checkbox" id = "price" name = "price_checkbox" value = true> 
-						<label for =  'price'> Price </label> 
+						<label for = 'price'> Price </label> 
 					</li>
 
 					<li>
@@ -276,7 +273,7 @@
 
 					<li>
 						<input type = "checkbox" id = "other" name = 'other' value = true> 
-						<label for =  'other'> Other info </label> 
+						<label for = 'other'> Other info </label> 
 					</li>	
 				</div>
 
@@ -284,7 +281,7 @@
 
 				<li>
 				<input type =  "checkbox" id = "random" name = "showrandom" value = true>
-				<label for = "random"> Randomise paintings </label>
+				<label for == "random"> Randomise paintings </label>
 				</li>						
 
 				<li>
@@ -292,7 +289,7 @@
 				</li>
 
 
-			</ul>
+			</div>
 			</form>
 		</section>
 	</div>
