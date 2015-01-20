@@ -87,7 +87,6 @@
 					</li>
 				<li>
 				<input id =  'test' type = "submit" value = "Search">
-                </form>
 				</li>
 
 			</ul>

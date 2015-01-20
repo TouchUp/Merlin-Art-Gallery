@@ -79,26 +79,3 @@ body {
 	font-size: 2em;
 }
 
-
-/*
-===== CSS Styling for TABLES ======
-*/
-
-table,td,tr,th {
-	border: 1px solid rgba(52, 73, 94,1.0);
-	border-collapse:collapse;
-	text-align:center;
-	padding:10px;
-	font-size: 0.9em;
-}
-
-table{
-	width: 100%;
-}
-
-th {
-	background-color: rgba(189, 195, 199,1.0);
-
-	border-collapse: collapse;
-	font-weight: 500;
-}
