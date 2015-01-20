@@ -52,10 +52,12 @@ html, body {
 /* elegant way to set div heights actually */ 
 
 section{
-	height:100vh;
+	min-height:90vh;
+	padding-top: 50px;
 }
+
 section:first-of-type{
-	height:10vh;
+	max-height:10px;
 }
 
 
