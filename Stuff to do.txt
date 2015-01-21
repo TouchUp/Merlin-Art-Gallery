@@ -1,3 +1,11 @@
-1. In Display_Manager, set the field default value for transition_time or else its going to cause error in display viewer
-2. Fix Search by image size and price
-3. Refractoring the code? (Do this the last)
+1. Fix Search by image size
+2. Refractoring the code? (Do this the last)
+
+
+Problems :
+- Apparently, using dhtmlxgrid is really limited; You can't automatically convert cm/inch, and you can't upload the
+image directly to the database. It might be better to create the database manager from scratch.
+
+- Trying to see if I can add in any transition effect between pictures.
+
+- Any other important functions?
