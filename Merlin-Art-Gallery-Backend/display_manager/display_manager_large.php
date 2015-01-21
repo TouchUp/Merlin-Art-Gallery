@@ -55,13 +55,13 @@
 							<option value = "="> equal </option>
 							<option value = ">" selected='selected'> more than </option>
 						</select>
-						<input type = 'number' name = 'min_price' placeholder = '5000'> 
+						<input type = 'number' name = 'min_price' value = 1> 
 						and/or
 						<select>
 							<option value = "<"> less than </option>
 							<option value = "="> equal </option>>
 						</select>
-						<input type = 'number' name = 'max_price' placeholder = '10000'>
+						<input type = 'number' name = 'max_price' value = 10000>
 					</li>
 
 					<li>
@@ -72,7 +72,7 @@
 							<option value = "="> equal </option>
 							<option value = ">" selected> more than </option>
 						</select>
-						<input type = 'number' id = 'min_size' placeholder = '40'> 
+						<input type = 'number' id = 'min_size' value = 1> 
 						<select>
 							<option value = "cm"> cm </option>
 							<option value = "in"> in </option>
@@ -82,7 +82,7 @@
 							<option value = "<"> less than </option>
 							<option value = "="> equal </option>
 						</select>
-						<input type = 'number' id = 'max_size' placeholder = '80'>
+						<input type = 'number' id = 'max_size' value = 1000>
 						<select>
 							<option value = "cm"> cm </option>
 							<option value = "in"> in </option>
@@ -159,7 +159,7 @@
 						$maxprice = $_POST['max_price'];
 					}
 					else{
-						$maxprice = 2147483647;	
+						$maxprice = 9999999;	
 					}
 					if (isset($_POST['min_size'])){
 						$minsize = $_POST['min_size'];
@@ -171,7 +171,7 @@
 						$maxsize = $_POST['max_price'];
 					}
 					else{
-						$maxsize = 2147483647;	
+						$maxsize = 9999999;	
 					}
 						
 
@@ -180,6 +180,7 @@
 					AND (code LIKE "'.$idsearch.'%") 
 					AND (name LIKE "'.$namesearch.'%") 
 					AND (others LIKE "'.$othersearch.'%")
+					AND (price BETWEEN '.$minprice.' AND '.$maxprice.')
 					';
 					$result=$mysqli->query($sql); 
 					if ($mysqli->error) { // add this check.
