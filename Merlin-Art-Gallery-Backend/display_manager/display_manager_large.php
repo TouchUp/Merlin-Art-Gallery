@@ -15,6 +15,9 @@
 			exit();
 		}
 	?>
+    <script language ="javascript">
+		
+	</script>
 </head>
 
 <body>
@@ -229,7 +232,7 @@
 				<h2>Transition Time</h2>
 				<li>
 				<label for ="trans_time"></label>
-				<input type = "number" id = "trans_time" value = "Transition Time" name="transtime" min = '1' placeholder = '10'> 
+				<input type = "number" id = "trans_time" value = 15 name="transtime" min = '1'> 
 				</li>
 
 				<h2> What to display </h2>

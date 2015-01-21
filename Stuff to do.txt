@@ -1,0 +1,3 @@
+1. In Display_Manager, set the field default value for transition_time or else its going to cause error in display viewer
+2. Fix Search by image size and price
+3. Refractoring the code? (Do this the last)

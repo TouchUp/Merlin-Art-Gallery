@@ -17,6 +17,11 @@
     		}
 		}
 		
+		if (!isset($nopic)){
+			 echo "<script type=\"text/javascript\">window.alert('No Picture Selected.');window.location.href = '../../Merlin-Art-Gallery-Backend/display_manager/display_manager_large.php';</script>"; 
+			header("Location: ../../Merlin-Art-Gallery-Backend/display_manager/display_manager_large.php");
+		}
+		
 		//Time to get all the PHP values
 		
 		$dpname = false;$dpartist=false;$dpprice=false;$dpcmheight=false;$dpcmwidth=false;$dpinheight=false;$dpinwidth=false;$dpbio=false;$dpothers=false;$transtime=1;$dprandom=false;
