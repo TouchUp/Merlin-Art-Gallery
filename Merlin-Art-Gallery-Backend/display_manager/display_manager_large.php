@@ -26,9 +26,9 @@
 	</section>	
 	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
-
+			<form name="search" action="display_manager_large.php" method="post">
 				<ul>
-                    	<form name="search" action="display_manager_large.php" method="post">
+                    	
                         <input type="hidden" name="doSearch" value="1">
                     <li>
 						<label class ="search" for ='search_box'> ID </label>
@@ -101,10 +101,11 @@
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
             <table>
+            <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST" target = "blank">
             	<tr>
                 	
                 	<th>
-                    <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST" target = "blank">
+            
                     Select
                     </th>
                 	<th>Image</th>
