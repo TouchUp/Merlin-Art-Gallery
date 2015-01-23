@@ -8,17 +8,20 @@ var viewport_h = Math.max(document.documentElement.clientHeight, window.innerHei
 
 //Get dimensions of the current image
 
-var img =  document.getElementById('image');
+var img =  document.getElementById('image'); //doesn't work; returns null
+alert(img);
 
 var current_w = img.clientWidth;
 var current_h = img.clientHeight;
 
 //Get dimensions of the black bar
 
-var info_bar = document.getElementById('description');
+var info_bar = document.getElementById('description'); //doesn't work; returns null
 
 var bar_h =  info_bar.clientHeight;
 var bar_w = info_bar.clientWidth;
+
+alert(bar_h);
 
 // Get dimensions of the actual, usable area 
 

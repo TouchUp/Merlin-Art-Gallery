@@ -27,73 +27,53 @@
 	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
 			<form name="search" action="display_manager_large.php" method="post">
-				<ul>
                     	
                         <input type="hidden" name="doSearch" value="1">
-                    <li>
 						<label class ="search" for ='search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
-                    </li>
-                    <li>
 						<label  class ="search" for ='search_box'> Painting Name </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
-                    </li>
-                     <li>   
                         <label  class ="search" for ='search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
-                    </li>
-                    <li>
                         <label  class ="search" for ='search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
-					</li>
-
-					<li>
 					<label for ='price_range'>Price</label>
 					<br>
-						<select>
-							<option value = "<"> less than </option>
-							<option value = "="> equal </option>
-							<option value = ">" selected='selected'> more than </option>
-						</select>
-						<input type = 'number' name = 'min_price' value = 1> 
-						and/or
-						<select>
-							<option value = "<"> less than </option>
-							<option value = "="> equal </option>>
-						</select>
-						<input type = 'number' name = 'max_price' value = 10000>
-					</li>
+					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value">
+					<output name="amount" for="price_slider">0</output> 
+					to
 
-					<li>
+					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value">
+					<output name="amount_max" for="price_slider_max">10000</output>
+
+					<br>
+					<div id = 'size'>
 						<label for ='size_range'> Size </label>
-						<br>
-						<select>
-							<option value = "<"> less than </option>
-							<option value = "="> equal </option>
-							<option value = ">" selected> more than </option>
-						</select>
-						<input type = 'number' id = 'min_size' value = 1> 
-						<select>
-							<option value = "cm"> cm </option>
-							<option value = "in"> in </option>
-						</select>	
-						and/or 
-						<select>
-							<option value = "<"> less than </option>
-							<option value = "="> equal </option>
-						</select>
-						<input type = 'number' id = 'max_size' value = 1000>
-						<select>
-							<option value = "cm"> cm </option>
-							<option value = "in"> in </option>
-						</select>
-                        
-                        </li>						
-				<li>
-				<input id =  'test' type = "submit" value = "Search">
-				</li>
+						
+						<input id = 'height_slider_min' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'height_min.value=height_slider_min.value'>
+						<input id = 'height_slider_max' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'height_max.value=height_slider_max.value'>
+						<output id = 'height_min' name = 'height_min' for = 'height_slider_min'> 0 </output> 
+						<output id = 'height_max' name = 'height_max' for = 'height_slider_max'> 1000 </output>
 
-			</ul>
+						<select class = 'cm_in' id = 'height_selector'>
+							<option value = "cm"> cm </option>
+							<option value = "in"> in </option>
+						</select>
+
+						<div id = 'rectangle'></div>
+						
+						<input id = 'width_slider_min' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'width_min.value=width_slider_min.value'>
+						<input id = 'width_slider_max' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'width_max.value=width_slider_max.value'>
+						<output id = 'width_min' name = 'width_min' for = 'width_slider_min'> 0 </output>
+						<output id = 'width_max' name = 'width_max' for = 'width_slider_max'> 1000 </output>
+		
+						<select class = 'cm_in' id = 'width_selector'>
+							<option value = "cm"> cm </option>
+							<option value = "in"> in </option>
+						</select>			
+					</div>		
+				<input id =  'test' type = "submit" value = "Search">
+				
 			</form>
 
 		</section>
