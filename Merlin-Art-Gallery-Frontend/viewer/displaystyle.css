@@ -27,3 +27,20 @@ img {
 	width: 100%;
 }
 
+#picture.translate_x {
+	-webkit-transition: 3s;
+	-moz-transition: 3s;
+	-ms-transition: 3s;
+	-o-transition: 3s;
+	transition: 3s;
+	margin-left: 0px;
+}
+
+#picture.translate_y{
+	-webkit-transition: 3s;
+	-moz-transition: 3s;
+	-ms-transition: 3s;
+	-o-transition: 3s;
+	transition: 3s;
+	margin-top: 0px;
+}

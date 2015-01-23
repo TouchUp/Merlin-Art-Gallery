@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	</head>
+
+	<body>
+
+	<script>
+		function calculate(){
+			//Using convention of global var in capitals
+			temp1 = document.getElementById('screen_size').value;
+
+			SCREEN_SIZE = Number(temp1);
+
+			//Assuming 16:9 ratio, c^2 = h^2 + w^2, 9w = 16h, hence w = 16/9h
+			//(SCREEN_SIZE^2) = h^2 + (256/81)h^2
+
+			var h_squared = ((SCREEN_SIZE) * (SCREEN_SIZE)  * 81/337);
+			alert(h_squared);
+
+			H = (Math.sqrt(h_squared));
+			W = (H * 16/9) ;
+
+			alert(H);
+			alert(W);
+
+			//Consider pixels per square inch. First, find the total area of the screen
+			//in square inches;
+
+			AREA = H * W;
+
+			//Now we find the pixels for width and height respectively
+
+			H_PIXEL = TOTAL_PIXELS / H;
+			W_PIXEL = TOTAL_PIXELS / W;
+
+			// Check 1K or 4K
+
+			H_RATIO = H_PIXEL / 1080;
+			W_RATIO = W_PIXEL / 1920
+
+			display();
+
+		}
+
+		function display(){
+			document.getElementById('w').innerHTML += W;
+			document.getElementById('h').innerHTML += H;
+			document.getElementById('h_pixel').innerHTML += H_PIXEL;
+			document.getElementById('w_pixel').innerHTML += W_PIXEL;
+		}
+
+	</script>
+
+		<h1> Pixel Calculator </h1>
+		<form>
+			<h2> What is your diagonal screen size? </h2>
+			<input type = 'number' id = 'screen_size'>
+
+			<h2> 1K or 4K? </h2>
+			<select id = '1K_or_4K'>
+				<option id = '1K' value = '1K'>1K</option>
+				<option id = '4K' value = '4K'>4K</option>
+				
+			</select>
+			
+			<br>
+			<br>
+
+			<input type = 'button' value = 'Calculate' onclick = "calculate()">
+		</form>
+
+		<ul>
+			<li id = 'w'> Horizontal width: </li>
+			<li id = 'h'> Vertical height: </li>
+			<li id = 'h_pixel'>Horizontal pixel count: </li>
+			<li id = 'w_pixel'> Vertical pixel count: </li>
+			<li id = 'w_pixel_css'> Horizontal pixel ratio: </li>
+			<li id = 'h_pixel_css'> Vertical pixel ratio: </li>
+		</ul>
+
+
+
+	</body>
+</html>
