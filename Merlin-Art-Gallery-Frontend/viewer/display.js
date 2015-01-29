@@ -34,6 +34,8 @@
 			var temp;
 			document.getElementById('description').innerHTML = '<ul>';
 			
+			
+			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
 				document.getElementById('description').innerHTML +=  "<li>" + "Painting name: " + temp + "</li>";				
