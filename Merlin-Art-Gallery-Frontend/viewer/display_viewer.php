@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<link rel = 'stylesheet' type = 'text/css' href = 'normalize.css'>
 <link rel="stylesheet" type = "text/css" href="displaystyle.css">
+
 <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 <head>
 <title>Display Viewer </title>
