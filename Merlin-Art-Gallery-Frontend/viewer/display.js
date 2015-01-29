@@ -35,15 +35,15 @@
 			
 			var dphtml = '';
 			dphtml += '<ul>';
-			for(var i = 0; i < DISPLAYABLE.length; i++){
-				if (boolArray[DISPLAYABLE[i]] == 1){
+			for(var j = 0; j < DISPLAYABLE.length; j++){
+				if (boolArray[DISPLAYABLE[j]] == 1){
 					dphtml += '<li>';
-					var val = imagearray[i][DISPLAYABLE[i]].toString();
-					if(DISPLAYABLE_NAME[i] == 'NONE'){
+					var val = imagearray[i][DISPLAYABLE[j]].toString();
+					if(DISPLAYABLE_NAME[j] == 'NONE'){
 						dphtml += val;
 					}
 					else{
-						dphtml += DISPLAYABLE_NAME[i] + ': ' + val;
+						dphtml += DISPLAYABLE_NAME[j] + ': ' + val;
 					}
 					dphtml += '</li>';
 				}
