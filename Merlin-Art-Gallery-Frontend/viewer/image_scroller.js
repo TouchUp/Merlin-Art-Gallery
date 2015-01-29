@@ -68,7 +68,7 @@ function scrollImage_x() {
 	//Now, we translate in the positive-x axis by this overflow amount
 
 	PICTURE.style.marginLeft = +overflow_w+ 'px';
-	alert('Margin left:' + PICTURE.style.marginLeft);
+	alert('Left margin:' + PICTURE.style.marginLeft);
 	//Then we get the scrolling speed
 	//document.getElementById('picture.translate_x').style.-webkit-transition = +scrollSpeed+ 's';
 	//document.getElementById('picture.translate_x').style.-moz-transition = +scrollSpeed+ 's';
@@ -83,7 +83,7 @@ function scrollImage_y() {
 	var overflow_h = (CURRENT_H - USABLE_H);
 
 	PICTURE.style.marginTop = +overflow_h+ 'px'; 
-	alert('Margin top:' + PICTURE.style.marginTop);
+	alert('Top margin:' + PICTURE.style.marginTop);
 	//document.getElementById('picture.translate_y').style.-webkit-transition = +scrollSpeed+ 's';
 	//document.getElementById('picture.translate_y').style.-moz-transition = +scrollSpeed+ 's';
 	//document.getElementById('picture.translate_y').style.transition = +scrollSpeed+ 's';

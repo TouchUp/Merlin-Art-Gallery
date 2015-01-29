@@ -36,45 +36,45 @@
 			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
-				document.getElementById('description').innerHTML +=  "Painting name: " + temp;	
+				document.getElementById('description').innerHTML +=  "<ul> <li>" + "Painting name: " + temp + "</li>";	
 				
 				
 			}
 			if (boolArray["artist_name"] == 1){
 				temp = imagearray[i][1].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Artist: " + temp;
+				document.getElementById('description').innerHTML += "<li>"  + "Artist: " + temp + "</li>";
 			}
 			if (boolArray["price"] == 1){
 				temp = imagearray[i][2].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Price: " + temp + " SGD";
+				document.getElementById('description').innerHTML += "<li>" + "Price: " + temp + " SGD" + "</li>";
 			}
 			if (boolArray["cm_height"] == 1){
 				temp = imagearray[i][3].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Height (cm): " + temp;
+				document.getElementById('description').innerHTML += "<li>"  + "Height (cm): " + temp + "</li>";
 			}
 			if (boolArray["cm_width"] == 1){
 				temp = imagearray[i][4].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Width (cm): " + temp;
+				document.getElementById('description').innerHTML += "<li>" + "Width (cm): " + temp + "</li>";
 			}
 			if (boolArray["in_height"] == 1){
 				temp = imagearray[i][5].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Height (in): " + temp;
+				document.getElementById('description').innerHTML += "<li>" + "Height (in): " + temp + "</li>";
 			}
 			if (boolArray["in_width"] == 1){
 				temp = imagearray[i][6].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Width (in): " +temp;
+				document.getElementById('description').innerHTML += "<li>" + "Width (in): " +temp + "</li>";
 			}
 			if (boolArray["biography"] == 1){
 				temp = imagearray[i][7].toString();
-				document.getElementById('description').innerHTML += "<br>" + temp;
+				document.getElementById('description').innerHTML += "<li>"  + temp + "</li>";
 			}
 			if (boolArray["sold"] == 1){
 				temp = imagearray[i][8].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Sold: " + temp;
+				document.getElementById('description').innerHTML += "<li>"  + "Sold: " + temp + "</li>";
 			}
 			if (boolArray["others"] == 1){
 				temp = imagearray[i][9].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Other information: " + temp;
+				document.getElementById('description').innerHTML += "<li>"  + "Other information: " + temp + "</li>" + "</ul>";
 			}
 			
 			//concatenate all the innerHTML; loops through all
@@ -103,10 +103,10 @@
 		}
 
 		function convertInchToCm(h,w){
-			var CONV_FACTOR = 2.54;
+			var conv_factor = 2.54;
 			if (CM_HEIGHT == 0 || CM_WIDTH == 0) {
-				CM_HEIGHT = IN_HEIGHT * CONV_FACTOR;
-				CM_WIDTH = IN_WIDTH * CONV_FACTOR;
+				CM_HEIGHT = IN_HEIGHT * conv_factor;
+				CM_WIDTH = IN_WIDTH * conv_factor;
 			}
 		}
 

@@ -3,6 +3,7 @@
 <link rel="stylesheet" type = "text/css" href="displaystyle.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 <head>
+<title>Display Viewer </title>
 
 	<?php
 		$mysqli = new mysqli("localhost", "root", "", "imageserver");
@@ -106,7 +107,7 @@
 
 <body onload = "pageLoad()">	
 	<div id = "picture"></div>
-	<div id = "description"></div>
+	<div id = "descr_wrapper"><div id = "description"></div></div>
 
 	<script src = 'image_scroller.js'></script>
 	<script src = 'display.js'></script>
