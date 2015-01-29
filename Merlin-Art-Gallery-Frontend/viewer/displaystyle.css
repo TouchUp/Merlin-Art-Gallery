@@ -31,12 +31,12 @@ img {
 	-webkit-transition: 3s;
 	-moz-transition: 3s;
 	transition: 3s;
-	margin-left: 0px;
+	margin-left: 0px !important;
 }
 
 #picture.translate_y{
 	-webkit-transition: 3s;
 	-moz-transition: 3s;
 	transition: 3s;
-	margin-top: 0px;
+	margin-top: 0px !important;
 }
