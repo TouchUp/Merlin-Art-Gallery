@@ -32,13 +32,11 @@
 			*/
 			var dptoshow = 0;
 			var temp;
-			document.getElementById('description').innerHTML = '';
+			document.getElementById('description').innerHTML = '<ul>';
 			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
-				document.getElementById('description').innerHTML +=  "<ul> <li>" + "Painting name: " + temp + "</li>";	
-				
-				
+				document.getElementById('description').innerHTML +=  "<li>" + "Painting name: " + temp + "</li>";				
 			}
 			if (boolArray["artist_name"] == 1){
 				temp = imagearray[i][1].toString();
@@ -74,9 +72,15 @@
 			}
 			if (boolArray["others"] == 1){
 				temp = imagearray[i][9].toString();
-				document.getElementById('description').innerHTML += "<li>"  + "Other information: " + temp + "</li>" + "</ul>";
+				document.getElementById('description').innerHTML += "<li>"  + "Other information: " + temp + "</li>";
 			}
 			
+
+			//Close the ul tag
+
+			document.getElementById('description').innerHTML += '</ul>';
+
+
 			//concatenate all the innerHTML; loops through all
 			/*
 			for (d=0; d <= imageInfo.length; d ++) {	
