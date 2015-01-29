@@ -36,7 +36,7 @@
 			
 			if (boolArray["painting_name"] == 1){
 				temp = imagearray[i][0].toString();
-				document.getElementById('description').innerHTML += "<br>" + "Painting name: " + temp;	
+				document.getElementById('description').innerHTML +=  "Painting name: " + temp;	
 				
 				
 			}

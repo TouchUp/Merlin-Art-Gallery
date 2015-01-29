@@ -7,13 +7,13 @@ html, body {
 #description {
 	position: absolute;
 	bottom: 0px;
-	height: 200px;
+	min-height: 10vh;
+	max-height: 50vh;
 	width: 100%;
 	background-color: rgba(0,0,0,1);
 	color: white;
 	text-align:center;
 	font-size: 1.5em;
-	padding:20px;
 	font-family: 'Raleway', sans-serif;
 }
 
