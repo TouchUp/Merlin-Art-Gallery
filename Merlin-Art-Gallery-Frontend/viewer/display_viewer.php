@@ -8,9 +8,11 @@
 <title>Display Viewer </title>
 
 	<?php
-		$COLUMNS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
-		$FORM_FIELDS = array('painting_checkbox', 'artist_checkbox', 'price_checkbox', 'cm_height_checkbox', 'cm_width_checkbox', 'in_height_checkbox', 'in_width_checkbox', 'biography_checkbox', 'other', 'transtime', 'showrandom');
-		$DP_IDS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others', 'transtime', 'random');
+		//COLUMN in the database
+		$COLUMN = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
+		//mapping $_POST to the $dp array
+		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'transtime'=>'transtime', 'showrandom'=>'random');
+		//things that may be displayed
 		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
 		
 		$mysqli = new mysqli("localhost", "root", "", "imageserver");
@@ -40,13 +42,10 @@
 		
 		$dp = array();
 		
-		$numfields = count($FORM_FIELDS);
-		for ($i = 0; $i < $numfields; $i++){
-			$fieldname = $FORM_FIELDS[$i];
-			
-			$dp[$DP_IDS[$i]] = false;
-			if (isset($_POST[$fieldname])){
-				$dp[$DP_IDS[$i]] = $_POST[$fieldname];
+		foreach ($POST_DP_MAPPING as $postid => $dpid){
+			$dp[$dpid] = false;
+			if (isset($_POST[$postid])){
+				$dp[$dpid] = $_POST[$postid];
 			}
 		}
 		
@@ -62,9 +61,9 @@
 			
 			$row = $result->fetch_array();
 			
-			$numcols = count($COLUMNS); //count gets array length
+			$numcols = count($COLUMN); //count gets array length
 			for ($b = 0; $b<$numcols; $b++){
-				$imagedata[$a][$COLUMNS[$b]] = $row[$COLUMNS[$b]];
+				$imagedata[$a][$COLUMN[$b]] = $row[$COLUMN[$b]];
 			}
 			
 		}
@@ -86,17 +85,7 @@
 		var imagearray = [];
 		var boolArray = [];
 		var imageInfo = {};
-		<?php
-			for ($x = 0; $x<$nopic; $x++){
-				echo 'imagearray['.$x.']={};'; echo "\n";
-				
-				$numcols = count($COLUMNS);
-				for ($y = 0; $y<$numcols; $y++){
-					echo 'imagearray['.$x.']["'.$COLUMNS[$y].'"] = "'.$imagedata[$x][$COLUMNS[$y]].'";';echo "\n";
-				}
-			}
-			
-		?>
+		var imagearray = <?php echo json_encode($imagedata) ?>;
 		var i = 0;
 		var temp;
 		
