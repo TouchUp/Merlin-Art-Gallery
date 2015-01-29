@@ -8,7 +8,7 @@ var viewport_h = Math.max(document.documentElement.clientHeight, window.innerHei
 
 //Get dimensions of the current image
 
-var img =  document.getElementById('image'); //doesn't work; returns null
+var img =  document.getElementById('picture'); //doesn't work; returns null
 alert(img);
 
 var current_w = img.clientWidth;
