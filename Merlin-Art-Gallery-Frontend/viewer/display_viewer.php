@@ -5,8 +5,11 @@
 <head>
 
 	<?php
-        $db = mysql_connect("localhost", "root", "") or die ('I cannot connect to the database  because: ' . mysql_error());
-        $mydb = mysql_select_db("imageserver");
+		$mysqli = new mysqli("localhost", "root", "", "imageserver");
+		if ($mysqli->connect_errno){
+			printf('I cannot connect to the database  because: ' . $mysqli->connect_error);
+			exit();
+		}
 		$image_id = array();
 		
 		// Gets all the IDs of the image selected from the previous page
@@ -76,12 +79,12 @@
 		
 		for ($a = 0; $a<$nopic; $a++){
 			$query = 'SELECT * FROM images WHERE pkey = '.intval($image_id[$a]);
-			$result=mysql_query($query); 
-			if (!$result) { // add this check.
-    			die('Invalid query: ' . mysql_error());
+			$result = $mysqli->query($query); 
+			if ($mysqli->error) { // add this check.
+				die('Invalid query: ' . $mysqli->error);
 			}
 			
-			$row=mysql_fetch_array($result);
+			$row = $result->fetch_array();
 			$imagedata[$a][0] = $row['name'];
 			$imagedata[$a][1] = $row['artist'];
 			$imagedata[$a][2] = $row['price'];
@@ -102,6 +105,8 @@
 </head>
 
 <body onload = "pageLoad()">	
+	<div id = "picture"></div>
+	<div id = "description"></div>
 
 	<script src = 'image_scroller.js'></script>
 	<script src = 'display.js'></script>
@@ -241,7 +246,5 @@
 
 	</script>
 	
-	<div id = "picture"></div>
-	<div id = "description"></div>
 </body>
 </html>

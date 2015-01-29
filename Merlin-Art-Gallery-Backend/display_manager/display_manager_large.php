@@ -167,7 +167,7 @@
 					if ($mysqli->error) { // add this check.
     					die('Invalid query: ' . $mysqli->error);
 					}
-					while($row=$result->fetch_array()){ 
+					while($row = $result->fetch_array()){ 
 						$pkey = $row['pkey'];
 						$code = $row['code'];
 						$name = $row['name'];
