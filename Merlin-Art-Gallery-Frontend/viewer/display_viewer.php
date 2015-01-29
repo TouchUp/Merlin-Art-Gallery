@@ -9,6 +9,9 @@
 
 	<?php
 		$COLUMNS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
+		$FORM_FIELDS = array('painting_checkbox', 'artist_checkbox', 'price_checkbox', 'cm_height_checkbox', 'cm_width_checkbox', 'in_height_checkbox', 'in_width_checkbox', 'biography_checkbox', 'other', 'transtime', 'showrandom');
+		$DP_IDS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others', 'transtime', 'random');
+		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
 		
 		$mysqli = new mysqli("localhost", "root", "", "imageserver");
 		if ($mysqli->connect_errno){
@@ -33,17 +36,15 @@
 		//Time to get all the PHP values
 		
 		
-		$dpname = false;$dpartist=false;$dpprice=false;$dpcmheight=false;$dpcmwidth=false;$dpinheight=false;$dpinwidth=false;$dpbio=false;$dpothers=false;$transtime=1;$dprandom=false;
 		
-		$FORM_FIELDS = array('painting_checkbox', 'artist_checkbox', 'price_checkbox', 'cm_height_checkbox', 'cm_width_checkbox', 'in_height_checkbox', 'in_width_checkbox', 'biography_checkbox', 'other', 'transtime', 'showrandom');
-		$DP_IDS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others', 'transtime', 'random');
+		
 		$dp = array();
 		
 		$numfields = count($FORM_FIELDS);
 		for ($i = 0; $i < $numfields; $i++){
 			$fieldname = $FORM_FIELDS[$i];
 			
-			$dp[$fieldname] = false;
+			$dp[$DP_IDS[$i]] = false;
 			if (isset($_POST[$fieldname])){
 				$dp[$DP_IDS[$i]] = $_POST[$fieldname];
 			}
@@ -79,9 +80,11 @@
 	<script src = 'display.js'></script>
 
 	<script language="javascript">
+		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
+		var DISPLAYABLE_NAME = ['Painting name', 'Artist', 'Price', 'Height (cm)', 'Width (cm)', 'Height (in)', 'Width (in)', 'NONE', 'Other information'];
 		var imagecount = <?php echo $nopic ?>;
-		var imagearray = new Array([]);
-		var boolArray = new Array([]);
+		var imagearray = [];
+		var boolArray = [];
 		var imageInfo = {};
 		<?php
 			for ($x = 0; $x<$nopic; $x++){
@@ -89,7 +92,7 @@
 				
 				$numcols = count($COLUMNS);
 				for ($y = 0; $y<$numcols; $y++){
-					echo 'imagearray['.$x.']["'.$COLUMNS[$y].' = "'.$imagedata[$x][$y].'";';echo '\n';
+					echo 'imagearray['.$x.']["'.$COLUMNS[$y].'"] = "'.$imagedata[$x][$COLUMNS[$y]].'";';echo "\n";
 				}
 			}
 			
@@ -105,7 +108,7 @@
 
 		function setTransitionProperties(){
 			nextPicture(); //So that it displays the first picture instantly
-			var transition_time = <?php echo $transtime;?>;
+			var transition_time = <?php echo $dp['transtime'];?>;
 			temp = transition_time * 1000;
 			var start = setInterval(function(){nextPicture()}, temp);
 		}
@@ -117,8 +120,6 @@
 			//Initialise an array that will take in all the parameters
 			
 			<?php
-				$COLUMNS = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
-				$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
 				
 				$numcols = count($DISPLAYABLE);
 				for($i = 0; $i < $numcols; $i++){
@@ -131,10 +132,10 @@
 					else{
 						echo '0';
 					}
-					echo ';\n';
+					echo ";\n";
 				}
 			?>
-			
+			 
 			boolArray['random'] = <?php 
 			if ($dp['random'] == true){
 				echo '1';

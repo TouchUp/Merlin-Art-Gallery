@@ -9,7 +9,7 @@ var VIEWPORT_H = Math.max(document.documentElement.clientHeight, window.innerHei
 //Get dimensions of the current image
 
 var IMG =  document.getElementById('picture'); //doesn't work; returns null
-alert(IMG);
+//alert(IMG);
 
 var CURRENT_W = IMG.clientWidth;
 var CURRENT_H = IMG.clientHeight;
@@ -21,7 +21,7 @@ var INFO_BAR = document.getElementById('description'); //doesn't work; returns n
 var BAR_H =  INFO_BAR.clientHeight;
 var BAR_W = INFO_BAR.clientWidth;
 
-alert(BAR_H);
+//alert(BAR_H);
 
 // Get dimensions of the actual, usable area 
 

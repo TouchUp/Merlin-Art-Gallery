@@ -9,8 +9,8 @@
 				
 				i++;
 			}
-			imagepath = imagearray[i][11];
-			imagename = imagearray[i][12];
+			imagepath = imagearray[i]['flocation'];
+			imagename = imagearray[i]['fname'];
 			document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
 			displayInfo(); //calls the function to display related info as well
 
@@ -32,55 +32,24 @@
 			*/
 			var dptoshow = 0;
 			var temp;
-			document.getElementById('description').innerHTML = '<ul>';
 			
-			
-			
-			if (boolArray["painting_name"] == 1){
-				temp = imagearray[i][0].toString();
-				document.getElementById('description').innerHTML +=  "<li>" + "Painting name: " + temp + "</li>";				
+			var dphtml = '';
+			dphtml += '<ul>';
+			for(var i = 0; i < DISPLAYABLE.length; i++){
+				if (boolArray[DISPLAYABLE[i]] == 1){
+					dphtml += '<li>';
+					var val = imagearray[i][DISPLAYABLE[i]].toString();
+					if(DISPLAYABLE_NAME[i] == 'NONE'){
+						dphtml += val;
+					}
+					else{
+						dphtml += DISPLAYABLE_NAME[i] + ': ' + val;
+					}
+					dphtml += '</li>';
+				}
 			}
-			if (boolArray["artist_name"] == 1){
-				temp = imagearray[i][1].toString();
-				document.getElementById('description').innerHTML += "<li>"  + "Artist: " + temp + "</li>";
-			}
-			if (boolArray["price"] == 1){
-				temp = imagearray[i][2].toString();
-				document.getElementById('description').innerHTML += "<li>" + "Price: " + temp + " SGD" + "</li>";
-			}
-			if (boolArray["cm_height"] == 1){
-				temp = imagearray[i][3].toString();
-				document.getElementById('description').innerHTML += "<li>"  + "Height (cm): " + temp + "</li>";
-			}
-			if (boolArray["cm_width"] == 1){
-				temp = imagearray[i][4].toString();
-				document.getElementById('description').innerHTML += "<li>" + "Width (cm): " + temp + "</li>";
-			}
-			if (boolArray["in_height"] == 1){
-				temp = imagearray[i][5].toString();
-				document.getElementById('description').innerHTML += "<li>" + "Height (in): " + temp + "</li>";
-			}
-			if (boolArray["in_width"] == 1){
-				temp = imagearray[i][6].toString();
-				document.getElementById('description').innerHTML += "<li>" + "Width (in): " +temp + "</li>";
-			}
-			if (boolArray["biography"] == 1){
-				temp = imagearray[i][7].toString();
-				document.getElementById('description').innerHTML += "<li>"  + temp + "</li>";
-			}
-			if (boolArray["sold"] == 1){
-				temp = imagearray[i][8].toString();
-				document.getElementById('description').innerHTML += "<li>"  + "Sold: " + temp + "</li>";
-			}
-			if (boolArray["others"] == 1){
-				temp = imagearray[i][9].toString();
-				document.getElementById('description').innerHTML += "<li>"  + "Other information: " + temp + "</li>";
-			}
-			
-
-			//Close the ul tag
-
-			document.getElementById('description').innerHTML += '</ul>';
+			dphtml += '</ul>';
+			document.getElementById('description').innerHTML = dphtml;
 
 
 			//concatenate all the innerHTML; loops through all
@@ -98,10 +67,10 @@
 		function getHeightWidth(i) {
 
 			//Some more global variables here
-			CM_HEIGHT = imagearray[i][3];
-			CM_WIDTH = imagearray[i][4];
-			IN_HEIGHT = imagearray[i][5];
-			IN_WIDTH = imagearray[i][6];
+			CM_HEIGHT = imagearray[i]['cmheight'];
+			CM_WIDTH = imagearray[i]['cmwidth'];
+			IN_HEIGHT = imagearray[i]['inheight'];
+			IN_WIDTH = imagearray[i]['inwidth'];
 
 			//Let's do some conversion. Call the conversion function.
 			convertInchToCm(IN_HEIGHT, IN_WIDTH);
