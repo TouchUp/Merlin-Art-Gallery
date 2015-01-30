@@ -25,7 +25,7 @@
 
 
 			/* This is pseudocode 
-			for (each element in boolArray){
+			for (each element in dp){
 				get the information of that primary key's element
 				imageInfo.push;
 			}
@@ -36,7 +36,7 @@
 			var dphtml = '';
 			dphtml += '<ul>';
 			for(var j = 0; j < DISPLAYABLE.length; j++){
-				if (boolArray[DISPLAYABLE[j]] == 1){
+				if (dp[DISPLAYABLE[j]] == true){
 					dphtml += '<li>';
 					var val = imagearray[i][DISPLAYABLE[j]].toString();
 					if(DISPLAYABLE_NAME[j] == 'NONE'){

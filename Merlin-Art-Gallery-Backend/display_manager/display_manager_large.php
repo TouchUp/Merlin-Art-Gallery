@@ -16,7 +16,40 @@
 		}
 	?>
     <script language ="javascript">
+		function searchby()  {  
+			var idsearch = document.getElementById("idsearch").value; 
+			var namesearch = document.getElementById("namesearch").value; 
+			var artistsearch = document.getElementById("artistsearch").value;
+			var othersearch = document.getElementById("othersearch").value; 
+			var minprice = document.getElementById("price_slider").value; 
+			var maxprice = document.getElementById("price_slider_max").value; 
+			var xhr;  
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				xhr = new XMLHttpRequest();  
+			} 
+			else if (window.ActiveXObject) { // IE 8 and older  
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			}  
+			var data = "idsearch=" + idsearch + "&namesearch="+namesearch+"&artistsearch="+artistsearch+"&othersearch="+othersearch+"&min_price="+minprice+"&max_price="+maxprice;  
+			xhr.open("POST", "search.php", true);   
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			xhr.send(data);  
+			xhr.onreadystatechange = display_data; 
+			function display_data() {  
+     			if (xhr.readyState == 4) {  
+      				if (xhr.status == 200) {  
+       					document.getElementById("searchpic").innerHTML = xhr.responseText;  
+      				} 
+					else {  
+        				alert('There was a problem with the request.');  
+      				}  
+     			}  
+  			} 
+		} 
 		
+		window.onload = searchby;
+		 
+    	 
 	</script>
 </head>
 
@@ -30,20 +63,20 @@
                     	
                         <input type="hidden" name="doSearch" value="1">
 						<label class ="search" for ='search_box'> ID </label>
-						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search'>
+						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()">
 						<label  class ="search" for ='search_box'> Painting Name </label>
-						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search'>
+						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()">
                         <label  class ="search" for ='search_box'> Artist </label>
-						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search'>
+						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()">
                         <label  class ="search" for ='search_box'> Others </label>
-						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search'>
+						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()">
 					<label for ='price_range'>Price</label>
 					<br>
-					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value">
+					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby()">
 					<output name="amount" for="price_slider">0</output> 
 					to
 
-					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value">
+					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value" onMouseUp="searchby()">
 					<output name="amount_max" for="price_slider_max">10000</output>
 
 					<br>
@@ -72,7 +105,7 @@
 							<option value = "in"> in </option>
 						</select>			
 					</div>		
-				<input id =  'test' type = "submit" value = "Search">
+				<!--<input id =  'test' type = "submit" value = "Search">-->
 				
 			</form>
 
@@ -80,130 +113,10 @@
 
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
-            <table>
-            <form action = "../../merlin-art-gallery-frontend/viewer/display_viewer.php" method = "POST" target = "blank">
-            	<tr>
-                	
-                	<th>
+			<div id="searchpic">
             
-                    Select
-                    </th>
-                	<th>Image</th>
-                	<th>Image ID</th>
-                    <th>Name</th>
-                    <th>Artist</th>
-                    <th>Price</th>
-                    <th>Height (cm)</th>
-                    <th>Width (cm)</th>
-                    <th>Height (in)</th>
-                    <th>Height (in)</th>
-                    <th>Biography</th>
-                    <th>Sold</th>
-                    <th>Others</th>
-                    
-                </tr>
-
-					<?php
-					
-					
-					if (isset($_POST['idsearch'])){
-						$idsearch = $_POST['idsearch'];
-					}
-					else{
-						$idsearch = "";
-					}
-					if (isset($_POST['namesearch'])){
-						$namesearch = $_POST['namesearch'];
-					}
-					else{
-						$namesearch="";
-					}
-					if (isset($_POST['artistsearch'])){
-						$artistsearch = $_POST['artistsearch'];
-					}
-					else{
-						$artistsearch="";
-					}
-					if (isset($_POST['othersearch'])){
-						$othersearch = $_POST['othersearch'];
-					}
-					else{
-						$othersearch = "";	
-					}
-					if (isset($_POST['min_price'])){
-						$minprice = $_POST['min_price'];
-					}
-					else {
-						$minprice = 0;
-					}
-					if (isset($_POST['max_price'])){
-						$maxprice = $_POST['max_price'];
-					}
-					else{
-						$maxprice = 9999999;	
-					}
-					if (isset($_POST['min_size'])){
-						$minsize = $_POST['min_size'];
-					}
-					else{
-						$minsize = 0;
-					}
-					if (isset($_POST['max_price'])){
-						$maxsize = $_POST['max_price'];
-					}
-					else{
-						$maxsize = 9999999;	
-					}
-						
-
-					$sql = 'SELECT * FROM images WHERE 
-					(artist LIKE "'.$artistsearch.'%") 
-					AND (code LIKE "'.$idsearch.'%") 
-					AND (name LIKE "'.$namesearch.'%") 
-					AND (others LIKE "'.$othersearch.'%")
-					AND (price BETWEEN '.$minprice.' AND '.$maxprice.')
-					';
-					$result=$mysqli->query($sql); 
-					if ($mysqli->error) { // add this check.
-    					die('Invalid query: ' . $mysqli->error);
-					}
-					while($row = $result->fetch_array()){ 
-						$pkey = $row['pkey'];
-						$code = $row['code'];
-						$name = $row['name'];
-						$artist = $row['artist'];
-						$price = $row['price'];
-						$cmheight = $row['cmheight'];
-						$cmwidth = $row['cmwidth'];
-						$inheight = $row['inheight'];
-						$inwidth = $row['inwidth'];
-						$bio = $row['bio'];
-						$sold = $row['sold'];
-						$others = $row['others'];
-						$image = $row['image'];
-						$flocation = $row['flocation'];
-						$fname = $row['fname'];
-						echo "<tr>";
-						echo '<td><input type="checkbox" name="check_list[]" value="'.$pkey.'"></td>';
-						//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
-						echo '<td><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
-						echo '<td>'.$code.'</td>';
-						echo '<td>'.$name.'</td>';
-						echo '<td>'.$artist.'</td>';
-						echo '<td>'.$price.'</td>';
-						echo '<td>'.$cmheight.'</td>';
-						echo '<td>'.$cmwidth.'</td>';
-						echo '<td>'.$inheight.'</td>';
-						echo '<td>'.$inwidth.'</td>';
-						echo '<td>'.$bio.'</td>';
-						echo '<td>'.$sold.'</td>';
-						echo '<td>'.$others.'</td>';
-						echo '</tr>';
-					}
-					$result->free();
-					$mysqli->close();
-                ?>
-            </table>
+			
+			</div>
 
 		</section>
 

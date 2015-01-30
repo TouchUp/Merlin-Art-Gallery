@@ -14,6 +14,8 @@
 		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'transtime'=>'transtime', 'showrandom'=>'random');
 		//things that may be displayed
 		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
+		//name of the things to be displayed. NONE is like for biography, don't want to show "Biography: " before the value.
+		$DISPLAYABLE_NAME = array('Painting name', 'Artist', 'Price', 'Height (cm)', 'Width (cm)', 'Height (in)', 'Width (in)', 'NONE', 'Other information');
 		
 		$mysqli = new mysqli("localhost", "root", "", "imageserver");
 		if ($mysqli->connect_errno){
@@ -37,15 +39,15 @@
 		
 		//Time to get all the PHP values
 		
-		
-		
-		
+		//display properties e.g. whether or not to show painting name
 		$dp = array();
 		
 		foreach ($POST_DP_MAPPING as $postid => $dpid){
-			$dp[$dpid] = false;
 			if (isset($_POST[$postid])){
-				$dp[$dpid] = $_POST[$postid];
+				$dp[$dpid] = ($_POST[$postid] === "true");
+			}
+			else{
+				$dp[$dpid] = false;
 			}
 		}
 		
@@ -80,61 +82,26 @@
 
 	<script language="javascript">
 		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
-		var DISPLAYABLE_NAME = ['Painting name', 'Artist', 'Price', 'Height (cm)', 'Width (cm)', 'Height (in)', 'Width (in)', 'NONE', 'Other information'];
+		//
+		var DISPLAYABLE_NAME = <?php echo json_encode($DISPLAYABLE_NAME); ?>;
 		var imagecount = <?php echo $nopic ?>;
 		var imagearray = [];
-		var boolArray = [];
+		var dp = <?php echo json_encode($dp); ?>;
 		var imageInfo = {};
 		var imagearray = <?php echo json_encode($imagedata) ?>;
 		var i = 0;
 		var temp;
 		
 		function pageLoad(){
-			displayOrNot();
 			setTransitionProperties();
-			
 		}
 
 		function setTransitionProperties(){
 			nextPicture(); //So that it displays the first picture instantly
-			var transition_time = <?php echo $dp['transtime'];?>;
+			var transition_time = dp['transtime'];
 			temp = transition_time * 1000;
 			var start = setInterval(function(){nextPicture()}, temp);
 		}
-
-
-		function displayOrNot(){
-			//This function controls what information of the painting to display
-			
-			//Initialise an array that will take in all the parameters
-			
-			<?php
-				
-				$numcols = count($DISPLAYABLE);
-				for($i = 0; $i < $numcols; $i++){
-					$displayableid = $DISPLAYABLE[$i];
-					
-					echo 'boolArray["'.$displayableid.'"] = ';
-					if ($dp[$displayableid] == true){
-						echo '1';
-					}
-					else{
-						echo '0';
-					}
-					echo ";\n";
-				}
-			?>
-			 
-			boolArray['random'] = <?php 
-			if ($dp['random'] == true){
-				echo '1';
-			}
-			else{
-				echo '0';	
-			}
-			?>;
-
-			}	
 
 		
 
