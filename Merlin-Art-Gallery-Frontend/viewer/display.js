@@ -1,23 +1,63 @@
 		
 
 		function nextPicture (){
-			
-			if (i >= imagecount-1){
-				i = 0;
+			if (dp['showrandom'] == true){
+				var loop = 0;
+				var lol = 0;
+				if (i == imagecount-1){
+					loop = 1;
+					for (a = 0; a < imagecount; a++){
+						if (visited[a] == false){
+							lol = a;
+							break;	
+						}
+					}
+				}
+				while (loop == 0){
+					lol = Math.floor( Math.random() *imagecount);
+					if (visited[lol] == false){
+						break;
+					}
+				}
+				visited[lol] = true;
+				imagepath = imagearray[lol]['flocation'];
+				imagename = imagearray[lol]['fname'];
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
+				displayInfo(); //calls the function to display related info as well
+
+				//Let's get the height and width of this picture
+				//by calling a function that gets the array properties 
+
+				getHeightWidth(lol);
+				i++;
+				
+				if (i >= imagecount){
+					i = 0;	
+					for (a = 0; a  < imagecount; a++){
+						visited[a] = false;	
+					}
+				}
+				
 			}
 			else{
+				if (i >= imagecount-1){
+					i = 0;
+				}
+				else{
 				
-				i++;
+					i++;
+				}
+				imagepath = imagearray[i]['flocation'];
+				imagename = imagearray[i]['fname'];
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
+				displayInfo(); //calls the function to display related info as well
+
+				//Let's get the height and width of this picture
+				//by calling a function that gets the array properties 
+
+				getHeightWidth(i);
 			}
-			imagepath = imagearray[i]['flocation'];
-			imagename = imagearray[i]['fname'];
-			document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
-			displayInfo(); //calls the function to display related info as well
-
-			//Let's get the height and width of this picture
-			//by calling a function that gets the array properties 
-
-			getHeightWidth(i);
+			
 
 		}
 

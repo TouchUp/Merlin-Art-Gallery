@@ -11,7 +11,7 @@
 		//COLUMN in the database
 		$COLUMN = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
 		//mapping $_POST to the $dp array
-		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'random');
+		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'showrandom');
 		//things that may be displayed
 		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
 		//name of the things to be displayed. NONE is like for biography, don't want to show "Biography: " before the value.
@@ -79,6 +79,7 @@
 
 	<script language="javascript">
 		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
+		var visited = [];
 		//
 		var DISPLAYABLE_NAME = <?php echo json_encode($DISPLAYABLE_NAME); ?>;
 		var imagecount = <?php echo $nopic ?>;
@@ -88,6 +89,10 @@
 		var imagearray = <?php echo json_encode($imagedata) ?>;
 		var i = 0;
 		var temp;
+		
+		for (a = 0; a < imagecount; a++){
+			visited[a] = false;	
+		}
 		
 		function pageLoad(){
 			setTransitionProperties();
