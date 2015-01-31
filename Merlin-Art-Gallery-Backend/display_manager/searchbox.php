@@ -30,10 +30,11 @@
 			$image = $row['image'];
 			$flocation = $row['flocation'];
 			$fname = $row['fname'];
-			echo '<input type="button" value="Remove" onmouseup="removeimage('.$pkey.')"/>
-			<input type="hidden" name="check_list[]" value="'.$pkey.'">';
-			echo '<img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" />';
-			echo ''.$name.'</br>';
+			echo '<div class = "selected" onmouseup = "removeimage('.$pkey.')">';
+			//echo '<input type="button" value="Remove" onmouseup="removeimage('.$pkey.')"/>
+			//<input type="hidden" name="check_list[]" value="'.$pkey.'">';
+			echo '<img src="'.$flocation.'/'.$fname.'"/>';
+			echo '<p>'.$name.'</p></div>';
 		}
 		$result->free();
 	}

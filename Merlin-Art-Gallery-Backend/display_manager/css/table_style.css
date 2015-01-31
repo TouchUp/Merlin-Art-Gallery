@@ -1,0 +1,60 @@
+/*
+===== CSS Styling for TABLES ======
+*/
+
+table,td,tr,th {
+	border: 1px solid rgba(52, 73, 94,1.0);
+	border-collapse:collapse;
+	text-align:center;
+	padding:10px;
+	font-size: 0.8em;
+}
+
+table{
+	width: 100%;
+}
+
+th {
+	background-color: rgba(189, 195, 199,1.0);
+
+	border-collapse: collapse;
+	font-weight: 500;
+}
+
+.selected {
+	border: 2px solid black;
+	display: inline-block;
+	background-color: white;
+	border-collapse: collapse;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	width: 22.5%;
+	height: 200px;
+	font-size: 0.7em;
+	padding: none !important;
+	text-align:center;
+}
+
+.selected img {
+	height: 150px;
+	width: 150px;
+}
+
+.selected:hover {
+	background-color: rgba(192, 57, 43,1.0);
+	opacity: 0.7;
+}
+
+@media (max-width: 1000px) {
+	.selected {
+		width: 30%;
+	}
+}
+
+@media (max-width: 600px) {
+	.selected {
+		width: 80%;
+	}
+}

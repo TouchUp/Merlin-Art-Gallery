@@ -3,9 +3,10 @@
 
 <head>
 	<title>Display Manager</title>
-	<link rel = "stylesheet" type = "text/css" href = "style_large.css">
-	<link rel = "stylesheet" type = "text/css" href = "form_style.css">
-	<link rel = "stylesheet" type = "text/css" href = "table_style.css">
+	<link rel = "stylesheet" type = "text/css" href = "./css/style_large.css">
+	<link rel = "stylesheet" type = "text/css" href = "./css/form_style.css">
+	<link rel = "stylesheet" type = "text/css" href = "./css/table_style.css">
+	<link rel = "stylesheet" type = "text/css" href = "./bootstrap-3.3.2-dist/css/bootstrap.css">
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <?php

@@ -15,6 +15,7 @@ html, body {
 	padding: 0;
 	width:100%;
 	height:100%;
+	background-color: rgba(236, 240, 241,1.0);
 }
 
 #header {
@@ -47,6 +48,11 @@ html, body {
 	width:80%;
 	margin:auto;
 	}
+
+#selectedpic {
+	max-height: 80vh !important;
+	overflow: scroll;
+}
 
 /* elegant way to set div heights actually */ 
 
