@@ -103,9 +103,10 @@
 		$image = $row['image'];
 		$flocation = $row['flocation'];
 		$fname = $row['fname'];
-		echo "<tr>";
-		echo '<td><input type="checkbox" name="check_list[]" value="'.$pkey.'"></td>';
+		echo '<tr>';
+		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
+		echo '<td><input type=button  onmouseup="addimage('.$pkey.')" value="Add"/></td>';
 		echo '<td><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
 		echo '<td>'.$code.'</td>';
 		echo '<td>'.$name.'</td>';

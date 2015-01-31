@@ -16,6 +16,23 @@
 		}
 	?>
     <script language ="javascript">
+	
+		var listed = [];
+		var nselect = 0;
+		
+		function addimage(imageid){
+			listed.push(imageid);
+			nselect ++;
+			liststuff();
+		}
+		function removeimage(imageid){
+			var index = listed.indexOf(imageid);
+			if (index > -1){
+				listed.splice(index, 1);
+			}
+			nselect --;
+			liststuff();
+		}
 		function searchby()  {  
 			var idsearch = document.getElementById("idsearch").value; 
 			var namesearch = document.getElementById("namesearch").value; 
@@ -47,6 +64,39 @@
   			} 
 		} 
 		
+		function liststuff()  { 
+			var querystring = "";
+			document.getElementById("selectedpic").innerHTML = "";  
+			var xhr;  
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				xhr = new XMLHttpRequest();  
+			} 
+			else if (window.ActiveXObject) { // IE 8 and older  
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			}  
+			xhr.open("POST", "searchbox.php", true); 
+			for (a = 0; a < nselect; a++){
+				querystring += 	a+"="+listed[a]+"&";
+			}
+			querystring += "size=" + nselect;
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			xhr.send(querystring);  
+				
+			xhr.onreadystatechange = display_data; 
+			function display_data() {  
+     			if (xhr.readyState == 4) {  
+      				if (xhr.status == 200) {  
+       					document.getElementById("selectedpic").innerHTML += xhr.responseText;  
+      				} 
+					else {  
+        				alert('There was a problem with the request.');  
+      				}  
+     			}  
+  			}
+			 
+		} 
+		
+		
 		window.onload = searchby;
 		 
     	 
@@ -59,7 +109,7 @@
 	</section>	
 	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
-			<form name="search" action="display_manager_large.php" method="post">
+
                     	
                         <input type="hidden" name="doSearch" value="1">
 						<label class ="search" for ='search_box'> ID </label>
@@ -106,14 +156,22 @@
 						</select>			
 					</div>		
 				<!--<input id =  'test' type = "submit" value = "Search">-->
-				
-			</form>
 
 		</section>
 
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
 			<div id="searchpic">
+            
+			
+			</div>
+
+		</section>
+        <form name="selectimages" action="../../Merlin-Art-Gallery-Frontend/viewer/display_viewer.php" method="post">
+        
+        <section id = "page_2">
+			<h1> Selected images</h1>
+			<div id="selectedpic">
             
 			
 			</div>

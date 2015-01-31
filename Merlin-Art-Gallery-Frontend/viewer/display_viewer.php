@@ -100,6 +100,7 @@
 			nextPicture(); //So that it displays the first picture instantly
 			var transition_time = dp['transtime'];
 			temp = transition_time * 1000;
+
 			var start = setInterval(function(){nextPicture()}, temp);
 		}
 
