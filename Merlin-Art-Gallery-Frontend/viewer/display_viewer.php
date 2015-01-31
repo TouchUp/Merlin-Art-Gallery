@@ -11,7 +11,7 @@
 		//COLUMN in the database
 		$COLUMN = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
 		//mapping $_POST to the $dp array
-		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'transtime'=>'transtime', 'showrandom'=>'random');
+		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'random');
 		//things that may be displayed
 		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
 		//name of the things to be displayed. NONE is like for biography, don't want to show "Biography: " before the value.
@@ -43,13 +43,9 @@
 		$dp = array();
 		
 		foreach ($POST_DP_MAPPING as $postid => $dpid){
-			if (isset($_POST[$postid])){
-				$dp[$dpid] = ($_POST[$postid] === "true");
-			}
-			else{
-				$dp[$dpid] = false;
-			}
+			$dp[$dpid] = isset($_POST[$postid]) ? ($_POST[$postid] === "true") : false;
 		}
+		$transtime = isset($_POST['transtime']) ? (int)$_POST['transtime'] : $transtime = 1;
 		
 		//Get all the information of the images selected
 		$imagedata = array(array());
@@ -98,7 +94,7 @@
 
 		function setTransitionProperties(){
 			nextPicture(); //So that it displays the first picture instantly
-			var transition_time = dp['transtime'];
+			var transition_time = <?php echo $transtime; ?>;
 			temp = transition_time * 1000;
 
 			var start = setInterval(function(){nextPicture()}, temp);
