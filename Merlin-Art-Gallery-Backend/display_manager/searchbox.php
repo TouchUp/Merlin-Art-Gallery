@@ -6,7 +6,9 @@
 	}
 	$size = $_POST['size'];
 	for ($a = 0; $a < $size; $a ++){
-		$sql = 'SELECT * FROM images WHERE pkey = '.$_POST[$a].' 
+		$input = $_POST[$a];
+		$input = mysql_real_escape_string($input);
+		$sql = 'SELECT * FROM images WHERE pkey = '.$input.' 
 		';
 		$result=$mysqli->query($sql); 
 		if ($mysqli->error) { // add this check.

@@ -5,25 +5,31 @@
 		exit();
 	}
 	if (isset($_POST['idsearch'])){
+		
 		$idsearch = $_POST['idsearch'];
+		$idsearch = mysql_real_escape_string($idsearch);
+		
 	}
 	else{
 		$idsearch = "";
 	}
 	if (isset($_POST['namesearch'])){
 		$namesearch = $_POST['namesearch'];
+		$namesearch = mysql_real_escape_string($namesearch);
 	}
 	else{
 		$namesearch="";
 	}
 	if (isset($_POST['artistsearch'])){
 		$artistsearch = $_POST['artistsearch'];
+		$artistsearch = mysql_real_escape_string($artistsearch);
 	}
 	else{
 		$artistsearch="";
 	}
 	if (isset($_POST['othersearch'])){
 		$othersearch = $_POST['othersearch'];
+		$othersearch = mysql_real_escape_string($othersearch);
 	}
 	else{
 		$othersearch = "";	

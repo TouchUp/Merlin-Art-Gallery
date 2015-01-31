@@ -46,6 +46,7 @@
 			$dp[$dpid] = isset($_POST[$postid]) ? ($_POST[$postid] === "true") : false;
 		}
 		$transtime = isset($_POST['transtime']) ? (int)$_POST['transtime'] : $transtime = 1;
+		$transtime = mysql_real_escape_string($transtime);
 		
 		//Get all the information of the images selected
 		$imagedata = array(array());
