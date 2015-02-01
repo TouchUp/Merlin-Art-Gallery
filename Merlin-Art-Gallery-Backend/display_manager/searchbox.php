@@ -32,7 +32,7 @@
 			$fname = $row['fname'];
 			echo '<div class = "selected" onmouseup = "removeimage('.$pkey.')">';
 			//echo '<input type="button" value="Remove" onmouseup="removeimage('.$pkey.')"/>
-			//<input type="hidden" name="check_list[]" value="'.$pkey.'">';
+			echo '<input type="hidden" name="check_list[]" value="'.$pkey.'">';
 			echo '<img src="'.$flocation.'/'.$fname.'"/>';
 			echo '<p>'.$name.'</p></div>';
 		}
