@@ -9,11 +9,11 @@
 
 	<?php
 		//COLUMN in the database
-		$COLUMN = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'sold', 'others', 'image', 'flocation', 'fname');
+		$COLUMN = array('name', 'artist', 'price', 'height', 'width', 'bio', 'sold', 'others', 'image', 'flocation', 'fname','doby','dobm','dobd','plocation','pyear','country','media','subject');
 		//mapping $_POST to the $dp array
-		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'cmheight', 'cm_width_checkbox'=>'cmwidth', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'showrandom');
+		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'height', 'cm_width_checkbox'=>'width', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'showrandom');
 		//things that may be displayed
-		$DISPLAYABLE = array('name', 'artist', 'price', 'cmheight', 'cmwidth', 'inheight', 'inwidth', 'bio', 'others');
+		$DISPLAYABLE = array('name', 'artist', 'price', 'height', 'width', 'inheight', 'inwidth', 'bio', 'others');
 		//name of the things to be displayed. NONE is like for biography, don't want to show "Biography: " before the value.
 		$DISPLAYABLE_NAME = array('Painting name', 'Artist', 'Price', 'Height (cm)', 'Width (cm)', 'Height (in)', 'Width (in)', 'NONE', 'Other information');
 		

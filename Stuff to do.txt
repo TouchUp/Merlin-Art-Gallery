@@ -1,6 +1,4 @@
-1. Fix Search by image size
-2. Refractoring the code? (Do this the last)
-
+﻿1. Fix Search by image size
 
 Problems :
 - Apparently, using dhtmlxgrid is really limited; You can't automatically convert cm/inch, and you can't upload the
@@ -9,8 +7,6 @@ image directly to the database. It might be better to create the database manage
 - Trying to see if I can add in any transition effect between pictures.
 
 - Upload dialog should be graphical, no typing in path names
-
-- Display manager should have price sliders
 
 - SANITIZE INPUTS!!
 
@@ -31,5 +27,3 @@ image directly to the database. It might be better to create the database manage
 	- For subject, do a text + dropdown hybrid input
 
 - Have the option to SAVE transition selections somehow so that people don’t have to select the same thing over and over again
-
-- Have the dual-panel search thing and make it such that multiple searches don’t refresh the selected paintings 

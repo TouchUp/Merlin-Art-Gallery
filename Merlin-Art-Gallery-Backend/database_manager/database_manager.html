@@ -60,13 +60,13 @@
 				//Set grid for left side page
 				var imageGrid = layout.cells("a").attachGrid();
 				
-				imageGrid.setHeader("ID,Name,Artist,Price,Height(cm),Width(cm),Height(in),Width(in),Biography,Sold,Others,File Path,File Name");   //sets the headers of columns
-              	imageGrid.setColumnIds("code,name,artist,price,cmheight,cmwidth,inheight,inwidth,bio,sold,others,flocation,fname");         //sets the columns' ids
-              	imageGrid.setInitWidths("100,200,100,80,80,80,80,80,200,100,100,200,*");   //sets the initial widths of columns
-              	imageGrid.setColAlign("left,left,left,left,left,left,left,left,left,left,left,left,left");     //sets the alignment of columns
-             	imageGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro");               //sets the types of columns
-              	imageGrid.setColSorting("str,str,str,int,int,int,int,int,str,str,str,str,str");  //sets the sorting types of column
-              	imageGrid.attachHeader("#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter");
+				imageGrid.setHeader("ID,Name,Artist,Price,Height,Width,Biography,Sold,Others,File Path,File Name");   //sets the headers of columns
+              	imageGrid.setColumnIds("code,name,artist,price,cmheight,cmwidth,bio,sold,others,flocation,fname");         //sets the columns' ids
+              	imageGrid.setInitWidths("100,200,100,80,80,80,200,100,100,200,*");   //sets the initial widths of columns
+              	imageGrid.setColAlign("left,left,left,left,left,left,left,left,left,left,left");     //sets the alignment of columns
+             	imageGrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro");               //sets the types of columns
+              	imageGrid.setColSorting("str,str,str,int,int,int,str,str,str,str,str");  //sets the sorting types of column
+              	imageGrid.attachHeader("#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter");
               	imageGrid.init(); 
               	imageGrid.load("data/images.php");
 				

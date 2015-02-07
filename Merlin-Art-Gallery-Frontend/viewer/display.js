@@ -78,10 +78,24 @@
 			for(var j = 0; j < DISPLAYABLE.length; j++){
 				if (dp[DISPLAYABLE[j]] == true){
 					dphtml += '<li>';
-					var val = imagearray[i][DISPLAYABLE[j]].toString();
+					if(DISPLAYABLE_NAME[j]=='Height (in)'){
+						temp = imagearray[i]['height'];
+						temp = Math.round((temp*100)/2.54);
+						temp = temp/100;
+						var val = temp.toString();
+					}
+					else if(DISPLAYABLE_NAME[j]=='Width (in)'){
+						temp = imagearray[i]['width'];
+						temp = Math.round((temp*100)/2.54);
+						temp = temp/100;
+						var val = temp.toString();
+					}
+					else{
+						var val = imagearray[i][DISPLAYABLE[j]].toString();
+					}
 					if(DISPLAYABLE_NAME[j] == 'NONE'){
 						dphtml += val;
-					}
+					} 
 					else{
 						dphtml += DISPLAYABLE_NAME[j] + ': ' + val;
 					}
@@ -109,8 +123,8 @@
 			//Some more global variables here
 			CM_HEIGHT = imagearray[i]['cmheight'];
 			CM_WIDTH = imagearray[i]['cmwidth'];
-			IN_HEIGHT = imagearray[i]['inheight'];
-			IN_WIDTH = imagearray[i]['inwidth'];
+			IN_HEIGHT = imagearray[i]['cmheight']*2.54;
+			IN_WIDTH = imagearray[i]['cmwidth']*2.54;
 
 			//Let's do some conversion. Call the conversion function.
 			convertInchToCm(IN_HEIGHT, IN_WIDTH);

@@ -20,10 +20,10 @@
 			$name = $row['name'];
 			$artist = $row['artist'];
 			$price = $row['price'];
-			$cmheight = $row['cmheight'];
-			$cmwidth = $row['cmwidth'];
-			$inheight = $row['inheight'];
-			$inwidth = $row['inwidth'];
+			$cmheight = $row['height'];
+			$cmwidth = $row['width'];
+			$inheight = $cmheight*2.54;
+			$inwidth = $cmwidth*2.54;
 			$bio = $row['bio'];
 			$sold = $row['sold'];
 			$others = $row['others'];

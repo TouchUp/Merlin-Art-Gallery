@@ -13,10 +13,8 @@
 
 
     <item type="label"  label="Dimensions"/>
-	    <item type="input"  label="Height (cm)"       name="cmheight"  id="cmheight"  offsetLeft="15"/>
-		<item type="input"  label="Width (cm)"       name="cmwidth"  id="cmwidth"  offsetLeft="15"/>
-		<item type="input"  label="Height (in)"       name="inheight"  id="inheight"  offsetLeft="15"/>
-	    <item type="input"  label="Width (in)"       name="inwidth"  id="inwidth"   offsetLeft="15"/>
+	    <item type="input"  label="Height (cm)"       name="height"  id="height"  offsetLeft="15"/>
+		<item type="input"  label="Width (cm)"       name="width"  id="width"  offsetLeft="15"/>
 		
 	<item type="label" label= "Painting Information" />
 		<item type="input"  label="Biography"  name= "bio"   id= "bio"  offsetLeft="15"/>
