@@ -117,6 +117,9 @@ body {
 		.ui-layout-resizer-west-sliding-hover	{ border-right-width:	1px; }
 		.ui-layout-resizer-east-sliding-hover	{ border-left-width:	1px; }
 
+
+
+
 /*
  *	TOGGLER-BUTTONS
  */
@@ -222,3 +225,23 @@ iframe.ui-layout-mask {}	/* extra mask for objects/applets */
 		overflow:	visible !important;
 	}
 }
+
+
+
+/* LIEU'S OWN CODE IS HERE */
+
+input[type="text"] {
+	display: block;
+}
+input[type="number"] {
+	display: block;
+}
+
+input[type='search'] {
+	width:75px;
+}
+
+table {
+	border-collapse: collapse;
+}
+

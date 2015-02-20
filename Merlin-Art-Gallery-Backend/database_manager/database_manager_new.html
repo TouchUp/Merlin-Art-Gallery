@@ -14,7 +14,7 @@
 				function (){
 					var myLayout = $('body').layout({
 					resizable:				true
-					,	east__size:				Math.floor(screen.availWidth * .40) // 50% screen width
+					,	east__size:				Math.floor(screen.availWidth * .30) // 50% screen width
 					,	north__spacing_open:	0
 					,	slidable: false
 				});
@@ -50,20 +50,68 @@
             	<th>ID</th>
                 <th>Name</th>
                 <th>Artist</th>
-                <th>Price</th>
-                <th>Others</th>
+                <th> Artist's DOB </th>
+                <th> Nationality </th>
+                <th> Genre </th>
+                <th> Price </th>
+                <th> Height </th>
+                <th> Width </th>
+                <th> Biography </th>
+                <th> Other Info </th>
             </tr>
             <tr>
             	<td><input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()"></td>
                 <td><input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()"></td>
                 <td><input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()"></td>
-                <td></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
+                <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td>
                 <td><input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></td
             </tr>
         </table>
     </div>
     
     <div class ="ui-layout-east">
+            <h3> Image Properties </h3> 
+
+        <form>
+
+        <label for = 'something'>ID </label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Title </label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Artist Name</label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Artist's DOB </label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Nationality </label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Genre </label>
+        <input type = "text" id = "something">
+
+        <label for = 'something'>Price </label>
+        <input type = "number" id = "something">
+
+        <label for = 'something'>Height </label>
+        <input type = "number" id = "something">
+
+        <label for = 'something'>Width </label>
+        <input type = "number" id = "something">
+
+        <label for = 'biography'>Biography</label>
+        <input type = "text" id = "biography">
+
+        </form>
     </div>
 	</body>
 </html>
