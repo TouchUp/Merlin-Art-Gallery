@@ -24,7 +24,27 @@
 			);
 			
 			function editfield(a){
-				
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+					xhr = new XMLHttpRequest();  
+				}
+				else if (window.ActiveXObject) { // IE 8 and older  
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+				} 
+				var data ="pkey="+a;
+				xhr.open("POST", "editfield.php", true);   
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				xhr.send(data);  
+				xhr.onreadystatechange = display_data; 
+				function display_data() {  
+     				if (xhr.readyState == 4) {  
+      					if (xhr.status == 200) {  
+       						document.getElementById("editinfo").innerHTML = xhr.responseText;  
+      					} 
+						else {  
+        					alert('There was a problem with the request.');  
+      					}  
+     				}  
+  				} 
 			}
 			
 			function searchby(){
@@ -130,7 +150,7 @@
         
     </div>
     
-    <div class ="ui-layout-east">
+    <div class ="ui-layout-east" id="editinfo">
             <h3> Image Properties </h3> 
 
         <form>

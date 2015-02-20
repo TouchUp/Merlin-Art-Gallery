@@ -145,7 +145,7 @@
 		$location= $row['plocation'];
 		$media = $row['media'];
 		$pyear = $row['pyear'];
-		echo '<tr onMouseUp="editfield('.$pkey.')">';
+		echo '<tr onMouseUp="editfield('.$pkey.')" id="'.$pkey.'">';
 		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
 		echo '<td width="100"><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
