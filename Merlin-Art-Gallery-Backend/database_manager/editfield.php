@@ -52,10 +52,12 @@
 		echo '<input type ="text" id="nname" value="'.$name.'">';
 		echo '<label>Artist Name</label>';
 		echo '<input type ="text" id="nartist" value="'.$artist.'">';
-		echo '<label>Artist Date of Birth</label>';
-		echo '<input type ="text" style="width:100px;" id="ndoby" value="'.$doby.'">';
-		echo '<input type ="text" style="width:100px;" id="ndobm" value="'.$dobm.'">';	
-		echo '<input type ="text" style="width:100px;" id="ndobd" value="'.$dobd.'">';
+		echo '<label>Artist Date of Birth (Y/M/D)</label>';
+		echo '<table><tr>';
+		echo '<td><input type ="text" style="width:100px;" id="ndoby" value="'.$doby.'"></td>';
+		echo '<td><input type ="text" style="width:100px;" id="ndobm" value="'.$dobm.'"></td>';	
+		echo '<td><input type ="text" style="width:100px;" id="ndobd" value="'.$dobd.'"></td>';
+		echo '</tr></table>';
 		echo '<label>Sold</label>';
 		echo '<input type ="text" style="width:20px;" id="nsold" value="'.$sold.'" maxlength="1">';
 		echo '<label>Nationality</label>';
@@ -70,8 +72,10 @@
 		echo '<input type ="text"  style="width:100px;" id="nprice" value="'.$price.'" >';
 		echo '<label>Height</label>';
 		echo '<input type ="text"  style="width:100px;" id="ncmheight" value="'.round($cmheight,2).'" >';
+		echo '<select id="htype" onChange="hconvert()"><option value="cm">cm</option><option value="in">in</option></select><br>';
 		echo '<label>Width</label>';
 		echo '<input type ="text"  style="width:100px;" id="ncmwidth" value="'.round($cmwidth,2).'" >';
+		echo '<select id="wtype" onChange="wconvert()"><option value="cm">cm</option><option value="in">in</option></select><br>';
 		echo '<label>Painting Location</label>';
 		echo '<input type ="text"  style="width:150px;" id="nplocation" value="'.$location.'" >';
 		echo '<label>Biography</label>';

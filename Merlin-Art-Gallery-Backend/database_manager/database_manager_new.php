@@ -10,7 +10,32 @@
         <script src="jquery_layout.js" type="text/javascript"></script>
         
         <script>
-			
+			function wconvert(){
+				var temp = document.getElementById("ncmwidth").value;
+				if(document.getElementById("wtype").value =="cm"){
+					temp = Math.round((temp*2.54)*100);
+					temp = temp/100;	
+					document.getElementById("ncmwidth").value = temp;
+				}
+				else{
+					temp = Math.round((temp/2.54)*100);
+					temp = temp/100;
+					document.getElementById("ncmwidth").value = temp;
+				}
+			}
+			function hconvert(){
+				var temp = document.getElementById("ncmheight").value;
+				if(document.getElementById("htype").value =="cm"){
+					temp = Math.round((temp*2.54)*100);
+					temp = temp/100;	
+					document.getElementById("ncmheight").value = temp;
+				}
+				else{
+					temp = Math.round((temp/2.54)*100);
+					temp = temp/100;
+					document.getElementById("ncmheight").value = temp;
+				}
+			}
 			
 			function editfield(a){
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
@@ -39,17 +64,6 @@
 				xhr.open("POST", "createfield.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send();  
-				xhr.onreadystatechange = display_data; 
-				function display_data() {  
-     				if (xhr.readyState == 4) {  
-      					if (xhr.status == 200) {  
-							searchby();
-      					} 
-						else {  
-        					alert('There was a problem with the request.');  
-      					}  
-     				}  
-  				} 	
 			}
 			
 			function removefield(){
@@ -68,18 +82,6 @@
 					xhr.open("POST", "deletefield.php", true);   
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
-					xhr.onreadystatechange = display_data; 
-					function display_data() {  
-     					if (xhr.readyState == 4) {  
-      						if (xhr.status == 200) {  
-								document.getElementById("editinfo").innerHTML = "Select field to edit";
-								searchby();
-      						} 
-							else {  
-        						alert('There was a problem with the request.');  
-      						}  
-     					}  
-  					} 
 				}
 				
 			}
@@ -102,6 +104,14 @@
 				var newplocation = document.getElementById("nplocation").value;
 				var newbio = document.getElementById("nbio").value;
 				var newothers = document.getElementById("nothers").value;
+				if(document.getElementById("htype").value =="in"){
+					newheight = Math.round((newheight*2.54)*100);
+					newheight = newheight/100;	
+				}
+				if(document.getElementById("wtype").value =="in"){
+					newwidth = Math.round((newwidth*2.54)*100);
+					newwidth = newwidth/100;	
+				}
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
 					xhr = new XMLHttpRequest();  
 				}
@@ -111,20 +121,10 @@
 				var data = "nid="+newid+"&nname="+newname+"&nartist="+newartist+"&ndoby="+newdobyear+"&ndobm="+newdobmonth+"&ndobd="+newdobday+"&nsold="+newsold+"&ncountry="+newcountry+"&nsubject="+newsubject+"&nmedia="+newmedia+"&npyear="+newpyear+"&nprice="+newprice+"&nheight="+newheight+"&nwidth="+newwidth+"&nplocation="+newplocation+"&nbio="+newbio+"&nothers="+newothers+"&pkey="+a;
 				xhr.open("POST", "save.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
-				xhr.send(data);  
-				xhr.onreadystatechange = display_data; 
-				function display_data() {  
-     				if (xhr.readyState == 4) {  
-      					if (xhr.status == 200) {  
-							editfield(a);
-							searchby();
-      					} 
-						else {  
-        					alert('There was a problem with the request.');  
-      					}  
-     				}  
-  				} 
-
+				xhr.send(data);
+				editfield(a);
+				searchby();
+				temp();
 			}
 			
 			function searchby(){
