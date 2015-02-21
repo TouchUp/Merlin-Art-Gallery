@@ -10,6 +10,9 @@
         <script src="jquery_layout.js" type="text/javascript"></script>
         
         <script>
+		
+			var currentfield = -1;
+			
 			function wconvert(){
 				var temp = document.getElementById("ncmwidth").value;
 				if(document.getElementById("wtype").value =="cm"){
@@ -59,6 +62,7 @@
       					}  
      				}  
   				} 
+				//shade();
 			}
 			function create(){
 				xhr.open("POST", "createfield.php", true);   
@@ -142,26 +146,37 @@
 				var soldsearch = document.getElementById("soldsearch").value;
 				var locsearch = document.getElementById("locsearch").value;
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
-					xhr = new XMLHttpRequest();  
+					dxhr = new XMLHttpRequest();  
 				}
 				else if (window.ActiveXObject) { // IE 8 and older  
-					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+					dxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
 				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch + "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch;
-				xhr.open("POST", "search.php", true);   
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
-				xhr.send(data);  
-				xhr.onreadystatechange = display_data; 
+				dxhr.open("POST", "search.php", true);   
+				dxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				dxhr.send(data);  
+				dxhr.onreadystatechange = display_data; 
 				function display_data() {  
-     				if (xhr.readyState == 4) {  
-      					if (xhr.status == 200) {  
-       						document.getElementById("searchpic").innerHTML = xhr.responseText;  
+     				if (dxhr.readyState == 4) {  
+      					if (dxhr.status == 200) {  
+       						document.getElementById("searchpic").innerHTML = dxhr.responseText;  
       					} 
 						else {  
         					alert('There was a problem with the request.');  
       					}  
      				}  
   				} 
+			}
+			
+			function shade (){
+				if (typeof document.getElementById("currentpkey").value==='undefined'){
+					
+				}
+				else{
+					document.getElementById(currentfield).bgcolor="FFFFFF";
+					currentfield = document.getElementById("currentpkey").value;
+					document.getElementById(currentfield).bgcolor="50608F";
+				}
 			}
 			
 			$(document).ready (
