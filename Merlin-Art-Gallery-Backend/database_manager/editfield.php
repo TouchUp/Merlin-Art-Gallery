@@ -33,8 +33,6 @@
 		$sold = $row['sold'];
 		$others = $row['others'];
 		$image = $row['image'];
-		$flocation = $row['flocation'];
-		$fname = $row['fname'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		$doby = $row['doby'];
@@ -42,9 +40,10 @@
 		$dobd = $row['dobd'];
 		$country = $row['country'];
 		$subject = $row['subject'];
-		$location= $row['plocation'];
+		$plocation= $row['plocation'];
 		$media = $row['media'];
 		$pyear = $row['pyear'];
+		$location = "../../images/";
 		echo '<input type="hidden" id="currentpkey" value='.$pkey.'>';
 		echo '<label>ID</label>';
 		echo '<input type ="text" id="ncode" value="'.$code.'">';
@@ -77,12 +76,19 @@
 		echo '<input type ="text"  style="width:100px;" id="ncmwidth" value="'.round($cmwidth,2).'" >';
 		echo '<select id="wtype" onChange="wconvert()"><option value="cm">cm</option><option value="in">in</option></select><br>';
 		echo '<label>Painting Location</label>';
-		echo '<input type ="text"  style="width:150px;" id="nplocation" value="'.$location.'" >';
+		echo '<input type ="text"  style="width:150px;" id="nplocation" value="'.$plocation.'" >';
 		echo '<label>Biography</label>';
 		echo '<textarea rows="4" cols="50" id="nbio" value="'.$bio.'"></textarea>';
 		echo '<label>Other Info</label>';
 		echo '<input type ="text"  style="width:200px;" id="nothers" value="'.$others.'" > <br>';
-		echo '<input type ="button" value="Save" onMouseUp="save('.$pkey.')">';
+		echo '<input type ="button" value="Save" onMouseUp="save('.$pkey.')"><br><br><br><br>';
+		echo '<label>Image upload</label><br><br>';
+		echo 'Current Image<br>';
+		echo '<div id="preview">';
+		echo '<img src="'.$location.$pkey.'?'.rand().'" height = "100" width = "100" /><br><br>';
+		echo '</div>';
+		echo '<input type="file" name="image" id="newimage" accept="image/*">';
+		echo '<input type="button" value="Upload" onMouseUp="uploadfile('.$pkey.')" id="uploadbutton" >';
 	}
 	$result->free();
 	$mysqli->close();

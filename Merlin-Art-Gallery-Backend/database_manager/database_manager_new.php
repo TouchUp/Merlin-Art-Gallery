@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 	<head>
@@ -42,20 +43,20 @@
 			
 			function editfield(a){
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
-					xhr = new XMLHttpRequest();  
+					exhr = new XMLHttpRequest();  
 				}
 				else if (window.ActiveXObject) { // IE 8 and older  
-					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+					exhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
 				var data ="pkey="+a;
-				xhr.open("POST", "editfield.php", true);   
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
-				xhr.send(data);  
-				xhr.onreadystatechange = display_data; 
+				exhr.open("POST", "editfield.php", true);   
+				exhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				exhr.send(data);  
+				exhr.onreadystatechange = display_data; 
 				function display_data() {  
-     				if (xhr.readyState == 4) {  
-      					if (xhr.status == 200) {  
-       						document.getElementById("editinfo").innerHTML = xhr.responseText;  
+     				if (exhr.readyState == 4) {  
+      					if (exhr.status == 200) {  
+       						document.getElementById("editinfo").innerHTML = exhr.responseText;  
       					} 
 						else {  
         					alert('There was a problem with the request.');  
@@ -194,6 +195,56 @@
 				
 			}
 			
+			function uploadfile(pkey){
+				event.stopPropagation();
+   				event.preventDefault();
+				var fileSelect = document.getElementById('newimage');
+				document.getElementById("uploadbutton").value="Uploading...";
+				var files = fileSelect.files;
+				var formData = new FormData();
+				var file = files[0];
+				if (!file.type.match('image.*')) {
+    				
+  				}
+				else{
+					formData.append('image', file, file.name);	
+					formData.append('pkey', pkey);
+					if (window.XMLHttpRequest) { 
+						var uxhr = new XMLHttpRequest();  
+					}
+					else if (window.ActiveXObject) {
+						var uxhr = new ActiveXObject("Microsoft.XMLHTTP");  
+					} 
+					uxhr.open('POST', 'upload.php', true);
+					uxhr.onload = function () {
+  						if (uxhr.status === 200) {
+   							document.getElementById("uploadbutton").value="Upload";
+  						}
+						else {
+    						alert('An error occurred!');
+							document.getElementById("uploadbutton").value="Upload";
+  						}
+					};
+					uxhr.send(formData);
+					function display_data() {  
+     					if (uxhr.readyState == 4) {  
+      						if (uxhr.status == 200) {  
+       							document.getElementById("debug").innerHTML = uxhr.responseText;  
+      						} 
+							else {  
+        						alert('There was a problem with the request.');  
+      						}  
+     					}  
+  					} 
+					searchby();
+					editfield(pkey);
+				}
+				
+				
+				
+				
+			}
+			
 			$(document).ready (
 				function (){
 					searchby();
@@ -277,6 +328,9 @@
     
     <div class ="ui-layout-east" id="editinfo">
             Select field to edit
+    </div>
+    <div class="ui-layout-south" id="debug">
+    
     </div>
 	</body>
 </html>

@@ -135,8 +135,6 @@
 		$sold = $row['sold'];
 		$others = $row['others'];
 		$image = $row['image'];
-		$flocation = $row['flocation'];
-		$fname = $row['fname'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		$doby = $row['doby'];
@@ -145,10 +143,11 @@
 		$location= $row['plocation'];
 		$media = $row['media'];
 		$pyear = $row['pyear'];
+		$location = "../../images/";
 		echo '<tr onclick="editfield('.$pkey.');shade(this);" id="'.$pkey.'">';
 		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
-		echo '<td width="100"><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
+		echo '<td width="100"><img src="'.$location.$pkey.'?'.rand().'" height = "80" width = "80" /></td>';
 		echo '<td width="100">'.$code.'</td>';
 		echo '<td width="150">'.$name.'</td>';
 		echo '<td width="200">'.$artist.'</td>';
