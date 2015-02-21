@@ -61,7 +61,7 @@
 		echo '<input type ="text" style="width:20px;" id="nsold" value="'.$sold.'" maxlength="1">';
 		echo '<label>Nationality</label>';
 		echo '<input type ="text" id="ncountry" value="'.$country.'">';
-		echo '<label>Genre</label>';
+		echo '<label>Subject</label>';
 		echo '<input type ="text" id="nsubject" value="'.$subject.'">';
 		echo '<label>Media</label>';
 		echo '<input type ="text" id="nmedia" value="'.$media.'">';

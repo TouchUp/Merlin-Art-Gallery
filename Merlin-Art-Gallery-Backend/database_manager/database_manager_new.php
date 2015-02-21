@@ -288,7 +288,7 @@
                     <th width="50">sold</th>
                 	<th width="100"> DOB (year) </th>
                 	<th width="150"> Nationality </th>
-                	<th width="140"> Genre </th>
+                	<th width="140"> Subject </th>
                     <th width="140"> Media </th>
                     <th width="100"> Painted year </th>
                 	<th width="120"> Price </th>
