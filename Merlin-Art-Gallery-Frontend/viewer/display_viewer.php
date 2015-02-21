@@ -9,7 +9,7 @@
 
 	<?php
 		//COLUMN in the database
-		$COLUMN = array('name', 'artist', 'price', 'height', 'width', 'bio', 'sold', 'others', 'image', 'flocation', 'fname','doby','dobm','dobd','plocation','pyear','country','media','subject');
+		$COLUMN = array('name', 'artist', 'price', 'height', 'width', 'bio', 'sold', 'others', 'image','doby','dobm','dobd','plocation','pyear','country','media','subject','pkey');
 		//mapping $_POST to the $dp array
 		$POST_DP_MAPPING = array('painting_checkbox'=>'name', 'artist_checkbox'=>'artist', 'price_checkbox'=>'price', 'cm_height_checkbox'=>'height', 'cm_width_checkbox'=>'width', 'in_height_checkbox'=>'inheight', 'in_width_checkbox'=>'inwidth', 'biography_checkbox'=>'bio', 'other'=>'others', 'showrandom'=>'showrandom');
 		//things that may be displayed

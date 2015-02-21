@@ -93,7 +93,7 @@
 		$minwidth = $minwidth*2.54;
 	}
 	
-	
+	$location = "../../images/";
 	$sql = 'SELECT * FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
 	AND (code LIKE "'.$idsearch.'%") 
@@ -142,15 +142,13 @@
 		$sold = $row['sold'];
 		$others = $row['others'];
 		$image = $row['image'];
-		$flocation = $row['flocation'];
-		$fname = $row['fname'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		echo '<tr>';
 		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
 		echo '<td><input type=button  onmouseup="addimage('.$pkey.')" value="Add"/></td>';
-		echo '<td><img src="'.$flocation.'/'.$fname.'" height = "80" width = "80" /></td>';
+		echo '<td><img src="'.$location.$pkey.'?'.rand().'" height = "80" width = "80" /></td>';
 		echo '<td>'.$code.'</td>';
 		echo '<td>'.$name.'</td>';
 		echo '<td>'.$artist.'</td>';

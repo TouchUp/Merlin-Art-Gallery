@@ -20,9 +20,8 @@
 					}
 				}
 				visited[lol] = true;
-				imagepath = imagearray[lol]['flocation'];
-				imagename = imagearray[lol]['fname'];
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
+				imagename = imagearray[lol]['pkey'];
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'">';
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture
@@ -47,9 +46,8 @@
 				
 					i++;
 				}
-				imagepath = imagearray[i]['flocation'];
-				imagename = imagearray[i]['fname'];
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "' + imagepath + '/'+ imagename +'">';
+				imagename = imagearray[i]['pkey'];
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'">';
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture

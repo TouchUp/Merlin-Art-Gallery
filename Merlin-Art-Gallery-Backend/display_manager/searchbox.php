@@ -28,12 +28,11 @@
 			$sold = $row['sold'];
 			$others = $row['others'];
 			$image = $row['image'];
-			$flocation = $row['flocation'];
-			$fname = $row['fname'];
+			$location = "../../images/";
 			echo '<div class = "selected" onmouseup = "removeimage('.$pkey.')">';
 			//echo '<input type="button" value="Remove" onmouseup="removeimage('.$pkey.')"/>
 			echo '<input type="hidden" name="check_list[]" value="'.$pkey.'">';
-			echo '<img src="'.$flocation.'/'.$fname.'"/>';
+			echo '<img src="'.$location.$pkey.'?'.rand().'"/>';
 			echo '<p>'.$name.'</p></div>';
 		}
 		$result->free();
