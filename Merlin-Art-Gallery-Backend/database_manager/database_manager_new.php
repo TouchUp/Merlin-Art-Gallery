@@ -10,18 +10,7 @@
         <script src="jquery_layout.js" type="text/javascript"></script>
         
         <script>
-			$(document).ready (
-				function (){
-					var myLayout = $('body').layout({
-					resizable:				true
-					,	east__size:				Math.floor(screen.availWidth * .30) // 50% screen width
-					,	north__spacing_open:	0
-					,	slidable: false
-				});
-
-
-				}
-			);
+			
 			
 			function editfield(a){
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
@@ -45,6 +34,49 @@
       					}  
      				}  
   				} 
+			}
+			
+			function save(a){
+				var newid = document.getElementById("ncode").value;
+				var newname = document.getElementById("nname").value;
+				var newartist = document.getElementById("nartist").value;
+				var newdobyear = document.getElementById("ndoby").value;
+				var newdobmonth = document.getElementById("ndobm").value;
+				var newdobday = document.getElementById("ndobd").value;
+				var newsold = document.getElementById("nsold").value;
+				var newcountry = document.getElementById("ncountry").value;
+				var newsubject = document.getElementById("nsubject").value;
+				var newmedia = document.getElementById("nmedia").value;
+				var newpyear = document.getElementById("npyear").value;
+				var newprice = document.getElementById("nprice").value;
+				var newheight = document.getElementById("ncmheight").value;
+				var newwidth = document.getElementById("ncmwidth").value;
+				var newplocation = document.getElementById("nplocation").value;
+				var newbio = document.getElementById("nbio").value;
+				var newothers = document.getElementById("nothers").value;
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+					xhr = new XMLHttpRequest();  
+				}
+				else if (window.ActiveXObject) { // IE 8 and older  
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+				} 
+				var data = "nid="+newid+"&nname="+newname+"&nartist="+newartist+"&ndoby="+newdobyear+"&ndobm="+newdobmonth+"&ndobd="+newdobday+"&nsold="+newsold+"&ncountry="+newcountry+"&nsubject="+newsubject+"&nmedia="+newmedia+"&npyear="+newpyear+"&nprice="+newprice+"&nheight="+newheight+"&nwidth="+newwidth+"&nplocation="+newplocation+"&nbio="+newbio+"&nothers="+newothers+"&pkey="+a;
+				xhr.open("POST", "save.php", true);   
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				xhr.send(data);  
+				xhr.onreadystatechange = display_data; 
+				function display_data() {  
+     				if (xhr.readyState == 4) {  
+      					if (xhr.status == 200) {  
+							editfield(a);
+							searchby();
+      					} 
+						else {  
+        					alert('There was a problem with the request.');  
+      					}  
+     				}  
+  				} 
+
 			}
 			
 			function searchby(){
@@ -83,6 +115,21 @@
      				}  
   				} 
 			}
+			
+			$(document).ready (
+				function (){
+					searchby();
+					
+					var myLayout = $('body').layout({
+					resizable:				true
+					,	east__size:				Math.floor(screen.availWidth * .30) // 50% screen width
+					,	north__spacing_open:	0
+					,	slidable: false
+				});
+
+
+				}
+			);
 		</script>
         
         
