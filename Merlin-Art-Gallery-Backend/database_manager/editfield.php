@@ -45,6 +45,7 @@
 		$location= $row['plocation'];
 		$media = $row['media'];
 		$pyear = $row['pyear'];
+		echo '<input type="hidden" id="currentpkey" value='.$pkey.'>';
 		echo '<label>ID</label>';
 		echo '<input type ="text" id="ncode" value="'.$code.'">';
 		echo '<label>Title</label>';

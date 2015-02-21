@@ -160,7 +160,7 @@
 		echo '<td width="100">'.$pyear.'</td>';
 		echo '<td width="120">'.$price.'</td>';
 		echo '<td width="120">'.round($cmheight,2).'</td>';
-		echo '<td width="120">'.$cmwidth.'</td>';
+		echo '<td width="120">'.round($cmwidth,2).'</td>';
 		echo '<td width="200">'.$location.'</td>';
 		echo '<td width="300">'.$bio.'</td>';
 		echo '<td >'.$others.'</td>';

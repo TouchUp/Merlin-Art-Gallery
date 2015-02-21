@@ -35,6 +35,54 @@
      				}  
   				} 
 			}
+			function create(){
+				xhr.open("POST", "createfield.php", true);   
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				xhr.send();  
+				xhr.onreadystatechange = display_data; 
+				function display_data() {  
+     				if (xhr.readyState == 4) {  
+      					if (xhr.status == 200) {  
+							searchby();
+      					} 
+						else {  
+        					alert('There was a problem with the request.');  
+      					}  
+     				}  
+  				} 	
+			}
+			
+			function removefield(){
+				if (typeof document.getElementById("currentpkey").value==='undefined'){
+					
+				}
+				else{
+					var currentpkey = document.getElementById("currentpkey").value;
+					if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+						xhr = new XMLHttpRequest();  
+					}
+					else if (window.ActiveXObject) { // IE 8 and older  
+						xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+					} 
+					var data="pkey="+currentpkey;
+					xhr.open("POST", "deletefield.php", true);   
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+					xhr.send(data);  
+					xhr.onreadystatechange = display_data; 
+					function display_data() {  
+     					if (xhr.readyState == 4) {  
+      						if (xhr.status == 200) {  
+								document.getElementById("editinfo").innerHTML = "Select field to edit";
+								searchby();
+      						} 
+							else {  
+        						alert('There was a problem with the request.');  
+      						}  
+     					}  
+  					} 
+				}
+				
+			}
 			
 			function save(a){
 				var newid = document.getElementById("ncode").value;
@@ -145,8 +193,8 @@
 	<body>
 	
     <div class="ui-layout-north">
-    	<input type="button" onMouseUp="" value="New Entry">
-        <input type="button" onMouseUp="" value="Delete">
+    	<input type="button" onMouseUp="create()" value="New Entry">
+        <input type="button" onMouseUp="removefield()" value="Delete">
     </div>
     <div class="ui-layout-center" style="overflow:auto;">
    		<div>
@@ -198,41 +246,7 @@
     </div>
     
     <div class ="ui-layout-east" id="editinfo">
-            <h3> Image Properties </h3> 
-
-        <form>
-
-        <label for = 'something'>ID </label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Title </label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Artist Name</label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Artist's DOB </label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Nationality </label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Genre </label>
-        <input type = "text" id = "something">
-
-        <label for = 'something'>Price </label>
-        <input type = "number" id = "something">
-
-        <label for = 'something'>Height </label>
-        <input type = "number" id = "something">
-
-        <label for = 'something'>Width </label>
-        <input type = "number" id = "something">
-
-        <label for = 'biography'>Biography</label>
-        <input type = "text" id = "biography">
-
-        </form>
+            Select field to edit
     </div>
 	</body>
 </html>
