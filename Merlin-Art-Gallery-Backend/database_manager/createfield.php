@@ -10,8 +10,7 @@
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
 	}
-	
-	while($row=$result->fetch_array()){ 
+	while($result->fetch_array()){ 
 	
 	}
 	$result->free();

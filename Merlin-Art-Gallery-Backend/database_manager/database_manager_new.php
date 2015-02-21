@@ -62,12 +62,19 @@
       					}  
      				}  
   				} 
-				//shade();
 			}
 			function create(){
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+					xhr = new XMLHttpRequest();  
+				}
+				else if (window.ActiveXObject) { // IE 8 and older  
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+				} 
 				xhr.open("POST", "createfield.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
-				xhr.send();  
+				xhr.send(); 
+				
+				searchby(); 
 			}
 			
 			function removefield(){
@@ -87,7 +94,7 @@
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
 				}
-				
+				searchby();
 			}
 			
 			function save(a){
@@ -168,15 +175,23 @@
   				} 
 			}
 			
-			function shade (){
-				if (typeof document.getElementById("currentpkey").value==='undefined'){
-					
+			function shade (row){
+				if (currentfield != -1){
+					if (typeof document.getElementById("currentpkey").value==='undefined'){
+						
+					}
+					else{
+						currentfield.style.backgroundColor="#FFFFFF";
+						currentfield = row;
+						row.style.backgroundColor="#6EA498";
+					}
 				}
 				else{
-					document.getElementById(currentfield).bgcolor="FFFFFF";
-					currentfield = document.getElementById("currentpkey").value;
-					document.getElementById(currentfield).bgcolor="50608F";
+					
+					currentfield = row;
+					row.style.backgroundColor="#6EA498";
 				}
+				
 			}
 			
 			$(document).ready (
