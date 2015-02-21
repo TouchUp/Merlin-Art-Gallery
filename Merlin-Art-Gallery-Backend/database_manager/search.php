@@ -104,6 +104,30 @@
 		$locsearch = "";
 	}
 	
+	$subjectsize = 0;
+	$mediasize = 0;
+	$subjectdetails = array();
+	$mediadetilas = array();
+	
+	$sql0 = 'SELECT * FROM subjectid';
+	$result=$mysqli->query($sql0); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	while($row=$result->fetch_array()){ 
+		$subjectsize += 1;
+		$subjectdetails[$subjectsize] = $row['subject'];
+	}
+	
+	$sql1 = 'SELECT * FROM mediaid';
+	$result=$mysqli->query($sql1); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	while($row=$result->fetch_array()){ 
+		$mediasize += 1;
+		$mediadetails[$mediasize] = $row['media'];
+	}
 	
 	$sql = 'SELECT * FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
@@ -154,7 +178,17 @@
 		echo '<td width="50">'.$sold.'</td>';
 		echo '<td width="100">'.$doby.'</td>';
 		echo '<td width="150">'.$country.'</td>';
+		for ($a = 1; $a <= $subjectsize; $a++){
+			if ($subject == $a){
+				$subject = $subjectdetails[$a];	
+			}
+		}
 		echo '<td width="140">'.$subject.'</td>';
+		for ($a = 1; $a <= $mediasize; $a++){
+			if ($media == $a){
+				$media = $mediadetails[$a];	
+			}
+		}
 		echo '<td width="140">'.$media.'</td>';
 		echo '<td width="100">'.$pyear.'</td>';
 		echo '<td width="120">'.$price.'</td>';

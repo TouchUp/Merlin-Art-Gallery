@@ -14,6 +14,31 @@
 		$idsearch = "";
 	}
 	
+	$subjectsize = 0;
+	$mediasize = 0;
+	$subjectdetails = array();
+	$mediadetilas = array();
+	
+	$sql0 = 'SELECT * FROM subjectid';
+	$result=$mysqli->query($sql0); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	while($row=$result->fetch_array()){ 
+		$subjectsize += 1;
+		$subjectdetails[$subjectsize] = $row['subject'];
+	}
+	
+	$sql1 = 'SELECT * FROM mediaid';
+	$result=$mysqli->query($sql1); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	while($row=$result->fetch_array()){ 
+		$mediasize += 1;
+		$mediadetails[$mediasize] = $row['media'];
+	}
+	
 	$sql = 'SELECT * FROM images WHERE 
 	pkey = "'.$idsearch.'"';
 	$result=$mysqli->query($sql); 
@@ -61,10 +86,32 @@
 		echo '<input type ="text" style="width:20px;" id="nsold" value="'.$sold.'" maxlength="1">';
 		echo '<label>Nationality</label>';
 		echo '<input type ="text" id="ncountry" value="'.$country.'">';
-		echo '<label>Subject</label>';
-		echo '<input type ="text" id="nsubject" value="'.$subject.'">';
-		echo '<label>Media</label>';
-		echo '<input type ="text" id="nmedia" value="'.$media.'">';
+		echo '<label>Subject</label><br>';
+		echo '<select id="nsubject">';
+		for ($a = 1; $a <= $subjectsize; $a++){
+			echo '<option value='.$a;
+			if ($a == $subject){
+				echo ' selected>'.$subjectdetails[$a].'</options>';	
+			}
+			else{
+				echo '>'.$subjectdetails[$a].'</options>';
+			}
+			
+		}
+		echo '</select><br>';
+		echo '<label>Media</label><br>';
+		echo '<select id="nmedia">';
+		for ($a = 1; $a <= $mediasize; $a++){
+			echo '<option value='.$a;
+			if ($a == $media){
+				echo ' selected>'.$mediadetails[$a].'</options>';	
+			}
+			else{
+				echo '>'.$mediadetails[$a].'</options>';
+			}
+			
+		}
+		echo '</select><br>';
 		echo '<label>Painted Year</label>';
 		echo '<input type ="text"  style="width:50px;" id="npyear" value="'.$pyear.'" maxlength="4">';
 		echo '<label>Price</label>';

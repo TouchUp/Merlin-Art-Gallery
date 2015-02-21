@@ -1,0 +1,10 @@
+Joining All 3 tables
+
+SELECT 
+images.pkey,images.code,images.name,images.artist,images.price,images.height,images.width,images.bio,images.sold,
+images.others,images.doby,images.dobm,images.dobd,images.plocation,images.pyear,images.country,subjectid.subject,
+mediaid.media
+FROM 
+`images`
+left join `subjectid` on images.subject=subjectid.pkey
+left join `mediaid` on images.media=mediaid.pkey;
