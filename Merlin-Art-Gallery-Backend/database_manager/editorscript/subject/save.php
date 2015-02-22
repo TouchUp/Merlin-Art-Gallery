@@ -5,14 +5,34 @@
 		exit();
 	}
 	
-	$sql = 'INSERT INTO images (`pkey`, `code`, `name`, `artist`, `price`, `height`, `width`, `bio`, `sold`, `others`, `image`, `flocation`, `fname`, `doby`, `dobm`, `dobd`, `plocation`, `pyear`, `country`, `media`, `subject`) VALUES (NULL, "", "", "", 0, 0, 0, "", 0, "", NULL, NULL, NULL, 0, 0, 0, "", 0, "", 0, 0)';
+	if(isset($_POST['pkey'])){
+		$pkey = $_POST['pkey'];	
+		$pkey = mysql_real_escape_string($pkey);
+	}
+	
+	
+	if (isset($_POST['nname'])){
+		$nname = $_POST['nname'];
+		$nname = mysql_real_escape_string($nname);
+	}
+	else{
+		$nname="";
+	}
+	$sql = 'UPDATE subjectid SET 
+	subject="'.$nname.'"
+	WHERE pkey='.$pkey.';
+	';
+	
+	
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
+		
 	}
-	while($result->fetch_array()){ 
+	else{
+		echo('success');	
+	}
 	
-	}
 	$result->free();
 	$mysqli->close();
 	

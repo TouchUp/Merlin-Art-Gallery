@@ -225,6 +225,7 @@
   						}
 					};
 					uxhr.send(formData);
+					/*
 					function display_data() {  
      					if (uxhr.readyState == 4) { 
 							
@@ -236,6 +237,7 @@
       						}  
      					}  
   					} 
+					*/
 					searchby();
 					editfield(pkey);
 				}
@@ -328,9 +330,6 @@
     
     <div class ="ui-layout-east" id="editinfo">
             Select field to edit
-    </div>
-    <div class="ui-layout-south" id="debug">
-    
     </div>
 	</body>
 </html>
