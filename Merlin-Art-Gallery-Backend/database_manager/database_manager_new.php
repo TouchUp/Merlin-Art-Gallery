@@ -6,9 +6,9 @@
 		<title>Database Manager</title>
         
         <link type="text/css" rel="stylesheet" href="layout-default-latest.CSS" />
-        <script src="jquery-2.1.3.min.js" type="text/javascript"></script>
-        <script src="jquery-ui-latest.js" type="text/javascript"></script>
-        <script src="jquery_layout.js" type="text/javascript"></script>
+        <script src="javascript/jquery-2.1.3.min.js" type="text/javascript"></script>
+        <script src="javascript/jquery-ui-latest.js" type="text/javascript"></script>
+        <script src="javascript/jquery_layout.js" type="text/javascript"></script>
         
         <script>
 		
@@ -49,7 +49,7 @@
 					exhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
 				var data ="pkey="+a;
-				exhr.open("POST", "editfield.php", true);   
+				exhr.open("POST", "phpscript/editfield.php", true);   
 				exhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				exhr.send(data);  
 				exhr.onreadystatechange = display_data; 
@@ -71,7 +71,7 @@
 				else if (window.ActiveXObject) { // IE 8 and older  
 					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
-				xhr.open("POST", "createfield.php", true);   
+				xhr.open("POST", "phpscript/createfield.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(); 
 				
@@ -91,7 +91,7 @@
 						xhr = new ActiveXObject("Microsoft.XMLHTTP");  
 					} 
 					var data="pkey="+currentpkey;
-					xhr.open("POST", "deletefield.php", true);   
+					xhr.open("POST", "phpscript/deletefield.php", true);   
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
 				}
@@ -131,12 +131,11 @@
 					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
 				var data = "nid="+newid+"&nname="+newname+"&nartist="+newartist+"&ndoby="+newdobyear+"&ndobm="+newdobmonth+"&ndobd="+newdobday+"&nsold="+newsold+"&ncountry="+newcountry+"&nsubject="+newsubject+"&nmedia="+newmedia+"&npyear="+newpyear+"&nprice="+newprice+"&nheight="+newheight+"&nwidth="+newwidth+"&nplocation="+newplocation+"&nbio="+newbio+"&nothers="+newothers+"&pkey="+a;
-				xhr.open("POST", "save.php", true);   
+				xhr.open("POST", "phpscript/save.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(data);
 				editfield(a);
 				searchby();
-				temp();
 			}
 			
 			function searchby(){
@@ -160,7 +159,7 @@
 					dxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
 				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch + "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch;
-				dxhr.open("POST", "search.php", true);   
+				dxhr.open("POST", "phpscript/search.php", true);   
 				dxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				dxhr.send(data);  
 				dxhr.onreadystatechange = display_data; 
@@ -215,7 +214,7 @@
 					else if (window.ActiveXObject) {
 						var uxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 					} 
-					uxhr.open('POST', 'upload.php', true);
+					uxhr.open('POST', 'phpscript/upload.php', true);
 					uxhr.onload = function () {
   						if (uxhr.status === 200) {
    							document.getElementById("uploadbutton").value="Upload";
@@ -227,7 +226,8 @@
 					};
 					uxhr.send(formData);
 					function display_data() {  
-     					if (uxhr.readyState == 4) {  
+     					if (uxhr.readyState == 4) { 
+							
       						if (uxhr.status == 200) {  
        							document.getElementById("debug").innerHTML = uxhr.responseText;  
       						} 

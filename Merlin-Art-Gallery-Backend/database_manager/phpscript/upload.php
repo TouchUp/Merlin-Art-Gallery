@@ -10,12 +10,12 @@
 	$pkey = $_REQUEST['pkey'];
 	$tmpName  = $_FILES['image']['tmp_name'];
 	$fileSize = $_FILES['image']['size'];
-	$location = "../../images/";
+	$location = "../../../images/";
 	$ext = pathinfo($fileName, PATHINFO_EXTENSION);
-		
+	echo 'tmpName';
 	
 	if(move_uploaded_file($tmpName,$location.$pkey)){
-		
+
 	}
 	else{
 		echo 'fail';	
