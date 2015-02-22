@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2015 at 07:15 PM
+-- Generation Time: Feb 22, 2015 at 07:08 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -39,9 +39,6 @@ CREATE TABLE IF NOT EXISTS `images` (
   `bio` text,
   `sold` tinyint(1) NOT NULL DEFAULT '0',
   `others` varchar(20) DEFAULT NULL,
-  `image` longblob,
-  `flocation` varchar(150) DEFAULT NULL,
-  `fname` varchar(100) DEFAULT NULL,
   `doby` smallint(5) DEFAULT NULL,
   `dobm` tinyint(2) DEFAULT NULL,
   `dobd` tinyint(2) DEFAULT NULL,
@@ -50,19 +47,18 @@ CREATE TABLE IF NOT EXISTS `images` (
   `country` varchar(20) DEFAULT NULL,
   `media` smallint(5) DEFAULT '1',
   `subject` smallint(5) DEFAULT '1'
-) ENGINE=MyISAM AUTO_INCREMENT=180 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`pkey`, `code`, `name`, `artist`, `price`, `height`, `width`, `bio`, `sold`, `others`, `image`, `flocation`, `fname`, `doby`, `dobm`, `dobd`, `plocation`, `pyear`, `country`, `media`, `subject`) VALUES
-(141, '50', 'The Last Supper', 'Leonardo da Vinci', '99.00', 55.0000, 1.0000, '', 0, '', NULL, '../../sampledata', 'the_last_supper.jpg', 9, 0, 0, 'singapore', 0, '', 3, 1),
-(140, '55', 'lolwut', 'artist1', '99.00', 50.0100, 9.0000, '', 0, 'kek', 0x2e2e2f73616d706c65, '../../sampledata', 'carbotanimation.png', 0, 0, 1, '', 2005, 'Singapore', 2, 2),
-(142, '25', 'Mona Lisa', 'Leonardo da Vinci', '2.00', 0.0000, 40.0100, '', 0, '', NULL, '../../sampledata', 'monalisa.jpg', 0, 0, 0, '', 0, '', 3, 2),
-(143, '3', 'Guernica', 'Pablo Picasso', '10.00', 0.0000, 0.0000, '', 0, '', NULL, '../../sampledata', 'guernica.jpg', 0, 0, 0, 'Singapore', 0, '', 1, 3),
-(144, '4', 'Girl with a Pearl Earring', 'Johannes Vermeer', '99.00', 0.0000, 0.0000, '', 0, '', NULL, '../../sampledata', 'girl_with_pearl_earring.jpg', 0, 0, 0, '', 0, '', 1, 3),
-(179, '', '', '', '0.00', 0.0000, 0.0000, '', 0, '', NULL, NULL, NULL, 0, 0, 0, '', 0, '', 2, 2);
+INSERT INTO `images` (`pkey`, `code`, `name`, `artist`, `price`, `height`, `width`, `bio`, `sold`, `others`, `doby`, `dobm`, `dobd`, `plocation`, `pyear`, `country`, `media`, `subject`) VALUES
+(140, '51', 'lolwut', 'artist1', '99.00', 50.0100, 9.0000, '', 0, 'kek', 0, 0, 1, '', 2005, 'Singapore', 2, 2),
+(141, '50', 'The Last Supper', 'Leonardo da Vinci', '99.00', 54.0000, 1.0000, '', 0, '', 9, 0, 0, 'singapore', 0, '', 3, 1),
+(142, 'a24d', 'Mona Lisa', 'Leonardo da Vinci', '2.00', 0.0000, 40.0100, '', 0, '', 0, 0, 0, '', 0, '', 3, 4),
+(143, '3', 'Guernica', 'Pablo Picasso', '10.00', 0.0000, 0.0000, '', 0, '', 0, 0, 0, 'Singapore', 0, '', 1, 3),
+(144, '4', 'Girl with a Pearl Earring', 'Johannes Vermeer', '99.00', 0.0000, 0.0000, '', 0, '', 0, 0, 0, '', 0, '', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -73,7 +69,7 @@ INSERT INTO `images` (`pkey`, `code`, `name`, `artist`, `price`, `height`, `widt
 CREATE TABLE IF NOT EXISTS `mediaid` (
 `pkey` smallint(5) NOT NULL,
   `media` varchar(15) NOT NULL DEFAULT ''
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mediaid`
@@ -82,7 +78,8 @@ CREATE TABLE IF NOT EXISTS `mediaid` (
 INSERT INTO `mediaid` (`pkey`, `media`) VALUES
 (1, 'oil'),
 (2, 'brush'),
-(3, 'random');
+(3, 'random'),
+(5, 'asdf');
 
 -- --------------------------------------------------------
 
@@ -93,7 +90,7 @@ INSERT INTO `mediaid` (`pkey`, `media`) VALUES
 CREATE TABLE IF NOT EXISTS `subjectid` (
 `pkey` int(5) NOT NULL,
   `subject` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjectid`
@@ -102,7 +99,8 @@ CREATE TABLE IF NOT EXISTS `subjectid` (
 INSERT INTO `subjectid` (`pkey`, `subject`) VALUES
 (1, 'scenery'),
 (2, 'person'),
-(3, 'random');
+(3, 'random'),
+(8, 'object');
 
 --
 -- Indexes for dumped tables
@@ -134,17 +132,17 @@ ALTER TABLE `subjectid`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-MODIFY `pkey` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=180;
+MODIFY `pkey` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=183;
 --
 -- AUTO_INCREMENT for table `mediaid`
 --
 ALTER TABLE `mediaid`
-MODIFY `pkey` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `pkey` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `subjectid`
 --
 ALTER TABLE `subjectid`
-MODIFY `pkey` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `pkey` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
