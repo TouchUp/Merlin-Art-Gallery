@@ -169,7 +169,6 @@
 		echo('success');	
 	}
 	
-	$result->free();
 	$mysqli->close();
 	
 ?>

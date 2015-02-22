@@ -10,15 +10,28 @@
 		$pkey = mysql_real_escape_string($pkey);
 	}
 	
-	$sql = 'DELETE FROM subjectid WHERE pkey = '.$pkey.';';
+	
+	if (isset($_POST['nname'])){
+		$nname = $_POST['nname'];
+		$nname = mysql_real_escape_string($nname);
+	}
+	else{
+		$nname="";
+	}
+	$sql = 'UPDATE mediaid 
+	SET media="'.$nname.'"
+	WHERE pkey='.$pkey.';
+	';
+	
+	
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
 	}
-	
-	while($row=$result->fetch_array()){ 
-	
+	else{
+		echo('success');	
 	}
+	
 	$mysqli->close();
 	
 ?>

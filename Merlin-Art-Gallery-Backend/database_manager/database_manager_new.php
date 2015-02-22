@@ -14,6 +14,15 @@
 		
 			var currentfield = -1;
 			
+			function subjectmanage(){
+				newwindow=window.open('subjecteditor.php','name','height=400,width=450');
+				if (window.focus) {newwindow.focus()}
+			}
+			function mediamanage(){
+				newwindow=window.open('mediaeditor.php','name','height=400,width=450');
+				if (window.focus) {newwindow.focus()}
+			}
+			
 			function wconvert(){
 				var temp = document.getElementById("ncmwidth").value;
 				if(document.getElementById("wtype").value =="cm"){
@@ -75,7 +84,7 @@
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(); 
 				
-				searchby(); 
+				var delay=setTimeout(searchby, 50); 
 			}
 			
 			function removefield(){
@@ -95,7 +104,7 @@
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
 				}
-				searchby();
+				var delay=setTimeout(searchby, 50);
 			}
 			
 			function save(a){
@@ -134,8 +143,8 @@
 				xhr.open("POST", "phpscript/save.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(data);
-				editfield(a);
-				searchby();
+				var delay=setTimeout(searchby, 50);
+				var delay1=setTimeout(function(){editfield(a)}, 50);
 			}
 			
 			function searchby(){
@@ -238,8 +247,8 @@
      					}  
   					} 
 					*/
-					searchby();
-					editfield(pkey);
+					var delay=setTimeout(searchby, 50);
+					var delay1=setTimeout(function(){editfield(pkey)}, 50);
 				}
 				
 				
@@ -278,6 +287,8 @@
     <div class="ui-layout-north">
     	<input type="button" onMouseUp="create()" value="New Entry">
         <input type="button" onMouseUp="removefield()" value="Delete">
+        <input type="button" value="Manage Subjects" onClick="subjectmanage()">
+        <input type="button" value="Manage Medias" onClick="mediamanage()">
     </div>
     <div class="ui-layout-center" style="overflow:auto;">
    		<div>

@@ -18,8 +18,8 @@
 	else{
 		$nname="";
 	}
-	$sql = 'UPDATE subjectid SET 
-	subject="'.$nname.'"
+	$sql = 'UPDATE subjectid 
+	SET subject="'.$nname.'"
 	WHERE pkey='.$pkey.';
 	';
 	
@@ -27,13 +27,11 @@
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
-		
 	}
 	else{
 		echo('success');	
 	}
 	
-	$result->free();
 	$mysqli->close();
 	
 ?>

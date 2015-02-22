@@ -10,7 +10,7 @@
 		$pkey = mysql_real_escape_string($pkey);
 	}
 	
-	$sql = 'DELETE FROM subjectid WHERE pkey = '.$pkey.';';
+	$sql = 'DELETE FROM mediaid WHERE pkey = '.$pkey.';';
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);

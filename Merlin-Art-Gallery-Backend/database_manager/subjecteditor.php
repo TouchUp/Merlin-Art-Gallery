@@ -10,28 +10,71 @@
     <script>
 		var currentfield = -1;
 		function removefield(){
-			
-		}
-		function create(){
-				
-		}
-		function shade (row){
-			if (currentfield != -1){
-				if (typeof document.getElementById("currentpkey").value==='undefined'){
-						
-				}
-				else{
-					currentfield.style.backgroundColor="#FFFFFF";
-					currentfield = row;
-					row.style.backgroundColor="#6EA498";
-				}
+			if (typeof document.getElementById("currentpkey").value==='undefined'){
+					
 			}
 			else{
-					
-				currentfield = row;
-				row.style.backgroundColor="#6EA498";
+				var currentpkey = document.getElementById("currentpkey").value;
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+					xhr = new XMLHttpRequest();  
+				}
+				else if (window.ActiveXObject) { // IE 8 and older  
+					xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+				} 
+				var data="pkey="+currentpkey;
+				xhr.open("POST", "editorscript/subject/deletefield.php", true);   
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				xhr.send(data);  
 			}
+			var delay=setTimeout(searchsbjby, 50);
+		}
+		function create(){
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				xhr = new XMLHttpRequest();  
+			}
+			else if (window.ActiveXObject) { // IE 8 and older  
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			} 
+			xhr.open("POST", "editorscript/subject/createfield.php", true);   
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			xhr.send(); 
 				
+			var delay=setTimeout(searchsbjby, 50);
+		}
+		
+		
+		function save(pkey){
+			var newname = document.getElementById("nname").value;
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				xhr = new XMLHttpRequest();  
+			}
+			else if (window.ActiveXObject) { // IE 8 and older  
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			} 
+			var data="nname="+newname+"&pkey="+pkey;
+			xhr.open("POST", "editorscript/subject/save.php", true);   
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			xhr.send(data);
+			/*
+			xhr.onreadystatechange = display_data; 
+			function display_data() {  
+     			if (xhr.readyState == 4) {  
+      				if (xhr.status == 200) { 
+       					document.getElementById("debug").innerHTML = xhr.responseText;  
+      				} 
+					else {  
+        				alert('There was a problem with the request.');  
+      				}  
+				}
+				else{
+					document.getElementById("debug").innerHTML="test";
+				}
+			}
+			*/
+			var delay=setTimeout(searchsbjby, 50);
+			var delay1=setTimeout(function(){editfield(pkey)}, 50);
+			
+			
 		}
 		
 		
@@ -60,6 +103,7 @@
 		}
 		
 		function searchsbjby(){
+			
 			var subjectsearch = document.getElementById("subjectsearch").value;
 			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
 				sdxhr = new XMLHttpRequest();  
@@ -83,20 +127,23 @@
      			}  
   			} 
 		}
-		function save(a){
-			var newname = document.getElementById("nname").value;
-			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
-				aaaxhr = new XMLHttpRequest();  
+		function shade (row){
+			if (currentfield != -1){
+				if (typeof document.getElementById("currentpkey").value==='undefined'){
+						
+				}
+				else{
+					currentfield.style.backgroundColor="#FFFFFF";
+					currentfield = row;
+					row.style.backgroundColor="#6EA498";
+				}
 			}
-			else if (window.ActiveXObject) { // IE 8 and older  
-				aaaxhr = new ActiveXObject("Microsoft.XMLHTTP");  
-			} 
-			var data="nname="+newname+"&pkey="+a;
-			aaaxhr.open("POST", "editorscript/subject/save.php", true);   
-			aaaxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
-			aaaxhr.send(data);
-			searchsbjby();
-			editfield(a);
+			else{
+					
+				currentfield = row;
+				row.style.backgroundColor="#6EA498";
+			}
+				
 		}
 		$(document).ready (
 			
@@ -105,7 +152,7 @@
 				searchsbjby();
 				var myLayout = $('body').layout({
 				resizable:				true
-				,	east__size:				Math.floor(screen.availWidth * .30)
+				,	east__size:				200
 				,	north__spacing_open:	0
 				,	slidable: false
 			});

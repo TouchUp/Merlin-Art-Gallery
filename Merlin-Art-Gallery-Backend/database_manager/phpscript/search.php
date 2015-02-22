@@ -158,7 +158,6 @@
 		$bio = $row['bio'];
 		$sold = $row['sold'];
 		$others = $row['others'];
-		$image = $row['image'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		$doby = $row['doby'];
@@ -178,15 +177,27 @@
 		echo '<td width="50">'.$sold.'</td>';
 		echo '<td width="100">'.$doby.'</td>';
 		echo '<td width="150">'.$country.'</td>';
+		$found = 0;
 		for ($a = 1; $a <= $subjectsize; $a++){
 			if ($subject == $a){
 				$subject = $subjectdetails[$a];	
+				$found = 1;
+				break;
+			}
+			else if ($a == $subjectsize && $found == 0){
+				$subject = "undefined";	
 			}
 		}
 		echo '<td width="140">'.$subject.'</td>';
+		$found = 0;
 		for ($a = 1; $a <= $mediasize; $a++){
 			if ($media == $a){
 				$media = $mediadetails[$a];	
+				$found = 1;
+				break;
+			}
+			else if ($a == $mediasize && $found == 0){
+				$media = "undefined";	
 			}
 		}
 		echo '<td width="140">'.$media.'</td>';

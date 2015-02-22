@@ -5,20 +5,15 @@
 		exit();
 	}
 	
-	if(isset($_POST['pkey'])){
-		$pkey = $_POST['pkey'];	
-		$pkey = mysql_real_escape_string($pkey);
-	}
-	
-	$sql = 'DELETE FROM subjectid WHERE pkey = '.$pkey.';';
+	$sql = 'INSERT INTO mediaid (`pkey`, `media`) VALUES (NULL, "New Media")';
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
 	}
-	
-	while($row=$result->fetch_array()){ 
+	while($result->fetch_array()){ 
 	
 	}
+	$result->free();
 	$mysqli->close();
 	
 ?>

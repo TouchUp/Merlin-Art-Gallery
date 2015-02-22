@@ -57,7 +57,6 @@
 		$bio = $row['bio'];
 		$sold = $row['sold'];
 		$others = $row['others'];
-		$image = $row['image'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		$doby = $row['doby'];
@@ -98,7 +97,7 @@
 			}
 			
 		}
-		echo '</select><br>';
+		echo '</select><input type="button" value="Manage Subjects" onClick="subjectmanage()"><br>';
 		echo '<label>Media</label><br>';
 		echo '<select id="nmedia">';
 		for ($a = 1; $a <= $mediasize; $a++){
@@ -111,7 +110,7 @@
 			}
 			
 		}
-		echo '</select><br>';
+		echo '</select><input type="button" value="Manage Medias" onClick="mediamanage()"><br>';
 		echo '<label>Painted Year</label>';
 		echo '<input type ="text"  style="width:50px;" id="npyear" value="'.$pyear.'" maxlength="4">';
 		echo '<label>Price</label>';
