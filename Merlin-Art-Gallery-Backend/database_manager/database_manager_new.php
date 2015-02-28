@@ -18,6 +18,33 @@
         <script>
 		
 			var currentfield = -1;
+			var searchorder = "name";
+			var searchtype = "asc"
+			
+			function setorder(orderby){
+				if (searchorder == orderby){
+					if (searchtype == "asc"){
+						
+						searchtype = "DESC";
+						document.getElementById(orderby).innerHTML="▾";	
+						searchby();
+					}
+					else if(searchtype=="DESC"){
+						searchtype = "asc";
+						document.getElementById(orderby).innerHTML="▴";
+						searchby();
+					}
+				}
+				else{
+					document.getElementById(searchorder).innerHTML="";
+					searchorder = orderby;
+					document.getElementById(searchorder).innerHTML="▴";	
+					searchtype = "asc";
+					searchby();
+				}
+				
+			}
+			
 			
 			function subjectmanage(){
 				newwindow=window.open('subjecteditor.php','name','height=400,width=450');
@@ -174,7 +201,7 @@
 				else if (window.ActiveXObject) { // IE 8 and older  
 					dxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
-				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch +"&mediasearch="+mediasearch+ "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch+"&pyearsearch="+pyearsearch;
+				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch +"&mediasearch="+mediasearch+ "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch+"&pyearsearch="+pyearsearch+"&searchorder="+searchorder+"&searchtype="+searchtype;
 				dxhr.open("POST", "phpscript/search.php", true);   
 				dxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				dxhr.send(data);  
@@ -302,21 +329,21 @@
    		<div>
     		<table width = "2340">
         		<tr>
-                	<th width="100">Image</th>
-            		<th width="100">ID</th>
-               		<th width="150">Name</th>
-                	<th width="200">Artist</th>
-                    <th width="50">Sold</th>
-                	<th width="100"> DOB (year) </th>
-                	<th width="150"> Nationality </th>
-                	<th width="140"> Subject </th>
-                    <th width="140"> Media </th>
-                    <th width="100"> Year Painted </th>
-                	<th width="120"> Price </th>
-                	<th width="120"> Height (cm) </th>
-                	<th width="120"> Width (cm) </th>
-                    <th width="200"> Painting Location</th>
-                	<th width="300"> Biography </th>
+                	<th width="100" Image <div id="image"></div></th>
+            		<th width="100" onClick="setorder('code')">ID<div style="float:left;" id="code"></div></th>
+               		<th width="150" onClick="setorder('name')">Name <div style="float:left;" id="name">▴</div></th>
+                	<th width="200" onClick="setorder('artist')">Artist <div style="float:left;" id="artist"></div></th>
+                    <th width="50" onClick="setorder('sold')">Sold <div style="float:left;" id="sold"></div></th>
+                	<th width="100" onClick="setorder('doby')"> DOB (year) <div style="float:left;" id="doby"></div></th>
+                	<th width="150" onClick="setorder('country')"> Nationality <div style="float:left;" id="country"></div></th>
+                	<th width="140" > Subject </th>
+                    <th width="140" > Media </th>
+                    <th width="100" onClick="setorder('pyear')"> Year Painted <div style="float:left;" id="pyear"></div></th>
+                	<th width="120" onClick="setorder('price')"> Price <div style="float:left;" id="price"></div></th>
+                	<th width="120" onClick="setorder('height')"> Height (cm) <div style="float:left;" id="height"></div></th>
+                	<th width="120" onClick="setorder('width')"> Width (cm) <div style="float:left;" id="width"></div></th>
+                    <th width="200" onClick="setorder('plocation')"> Painting Location <div style="float:left;" id="plocation"></div></th>
+                	<th width="300" onClick="setorder('bio')"> Biography <div style="float:left;" id="bio"></div></th>
                 	<th> Other Info </th>
             	</tr>
             	<tr>

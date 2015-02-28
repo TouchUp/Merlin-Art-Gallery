@@ -119,7 +119,20 @@
 	else{
 		$locsearch = "";
 	}
-	
+	if (isset($_POST['searchorder'])){
+		$orderby = $_POST['searchorder'];
+		$orderby = mysql_real_escape_string($orderby);
+	}
+	else{
+		$orderby = "name";
+	}
+	if (isset($_POST['searchtype'])){
+		$searchtype = $_POST['searchtype'];
+		$searchtype = mysql_real_escape_string($searchtype);
+	}
+	else{
+		$searchtype = "asc";
+	}
 	$subjectsize = 0;
 	$mediasize = 0;
 	$foundsubject = 0;
@@ -182,7 +195,14 @@
 	AND (subject LIKE "'.$genresearch.'")
 	AND (plocation LIKE "'.$locsearch.'%")
 	
+	ORDER BY '.$orderby.'
+	
 	';
+	
+	if ($searchtype == "DESC"){
+		$sql = $sql.' '.$searchtype;
+	}
+	
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
