@@ -344,7 +344,7 @@
                 	<th width="120" onClick="setorder('width')"> Width (cm) <div style="float:left;" id="width"></div></th>
                     <th width="200" onClick="setorder('plocation')"> Painting Location <div style="float:left;" id="plocation"></div></th>
                 	<th width="300" onClick="setorder('bio')"> Biography <div style="float:left;" id="bio"></div></th>
-                	<th> Other Info </th>
+                	<th onClick="setorder('others')"> Other Info <div style="float:left;" id="others"></div></th>
             	</tr>
             	<tr>
                 	<td></td>
