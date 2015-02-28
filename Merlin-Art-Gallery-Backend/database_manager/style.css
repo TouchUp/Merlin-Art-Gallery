@@ -1,0 +1,30 @@
+ * {
+ 	padding: 0;
+ 	margin: 0;
+ 	font-family: Arial;
+ 	color:rgba(70,70,80,1.0);
+ }
+
+ table {
+	border-collapse: collapse;
+	text-align:center;
+}
+
+td,th {
+	border-bottom: solid 1px gray;
+}
+
+th {
+	font-variant: small-caps;
+	line-height: 3em;
+	text-transform:lowercase;
+	background-color: rgb(135,206,235);
+}
+
+i {
+	margin-top: 20px;
+}
+
+ul li {
+	display: inline-block;
+}

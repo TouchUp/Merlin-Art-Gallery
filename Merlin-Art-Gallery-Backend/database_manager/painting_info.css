@@ -1,0 +1,59 @@
+/* LIEU'S OWN CODE IS HERE */
+
+
+h2 {
+
+	padding: 20px 0 20px 0;
+}
+
+.ui-layout-east h2{
+	text-align: center;
+}
+
+label {
+	font-family: Helvetica;
+	font-size: 1.2em;
+	font-weight: bold;
+	display:block;
+	padding: 10px 0 10px 0;
+}
+
+input, select{
+	padding: 10px;
+}
+
+input[type="text"]:not(#ncmheight, #ncmwidth) {
+	display: block;
+}
+
+input[type="number"] {
+	display: block;
+}
+
+input[type='search'] {
+	width:100%;
+	border:none;
+}
+
+
+#ndoby, #ndobm, #ndobd {
+	width: 50px;
+}
+
+
+textarea {
+	display: block;
+}
+
+
+
+#save_button {
+	width: 200px;
+	height: 100px;
+	font-size:3em;
+	font-weight: bold;
+	display:block;
+	margin: 50px 0 50px 0;
+	background-color: rgb(250,128,114);
+	border:none;
+}

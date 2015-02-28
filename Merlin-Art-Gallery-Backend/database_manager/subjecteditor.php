@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Edit subjects</title>
+	<link rel="stylesheet" href="./font-awesome-4.3.0/css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="layout-default-latest.CSS" />
 	<script src="javascript/jquery-2.1.3.min.js" type="text/javascript"></script>
 	<script src="javascript/jquery-ui-latest.js" type="text/javascript"></script>
@@ -166,8 +167,8 @@
 <body>
 
 	<div class="ui-layout-north">
-    	<input type="button" onMouseUp="create()" value="New Subject">
-        <input type="button" onMouseUp="removefield()" value="Delete">
+     	<i class = "fa fa-plus-square fa-3x " onMouseUp="create()" value="New Media"></i>
+        <i class = "fa fa-minus-square fa-3x "  onMouseUp="removefield()" value="Delete"></i>
     </div>
     
     <div class="ui-layout-center">

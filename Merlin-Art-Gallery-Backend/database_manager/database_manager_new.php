@@ -5,7 +5,11 @@
 		<meta charset="utf-8">
 		<title>Database Manager</title>
         
+        <link rel="stylesheet" href="./font-awesome-4.3.0/css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="layout-default-latest.CSS" />
+        <link type="text/css" rel="stylesheet" href="style.css" />
+        <link type="text/css" rel="stylesheet" href="icons.css" />
+        <link type="text/css" rel="stylesheet" href="painting_info.css" />
         <script src="javascript/jquery-2.1.3.min.js" type="text/javascript"></script>
         <script src="javascript/jquery-ui-latest.js" type="text/javascript"></script>
         <script src="javascript/jquery_layout.js" type="text/javascript"></script>
@@ -192,13 +196,15 @@
 					else{
 						currentfield.style.backgroundColor="#FFFFFF";
 						currentfield = row;
-						row.style.backgroundColor="#6EA498";
+						row.style.backgroundColor="rgb(180,180,180)";
+						//Not working row.style.color="red";
 					}
 				}
 				else{
 					
 					currentfield = row;
-					row.style.backgroundColor="#6EA498";
+					row.style.backgroundColor="rgb(180,180,180)";
+					//Not Working row.style.color="red";
 				}
 				
 			}
@@ -271,39 +277,39 @@
 				}
 			);
 		</script>
-        
-        
-        
-        <style type="text/css">
-			.ui-layout-resizer-east {
-				border-top:		1px solid #BBB;
-				}
 
-		</style>
 	</head>
 
 	<body>
+
 	
-    <div class="ui-layout-north">
-    	<input type="button" onMouseUp="create()" value="New Entry">
-        <input type="button" onMouseUp="removefield()" value="Delete">
-        <input type="button" value="Manage Subjects" onClick="subjectmanage()">
-        <input type="button" value="Manage Medias" onClick="mediamanage()">
+    <div class="ui-layout-north" >
+    	<h1>Painting Database </h1>
+    	<i class = "fa fa-plus-square fa-3x" onMouseUp="create()" value="New Entry"></i>
+        <i class = "fa fa-minus-square fa-3x" onMouseUp="removefield()" value="Delete"></i>
+
+        	<ul>
+        		<li><input type="button" value="Manage Subjects" onClick="subjectmanage()"></li>
+        		<li><input type="button" value="Manage Media" onClick="mediamanage()"></li>
+        	</ul>
+
+
+
     </div>
-    <div class="ui-layout-center" style="overflow:auto;">
+    <div class="ui-layout-center" >
    		<div>
-    		<table border=1 width = "2340">
+    		<table width = "2340">
         		<tr>
                 	<th width="100">Image</th>
             		<th width="100">ID</th>
                		<th width="150">Name</th>
                 	<th width="200">Artist</th>
-                    <th width="50">sold</th>
+                    <th width="50">Sold</th>
                 	<th width="100"> DOB (year) </th>
                 	<th width="150"> Nationality </th>
                 	<th width="140"> Subject </th>
                     <th width="140"> Media </th>
-                    <th width="100"> Painted year </th>
+                    <th width="100"> Year Painted </th>
                 	<th width="120"> Price </th>
                 	<th width="120"> Height (cm) </th>
                 	<th width="120"> Width (cm) </th>
@@ -313,22 +319,22 @@
             	</tr>
             	<tr>
                 	<td></td>
-            		<td><center><input type = 'search' style="width:90%;" results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()"></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'text' style="width:90%;" name = 'soldsearch' id = 'soldsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'yearsearch' placeholder = 'YYYY' id='yearsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'nationsearch' placeholder = 'Search' id='nationsearch' onKeyUp="searchby()"></center></td>
+            		<td><center><input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()"></td>
+                	<td><center><input type = 'search'  results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()"></center></td>
+                    <td><center><input type = 'search'  name = 'soldsearch' id = 'soldsearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'yearsearch' placeholder = 'YYYY' id='yearsearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'nationsearch' placeholder = 'Search' id='nationsearch' onKeyUp="searchby()"></center></td>
 
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'genresearch' placeholder = 'Search' id='genresearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search' style="width:90%;" results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search' style="width:90%;" results = '5' name = 'pyearsearch' placeholder = 'YYYY' id='pyearsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text' style="width:90%;" size='5' name = 'pricesearch' id='pricesearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text' style="width:90%;" size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text' style="width:90%;" size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search' style="width:90%;" results = '5' name = 'locsearch' placeholder = 'Search' id='locsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'biosearch' placeholder = 'Search' id='biosearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' style="width:90%;" results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'genresearch' placeholder = 'Search' id='genresearch' onKeyUp="searchby()"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchby()"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'pyearsearch' placeholder = 'YYYY' id='pyearsearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'pricesearch' id='pricesearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby()"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'locsearch' placeholder = 'Search' id='locsearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'biosearch' placeholder = 'Search' id='biosearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></center></td>
             	</tr>
         	</table>
         </div>
@@ -340,6 +346,7 @@
     </div>
     
     <div class ="ui-layout-east" id="editinfo">
+    		<h2>Painting Information </h2>
             Select field to edit
     </div>
 	</body>

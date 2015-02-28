@@ -68,24 +68,23 @@
 		$media = $row['media'];
 		$pyear = $row['pyear'];
 		$location = "../../images/";
+		echo '<h2>Painting Information</h2>';
 		echo '<input type="hidden" id="currentpkey" value='.$pkey.'>';
-		echo '<label>ID</label>';
+		echo '<label for="ncode">ID</label>';
 		echo '<input type ="text" id="ncode" value="'.$code.'">';
 		echo '<label>Title</label>';
 		echo '<input type ="text" id="nname" value="'.$name.'">';
 		echo '<label>Artist Name</label>';
 		echo '<input type ="text" id="nartist" value="'.$artist.'">';
-		echo '<label>Artist Date of Birth (Y/M/D)</label>';
-		echo '<table><tr>';
-		echo '<td><input type ="text" style="width:100px;" id="ndoby" value="'.$doby.'"></td>';
-		echo '<td><input type ="text" style="width:100px;" id="ndobm" value="'.$dobm.'"></td>';	
-		echo '<td><input type ="text" style="width:100px;" id="ndobd" value="'.$dobd.'"></td>';
-		echo '</tr></table>';
+		echo '<label>Artist’s Date of Birth (YYYY/MM/DD)</label>';
+		echo '<input type ="text"  id="ndoby" value="'.$doby.'"></td>';
+		echo '<input type ="text" id="ndobm" value="'.$dobm.'"></td>';	
+		echo '<input type ="text" id="ndobd" value="'.$dobd.'">';
 		echo '<label>Sold</label>';
-		echo '<input type ="text" style="width:20px;" id="nsold" value="'.$sold.'" maxlength="1">';
+		echo '<input type ="text" id="nsold" value="'.$sold.'" maxlength="1">';
 		echo '<label>Nationality</label>';
 		echo '<input type ="text" id="ncountry" value="'.$country.'">';
-		echo '<label>Subject</label><br>';
+		echo '<label>Subject</label>';
 		echo '<select id="nsubject">';
 		for ($a = 1; $a <= $subjectsize; $a++){
 			echo '<option value='.$a;
@@ -98,7 +97,7 @@
 			
 		}
 		echo '</select><br>';
-		echo '<label>Media</label><br>';
+		echo '<label>Media</label>';
 		echo '<select id="nmedia">';
 		for ($a = 1; $a <= $mediasize; $a++){
 			echo '<option value='.$a;
@@ -110,31 +109,39 @@
 			}
 			
 		}
-		echo '</select><br>';
+		echo '</select>';
+
 		echo '<label>Painted Year</label>';
-		echo '<input type ="text"  style="width:50px;" id="npyear" value="'.$pyear.'" maxlength="4">';
+		echo '<input type ="text"   id="npyear" value="'.$pyear.'" maxlength="4">';
 		echo '<label>Price</label>';
-		echo '<input type ="text"  style="width:100px;" id="nprice" value="'.$price.'" >';
+		echo '<input type ="text"   id="nprice" value="'.$price.'" >';
 		echo '<label>Height</label>';
-		echo '<input type ="text"  style="width:100px;" id="ncmheight" value="'.round($cmheight,2).'" >';
-		echo '<select id="htype" onChange="hconvert()"><option value="cm">cm</option><option value="in">in</option></select><br>';
+		echo '<input type ="text"  " id="ncmheight" value="'.round($cmheight,2).'" >';
+		echo '<select id="htype" onChange="hconvert()"><option value="cm">cm</option><option value="in">in</option></select>';
 		echo '<label>Width</label>';
-		echo '<input type ="text"  style="width:100px;" id="ncmwidth" value="'.round($cmwidth,2).'" >';
-		echo '<select id="wtype" onChange="wconvert()"><option value="cm">cm</option><option value="in">in</option></select><br>';
+		echo '<input type ="text"  " id="ncmwidth" value="'.round($cmwidth,2).'" >';
+		echo '<select id="wtype" onChange="wconvert()"><option value="cm">cm</option><option value="in">in</option></select>';
 		echo '<label>Painting Location</label>';
-		echo '<input type ="text"  style="width:150px;" id="nplocation" value="'.$plocation.'" >';
+		echo '<input type ="text" " id="nplocation" value="'.$plocation.'" >';
 		echo '<label>Biography</label>';
 		echo '<textarea rows="4" cols="50" id="nbio" value="'.$bio.'"></textarea>';
 		echo '<label>Other Info</label>';
-		echo '<input type ="text"  style="width:200px;" id="nothers" value="'.$others.'" > <br>';
-		echo '<input type ="button" value="Save" onMouseUp="save('.$pkey.')"><br><br><br><br>';
-		echo '<label>Image upload</label><br><br>';
-		echo 'Current Image<br>';
+		echo '<input type ="text" id="nothers" value="'.$others.'" >';
+
+
+
+
+
+
+		echo '<h2>Image Upload</h2>';
+		echo '<label>Current Image</label>';
 		echo '<div id="preview">';
-		echo '<img src="'.$location.$pkey.'?'.rand().'" height = "100" width = "100" /><br><br>';
+		echo '<img src="'.$location.$pkey.'?'.rand().'" height = "100" width = "100" />';
 		echo '</div>';
 		echo '<input type="file" name="image" id="newimage" accept="image/*">';
 		echo '<input type="button" value="Upload" onMouseUp="uploadfile('.$pkey.')" id="uploadbutton" >';
+
+		echo '<input type ="button" id = "save_button" value="Save" onMouseUp="save('.$pkey.')">';
 	}
 	$result->free();
 	$mysqli->close();

@@ -145,7 +145,7 @@
 	if ($mysqli->error) { // add this check.
     	die('Invalid query: ' . $mysqli->error);
 	}
-	echo '<table border=1 width="2340">';
+	echo '<table width="2340">';
 	$a = 0;
 	while($row=$result->fetch_array()){ 
 		$pkey = $row['pkey'];
