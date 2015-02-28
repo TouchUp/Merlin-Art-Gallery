@@ -10,6 +10,7 @@
         <link type="text/css" rel="stylesheet" href="style.css" />
         <link type="text/css" rel="stylesheet" href="icons.css" />
         <link type="text/css" rel="stylesheet" href="painting_info.css" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
         <script src="javascript/jquery-2.1.3.min.js" type="text/javascript"></script>
         <script src="javascript/jquery-ui-latest.js" type="text/javascript"></script>
         <script src="javascript/jquery_layout.js" type="text/javascript"></script>
