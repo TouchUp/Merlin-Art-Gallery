@@ -117,10 +117,13 @@
 	
 	if (isset($_POST['nbio'])){
 		$nbio = $_POST['nbio'];
+		if ($nbio == ''){
+			$nbio = "None";	
+		}
 		$nbio = mysql_real_escape_string($nbio);
 	}
 	else{
-		$nbio = "";
+		$nbio = "None";
 	}
 	
 	if (isset($_POST['nsold'])){

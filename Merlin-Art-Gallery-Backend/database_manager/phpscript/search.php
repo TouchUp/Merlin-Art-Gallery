@@ -169,16 +169,18 @@
 	(artist LIKE "'.$artistsearch.'%") 
 	AND (code LIKE "'.$idsearch.'%") 
 	AND (name LIKE "'.$namesearch.'%") 
+	AND (country LIKE "'.$nationsearch.'%")
 	AND (others LIKE "'.$othersearch.'%")
 	AND (price LIKE "'.$pricesearch.'%")
 	AND (height LIKE "'.$heightsearch.'%")
 	AND (width LIKE "'.$widthsearch.'%")
-	AND (bio LIKE "'.$biosearch.'%")
+	AND (bio LIKE "%'.$biosearch.'%")
 	AND (sold LIKE "'.$soldsearch.'%")
 	AND (doby LIKE "'.$yearsearch.'%")
 	AND (pyear LIKE "'.$pyearsearch.'%")
 	AND (media LIKE "'.$mediasearch.'")
 	AND (subject LIKE "'.$genresearch.'")
+	AND (plocation LIKE "'.$locsearch.'%")
 	
 	';
 	$result=$mysqli->query($sql); 
@@ -219,7 +221,7 @@
 		echo '<td width="150">'.$country.'</td>';
 		$found = 0;
 		for ($a = 1; $a <= $subjectsize; $a++){
-			if ($subject == $a){
+			if ($subject == $subjectdetails[$a]['pkey']){
 				$subject = $subjectdetails[$a]['name'];	
 				$found = 1;
 				break;
@@ -231,7 +233,7 @@
 		echo '<td width="140">'.$subject.'</td>';
 		$found = 0;
 		for ($a = 1; $a <= $mediasize; $a++){
-			if ($media == $a){
+			if ($media == $mediadetails[$a]['pkey']){
 				$media = $mediadetails[$a]['name'];	
 				$found = 1;
 				break;

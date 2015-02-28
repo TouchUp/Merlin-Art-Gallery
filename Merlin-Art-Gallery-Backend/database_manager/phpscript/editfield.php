@@ -26,7 +26,8 @@
 	}
 	while($row=$result->fetch_array()){ 
 		$subjectsize += 1;
-		$subjectdetails[$subjectsize] = $row['subject'];
+		$subjectdetails[$subjectsize]['name'] = $row['subject'];
+		$subjectdetails[$subjectsize]['pkey'] = $row['pkey'];
 	}
 	
 	$sql1 = 'SELECT * FROM mediaid';
@@ -36,7 +37,8 @@
 	}
 	while($row=$result->fetch_array()){ 
 		$mediasize += 1;
-		$mediadetails[$mediasize] = $row['media'];
+		$mediadetails[$mediasize]['name'] = $row['media'];
+		$mediadetails[$mediasize]['pkey'] = $row['pkey'];
 	}
 	
 	$sql = 'SELECT * FROM images WHERE 
@@ -87,12 +89,12 @@
 		echo '<label>Subject</label>';
 		echo '<select id="nsubject">';
 		for ($a = 1; $a <= $subjectsize; $a++){
-			echo '<option value='.$a;
+			echo '<option value='.$subjectdetails[$a]['pkey'];
 			if ($a == $subject){
-				echo ' selected>'.$subjectdetails[$a].'</options>';	
+				echo ' selected>'.$subjectdetails[$a]['name'].'</options>';	
 			}
 			else{
-				echo '>'.$subjectdetails[$a].'</options>';
+				echo '>'.$subjectdetails[$a]['name'].'</options>';
 			}
 			
 		}
@@ -100,12 +102,12 @@
 		echo '<label>Media</label>';
 		echo '<select id="nmedia">';
 		for ($a = 1; $a <= $mediasize; $a++){
-			echo '<option value='.$a;
+			echo '<option value='.$mediadetails[$a]['pkey'];
 			if ($a == $media){
-				echo ' selected>'.$mediadetails[$a].'</options>';	
+				echo ' selected>'.$mediadetails[$a]['name'].'</options>';	
 			}
 			else{
-				echo '>'.$mediadetails[$a].'</options>';
+				echo '>'.$mediadetails[$a]['name'].'</options>';
 			}
 			
 		}
