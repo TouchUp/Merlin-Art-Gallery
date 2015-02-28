@@ -109,7 +109,7 @@
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
 				}
-				var delay=setTimeout(searchby, 50);
+				var delay=setTimeout(searchby, 100);
 			}
 			
 			function save(a){
@@ -159,6 +159,7 @@
 				var yearsearch = document.getElementById("yearsearch").value;  
 				var nationsearch = document.getElementById("nationsearch").value;  
 				var genresearch = document.getElementById("genresearch").value;  
+				var mediasearch = document.getElementById("mediasearch").value;
 				var pricesearch = document.getElementById("pricesearch").value;  
 				var heightsearch = document.getElementById("heightsearch").value;  
 				var widthsearch = document.getElementById("widthsearch").value; 
@@ -166,13 +167,14 @@
 				var othersearch = document.getElementById("othersearch").value;
 				var soldsearch = document.getElementById("soldsearch").value;
 				var locsearch = document.getElementById("locsearch").value;
+				var pyearsearch = document.getElementById("pyearsearch").value;
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
 					dxhr = new XMLHttpRequest();  
 				}
 				else if (window.ActiveXObject) { // IE 8 and older  
 					dxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
-				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch + "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch;
+				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch +"&mediasearch="+mediasearch+ "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch+"&pyearsearch="+pyearsearch;
 				dxhr.open("POST", "phpscript/search.php", true);   
 				dxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				dxhr.send(data);  
@@ -254,8 +256,8 @@
      					}  
   					} 
 					*/
-					var delay=setTimeout(searchby, 50);
-					var delay1=setTimeout(function(){editfield(pkey)}, 50);
+					var delay=setTimeout(searchby, 100);
+					var delay1=setTimeout(function(){editfield(pkey)}, 100);
 				}
 				
 				

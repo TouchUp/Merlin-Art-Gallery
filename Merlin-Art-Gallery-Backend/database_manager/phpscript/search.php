@@ -41,6 +41,13 @@
 	else {
 		$yearsearch = "";
 	}
+	if (isset($_POST['pyearsearch'])){
+		$pyearsearch = $_POST['pyearsearch'];
+		$pyearsearch = mysql_real_escape_string($pyearsearch);
+	}
+	else {
+		$pyearsearch = "";
+	}
 	if (isset($_POST['nationsearch'])){
 		$nationsearch = $_POST['nationsearch'];
 		$nationsearch  = mysql_real_escape_string($nationsearch );
@@ -55,6 +62,15 @@
 	else{
 		$genresearch = 0;
 	}
+	
+	if (isset($_POST['mediasearch'])){
+		$mediasearch = $_POST['mediasearch'];
+		$mediasearch = mysql_real_escape_string($mediasearch);
+	}
+	else{
+		$mediasearch = 0;
+	}
+	
 	
 	if (isset($_POST['pricesearch'])){
 		$pricesearch = $_POST['pricesearch'];
@@ -106,8 +122,11 @@
 	
 	$subjectsize = 0;
 	$mediasize = 0;
-	$subjectdetails = array();
-	$mediadetilas = array();
+	$foundsubject = 0;
+	$foundmedia = 0;
+	
+	$subjectdetails = array( array() );
+	$mediadetilas = array(array() );
 	
 	$sql0 = 'SELECT * FROM subjectid';
 	$result=$mysqli->query($sql0); 
@@ -116,7 +135,12 @@
 	}
 	while($row=$result->fetch_array()){ 
 		$subjectsize += 1;
-		$subjectdetails[$subjectsize] = $row['subject'];
+		$subjectdetails[$subjectsize]['name'] = $row['subject'];
+		$subjectdetails[$subjectsize]['pkey'] = $row['pkey'];
+		if ($genresearch == $subjectdetails[$subjectsize]['name']){
+			$genresearch = 	$subjectdetails[$subjectsize]['pkey'];
+			$foundsubject = 1;
+		}
 	}
 	
 	$sql1 = 'SELECT * FROM mediaid';
@@ -126,7 +150,19 @@
 	}
 	while($row=$result->fetch_array()){ 
 		$mediasize += 1;
-		$mediadetails[$mediasize] = $row['media'];
+		$mediadetails[$mediasize]['name'] = $row['media'];
+		$mediadetails[$mediasize]['pkey'] = $row['pkey'];
+		if ($mediasearch ==$mediadetails[$mediasize]['name']){
+			$mediasearch = 	$mediadetails[$mediasize]['pkey'];
+			$foundmedia = 1;
+		}
+	}
+	
+	if ($foundmedia == 0){
+		$mediasearch="%";	
+	}
+	if ($foundsubject == 0){
+		$genresearch="%";	
 	}
 	
 	$sql = 'SELECT * FROM images WHERE 
@@ -139,6 +175,10 @@
 	AND (width LIKE "'.$widthsearch.'%")
 	AND (bio LIKE "'.$biosearch.'%")
 	AND (sold LIKE "'.$soldsearch.'%")
+	AND (doby LIKE "'.$yearsearch.'%")
+	AND (pyear LIKE "'.$pyearsearch.'%")
+	AND (media LIKE "'.$mediasearch.'")
+	AND (subject LIKE "'.$genresearch.'")
 	
 	';
 	$result=$mysqli->query($sql); 
@@ -166,11 +206,11 @@
 		$location= $row['plocation'];
 		$media = $row['media'];
 		$pyear = $row['pyear'];
-		$location = "../../images/";
+		$locationz = "../../images/";
 		echo '<tr onclick="editfield('.$pkey.');shade(this);" id="'.$pkey.'">';
 		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
-		echo '<td width="100"><img src="'.$location.$pkey.'?'.rand().'" height = "80" width = "80" /></td>';
+		echo '<td width="100"><img src="'.$locationz.$pkey.'_thumb?'.rand().'" height = "80" width = "80" /></td>';
 		echo '<td width="100">'.$code.'</td>';
 		echo '<td width="150">'.$name.'</td>';
 		echo '<td width="200">'.$artist.'</td>';
@@ -180,7 +220,7 @@
 		$found = 0;
 		for ($a = 1; $a <= $subjectsize; $a++){
 			if ($subject == $a){
-				$subject = $subjectdetails[$a];	
+				$subject = $subjectdetails[$a]['name'];	
 				$found = 1;
 				break;
 			}
@@ -192,7 +232,7 @@
 		$found = 0;
 		for ($a = 1; $a <= $mediasize; $a++){
 			if ($media == $a){
-				$media = $mediadetails[$a];	
+				$media = $mediadetails[$a]['name'];	
 				$found = 1;
 				break;
 			}
