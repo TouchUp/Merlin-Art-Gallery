@@ -1,7 +1,7 @@
 <?php
 	function makeThumbnails($updir, $id){
-    	$thumbnail_width = 80;
-   		$thumbnail_height = 80;
+    	$thumbnail_width = 200;
+   		$thumbnail_height = 200;
     	$thumb_beforeword = "thumb";
     	$arr_image_details = getimagesize("$updir" . $id); // pass id to thumb name
     	$original_width = $arr_image_details[0];

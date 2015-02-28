@@ -141,23 +141,22 @@
 		$bio = $row['bio'];
 		$sold = $row['sold'];
 		$others = $row['others'];
-		$image = $row['image'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
 		echo '<tr>';
 		
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
 		echo '<td><input type=button  onmouseup="addimage('.$pkey.')" value="Add"/></td>';
-		echo '<td><img src="'.$location.$pkey.'?'.rand().'" height = "80" width = "80" /></td>';
+		echo '<td><img src="'.$location.$pkey.'_thumb?'.rand().'" height = "80" width = "80" /></td>';
 		echo '<td>'.$code.'</td>';
 		echo '<td>'.$name.'</td>';
 		echo '<td>'.$artist.'</td>';
 		echo '<td>'.$price.'</td>';
-		echo '<td>'.$cmheight.'</td>';
-		echo '<td>'.$cmwidth.'</td>';
+		echo '<td>'.(round($cmheight*100)/100).'</td>';
+		echo '<td>'.(round($cmwidth)/100).'</td>';
 		echo '<td>'.$inheight.'</td>';
 		echo '<td>'.$inwidth.'</td>';
-		echo '<td>'.$bio.'</td>';
+		echo '<td><div style="height:80px; overflow-y:auto;">'.$bio.'</bio></td>';
 		echo '<td>'.$sold.'</td>';
 		echo '<td>'.$others.'</td>';
 		echo '</tr>';

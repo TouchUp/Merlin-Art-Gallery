@@ -167,7 +167,7 @@
 
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
-			<div id="searchpic">
+			<div id="searchpic" style="height:800px; overflow:auto; width:100%;">
             
 			
 			</div>
