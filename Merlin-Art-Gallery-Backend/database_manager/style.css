@@ -23,8 +23,22 @@ th {
 
 i {
 	margin-top: 20px;
+	margin-left: 10px;
+}
+
+/*For the buttons on the header */
+
+ul {
+	display:inline;
 }
 
 ul li {
 	display: inline-block;
+}
+
+ul li input[type="button"] {
+	width: 150px;
+	margin-left: 10px;
+	/*This float aligns it with the buttons */
+	float: right;
 }

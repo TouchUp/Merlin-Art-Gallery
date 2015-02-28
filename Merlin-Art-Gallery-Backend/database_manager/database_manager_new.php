@@ -10,7 +10,7 @@
         <link type="text/css" rel="stylesheet" href="style.css" />
         <link type="text/css" rel="stylesheet" href="icons.css" />
         <link type="text/css" rel="stylesheet" href="painting_info.css" />
-        <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
         <script src="javascript/jquery-2.1.3.min.js" type="text/javascript"></script>
         <script src="javascript/jquery-ui-latest.js" type="text/javascript"></script>
         <script src="javascript/jquery_layout.js" type="text/javascript"></script>
@@ -290,7 +290,6 @@
     	<h1>Painting Database </h1>
     	<i class = "fa fa-plus-square fa-3x" onMouseUp="create()" value="New Entry"></i>
         <i class = "fa fa-minus-square fa-3x" onMouseUp="removefield()" value="Delete"></i>
-
         	<ul>
         		<li><input type="button" value="Manage Subjects" onClick="subjectmanage()"></li>
         		<li><input type="button" value="Manage Media" onClick="mediamanage()"></li>
