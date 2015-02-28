@@ -79,11 +79,33 @@
 		echo '<label>Artist Name</label>';
 		echo '<input type ="text" id="nartist" value="'.$artist.'">';
 		echo '<label>Artist’s Date of Birth (YYYY/MM/DD)</label>';
-		echo '<input type ="text"  id="ndoby" value="'.$doby.'"></td>';
-		echo '<input type ="text" id="ndobm" value="'.$dobm.'"></td>';	
-		echo '<input type ="text" id="ndobd" value="'.$dobd.'">';
+		echo '<input type ="text"  id="ndoby" maxlength="4" value="'.$doby.'"></td>';
+		echo '<input type ="text" id="ndobm" maxlength="2" value="'.$dobm.'"></td>';	
+		echo '<input type ="text" id="ndobd" maxlength="2" value="'.$dobd.'">';
 		echo '<label>Sold</label>';
-		echo '<input type ="text" id="nsold" value="'.$sold.'" maxlength="1">';
+		echo '
+		<select id="nsold">
+		<option value="0" ';
+		if ($sold == 1){
+			echo'selected';	
+		}
+		echo '
+		>No</option>
+		';
+		echo '
+		<option value="2" ';
+		if ($sold == 2){
+			echo'selected';	
+		}
+		echo '
+		>Yes</option>
+		
+		</select><br>
+		';
+		
+		
+		
+		//echo '<input type ="text" id="nsold" value="'.$sold.'" maxlength="1">';
 		echo '<label>Nationality</label>';
 		echo '<input type ="text" id="ncountry" value="'.$country.'">';
 		echo '<label>Subject</label>';

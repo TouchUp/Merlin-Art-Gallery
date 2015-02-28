@@ -107,6 +107,15 @@
 	if (isset($_POST['soldsearch'])){
 		$soldsearch = $_POST['soldsearch'];
 		$soldsearch = mysql_real_escape_string($soldsearch);
+		if ($soldsearch == "yes" || $soldsearch == 2){
+			$soldsearch = 2;
+		}
+		else if($soldsearch == "no" || $soldsearch == 1){
+			$soldsearch = 1;
+		}
+		else{
+			$soldsearch = "";	
+		}
 	}
 	else{
 		$soldsearch = "";
@@ -219,6 +228,12 @@
 		$cmwidth = $row['width'];
 		$bio = $row['bio'];
 		$sold = $row['sold'];
+		if ($sold == 2){
+			$sold = "Yes";	
+		}
+		else{
+			$sold = "No";
+		}
 		$others = $row['others'];
 		$inwidth = round(($cmwidth/2.54) * 100) / 100;
 		$inheight = round(($cmheight/2.54) * 100) / 100;
