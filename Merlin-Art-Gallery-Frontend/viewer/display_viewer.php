@@ -86,22 +86,44 @@
 		for (a = 0; a < imagecount; a++){
 			visited[a] = false;	
 		}
+		var z = 0
+		var speed = 1
 		
+		function scroll() {
+			z = z + speed
+			var div = document.getElementById("descr_wrapper")
+			div.scrollTop = z
+			if (z >= div.scrollHeight-300) {
+				z = 0
+				t1=setTimeout("scroll()",5000)
+			}
+			else{
+				t1=setTimeout("scroll()",100)
+			}
+			
+		}
 		function pageLoad(){
 			setTransitionProperties();
 		}
 
 		function setTransitionProperties(){
 			nextPicture(); //So that it displays the first picture instantly
+			scroll();
 			var transition_time = <?php echo $transtime; ?>;
 			temp = transition_time * 1000;
 
 			var start = setInterval(function(){nextPicture()}, temp);
 		}
+		var speed = 1
+		
 		
 		
 
 	</script>
+    <script language="javascript">
+i = 0
+
+</script>
     
     
     

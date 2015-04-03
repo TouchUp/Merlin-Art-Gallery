@@ -22,6 +22,7 @@ html, body {
 
 #description {
 	text-align:left;
+	overflow: hidden;
 	width: 80%;
 	margin: 0 auto;
 }
