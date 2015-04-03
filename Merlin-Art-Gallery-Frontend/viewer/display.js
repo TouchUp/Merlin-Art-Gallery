@@ -103,7 +103,6 @@
 			dphtml += '</ul>';
 			document.getElementById('description').innerHTML = dphtml;
 
-
 			//concatenate all the innerHTML; loops through all
 			/*
 			for (d=0; d <= imageInfo.length; d ++) {	

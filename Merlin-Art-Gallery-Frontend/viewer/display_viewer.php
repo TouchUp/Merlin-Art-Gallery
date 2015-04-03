@@ -68,16 +68,9 @@
 		}
 	?>
     
-</head>
-
-<body onload = "pageLoad()">	
-	<div id = "picture"></div>
-	<div id = "descr_wrapper"><div id = "description"></div></div>
-
-	<script src = 'image_scroller.js'></script>
+    
 	<script src = 'display.js'></script>
-
-	<script language="javascript">
+    <script language="javascript">
 		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
 		var visited = [];
 		//
@@ -105,10 +98,19 @@
 
 			var start = setInterval(function(){nextPicture()}, temp);
 		}
-
+		
 		
 
 	</script>
+    
+    
+    
+</head>
+
+<body onload = "pageLoad()">	
+	
+	<div id = "picture"></div>
+	<div id = "descr_wrapper"><div id = "description"></div></div>
 	
 </body>
 </html>
