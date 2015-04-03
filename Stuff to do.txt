@@ -10,3 +10,5 @@ Problems :
 - Add a scrolling speed option
 
 - Have the option to SAVE transition selections somehow so that people don’t have to select the same thing over and over again
+
+Size of pixels = 0.0295 inch / 0.07493cm
