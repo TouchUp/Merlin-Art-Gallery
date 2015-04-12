@@ -3,54 +3,63 @@ var ZOOM = false;
 
 // Get dimensions of the viewport
 
-var VIEWPORT_W = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-var VIEWPORT_H = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+var VIEWPORT_W = (window.innerWidth);
+var VIEWPORT_H = window.innerHeight;
+//var VIEWPORT_H = Math.max(document.documentElement.clientHeight, window.innerHeight);
+console.log(VIEWPORT_W, VIEWPORT_H);
+
 
 //Get dimensions of the current image
-
-var IMG =  document.getElementById('picture'); //doesn't work; returns null
 //alert(IMG);
 
-var CURRENT_W = IMG.clientWidth;
-var CURRENT_H = IMG.clientHeight;
+var CURRENT_W;
+var CURRENT_H;
+
+var PICTURE;
 
 //Get dimensions of the black bar
 
-var INFO_BAR = document.getElementById('description'); //doesn't work; returns null
+//var INFO_BAR = document.getElementById("description"); //doesn't work; returns null
 
-var BAR_H =  INFO_BAR.clientHeight;
-var BAR_W = INFO_BAR.clientWidth;
+var BAR_H =  document.getElementById("descr_wrapper").clientHeight;
+var BAR_W = document.getElementById("descr_wrapper").clientWidth;
 
-//alert(BAR_H);
 
 // Get dimensions of the actual, usable area 
 
-var USABLE_W = VIEWPORT_W - BAR_W;
-var USABLE_H = VIEWPORT_H - BAR_H;
+var USABLE_W = VIEWPORT_W;
+var USABLE_H = (VIEWPORT_H - BAR_H);
+
+console.log("usable:", USABLE_W, USABLE_H);
 
 //Scrolling speed of image 
 //Doesn't work yet
 
-var SCROLL_SPEED = 0;
+var SCROLL_SPEED = 3;
 
 // This calls the div id 'picture'
-PICTURE = document.getElementById('picture');
+
 
 function sizeChecker() {
 	//This function checks the size of the image
-	if ((CURRENT_W < USABLE_W || CURRENT_H < USABLE_H) && ZOOM === true){
+	PICTURE = document.getElementById('picture');
+	//First, reset all animation classes 	
+
+	if ((CURRENT_W > USABLE_W || CURRENT_H > USABLE_H) && ZOOM === true){
 		zoomImage();
 	}
 	else if (CURRENT_W < USABLE_W  && CURRENT_H < USABLE_H){
-			scrollImage_x();
-			scrollImage_y();
+			//scrollImage_x();
+			//scrollImage_y();
 			//This will scroll both simultaneously, causing diagonal scrolling (unwanted behaviour!!)			
 		}
-	else if (CURRENT_W < USABLE_W) {
+	else if (CURRENT_W > USABLE_W) {
 		scrollImage_x();
 	}
-	else if (CURRENT_H < USABLE_H) {
+	else if (CURRENT_H > USABLE_H) {
 		scrollImage_y();
+	}
+	else {
 	}
 }
 
@@ -63,31 +72,61 @@ function zoomImage() {
 }
 
 function scrollImage_x() {
+	console.log(PICTURE);
 	//Let's first find by how much the image overflows.
 	var overflow_w = (CURRENT_W - USABLE_W);
 	//Now, we translate in the positive-x axis by this overflow amount
 
 	PICTURE.style.marginLeft = +overflow_w+ 'px';
-	alert('Left margin:' + PICTURE.style.marginLeft);
+	console.log('Left margin:' + PICTURE.style.marginLeft);
 	//Then we get the scrolling speed
-	//document.getElementById('picture.translate_x').style.-webkit-transition = +scrollSpeed+ 's';
-	//document.getElementById('picture.translate_x').style.-moz-transition = +scrollSpeed+ 's';
-	//document.getElementById('picture.translate_x').style.transition = +scrollSpeed+ 's';
-
 	//Then, let's add the css class to the div such that it starts animating
-	picture.style.marginLeft.classList.add('translate_x');
-
+	PICTURE.classList.add('translate_x');
+	document.getElementsByClassName('translate_x')[0].style.marginLeft = (overflow_w * (-1)+ 50) +'px';
+	document.getElementsByClassName('translate_x')[0].style.webkittransition = SCROLL_SPEED + 's';
+	document.getElementsByClassName('translate_x')[0].style.moztransition = SCROLL_SPEED + 's';
+	document.getElementsByClassName('translate_x')[0].style.transition = SCROLL_SPEED + 's';
+	PICTURE.classList.remove('translate_x');
+				
 }
 
 function scrollImage_y() {
+	console.log(PICTURE);
 	var overflow_h = (CURRENT_H - USABLE_H);
 
-	PICTURE.style.marginTop = +overflow_h+ 'px'; 
-	alert('Top margin:' + PICTURE.style.marginTop);
-	//document.getElementById('picture.translate_y').style.-webkit-transition = +scrollSpeed+ 's';
-	//document.getElementById('picture.translate_y').style.-moz-transition = +scrollSpeed+ 's';
-	//document.getElementById('picture.translate_y').style.transition = +scrollSpeed+ 's';
+	//PICTURE.style.marginTop = +overflow_h+ 'px'; 
+	console.log('Top margin:' + PICTURE.style.marginTop);
+	
+	PICTURE.classList.add('translate_y');
+	document.getElementsByClassName('translate_y')[0].style.marginTop = (overflow_h * -1+ 50) +'px';
+	document.getElementsByClassName('translate_y')[0].style.webkittransition = SCROLL_SPEED + 's';
+	document.getElementsByClassName('translate_y')[0].style.moztransition = SCROLL_SPEED + 's';
+	document.getElementsByClassName('translate_y')[0].style.transition = SCROLL_SPEED + 's';
+	
+	//alert(overflow_h * -1);
+	PICTURE.classList.remove('translate_y');
 
-	picture.style.marginTop.classList.add('translate_y');
+}
 
+function changeImagePosition(){
+	
+	CURRENT_W =  document.getElementById("image").clientWidth;
+	CURRENT_H = document.getElementById("image").clientHeight;
+	
+	//alert(VIEWPORT_W);
+	
+	if (CURRENT_W >= USABLE_W){
+		document.getElementById("picture").style.textAlign = "left";
+		
+	}
+	else{
+		document.getElementById("picture").style.textAlign = "center";
+	}
+	if (CURRENT_H < USABLE_H){
+		document.getElementById("picture").style.marginTop = ((((USABLE_H-CURRENT_H)/USABLE_H)*(50/1.5))) + "vh";	
+	}
+	else{
+		document.getElementById("picture").style.marginTop = 0;	
+	}
+	
 }

@@ -70,6 +70,8 @@
     
     
 	<script src = 'display.js'></script>
+    
+    
     <script language="javascript">
 		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
 		var visited = [];
@@ -88,6 +90,8 @@
 		}
 		var z = 0
 		var speed = 1
+		
+		
 		
 		function scroll() {
 			z = z + speed
@@ -109,6 +113,7 @@
 		function setTransitionProperties(){
 			nextPicture(); //So that it displays the first picture instantly
 			scroll();
+			
 			var transition_time = <?php echo $transtime; ?>;
 			temp = transition_time * 1000;
 
@@ -135,4 +140,5 @@ i = 0
 	<div id = "descr_wrapper"><div id = "description"></div></div>
 	
 </body>
+<script src='image_scroller.js'></script>
 </html>

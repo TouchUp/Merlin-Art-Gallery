@@ -12,7 +12,7 @@
 			var actual_height;
 			var actual_width;
 			// Magic number
-			var multiplier = 1.53;
+			var multiplier = 1.12;
 			
 			if (dp['showrandom'] == true){
 				var loop = 0;
@@ -68,8 +68,8 @@
 				width = imagearray[i]['width'];
 				height = imagearray[i]['height'];
 				
-				actual_width = (width/pixelsize)  *multiplier;
-				actual_height = (height/pixelsize)  * multiplier;
+				actual_width = (width/pixelsize) * multiplier;
+				actual_height = (height/pixelsize) * multiplier;
 				
 				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = "'+actual_width+'px" height = "'+actual_height+'px">';
 				displayInfo(); //calls the function to display related info as well
@@ -79,6 +79,8 @@
 
 				getHeightWidth(i);
 			}
+			changeImagePosition();
+			sizeChecker();
 			
 
 		}

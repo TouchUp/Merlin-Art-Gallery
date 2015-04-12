@@ -2,6 +2,7 @@ html, body {
 	margin:0;
 	padding: 0;
 	background-color: rgba(100,100,100,1);
+	overflow: hidden;	
 }
 
 #picture {
@@ -32,28 +33,42 @@ html, body {
 	list-style-type: none;
 }
 
+/*
 img {
 	position:relative;
-	margin-top : 25vh;
 	
 }
+*/
 
 #picture {
 	text-align:center;
-	width: 100%;
+	position:relative;
+	overflow:hidden;
 }
 
 #picture.translate_x {
+	/*
 	-webkit-transition: 3s;
 	-moz-transition: 3s;
 	transition: 3s;
-	margin-left: 0px !important;
+	*/
 }
 
 #picture.translate_y{
+	/*
 	-webkit-transition: 3s;
 	-moz-transition: 3s;
 	transition: 3s;
-	margin-top: 0px !important;
+	*/
 }
 
+/*
+This is necessary for clientWidth to work because it only works for block
+
+#image{
+	
+	display:block;
+	
+}
+
+*/
