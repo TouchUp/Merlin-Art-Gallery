@@ -43,7 +43,11 @@ var SCROLL_SPEED = 3;
 function sizeChecker() {
 	//This function checks the size of the image
 	PICTURE = document.getElementById('picture');
-	//First, reset all animation classes 	
+	//First, reset all animation classes 
+    
+    PICTURE.classList.remove('translate_x');
+    PICTURE.classList.remove('translate_y');
+
 
 	if ((CURRENT_W > USABLE_W || CURRENT_H > USABLE_H) && ZOOM === true){
 		zoomImage();
@@ -79,14 +83,22 @@ function scrollImage_x() {
 
 	PICTURE.style.marginLeft = +overflow_w+ 'px';
 	console.log('Left margin:' + PICTURE.style.marginLeft);
-	//Then we get the scrolling speed
+    
 	//Then, let's add the css class to the div such that it starts animating
+    var x_rule = getCSSRule('#picture.translate_x');
+    x_rule.style.marginLeft = (overflow_w * (-1)+ 50) +'px';
+    x_rule.style.webkittransition = SCROLL_SPEED + 's';
+    x_rule.style.transition = SCROLL_SPEED + 's'
+    
 	PICTURE.classList.add('translate_x');
+    
+    /*
 	document.getElementsByClassName('translate_x')[0].style.marginLeft = (overflow_w * (-1)+ 50) +'px';
 	document.getElementsByClassName('translate_x')[0].style.webkittransition = SCROLL_SPEED + 's';
 	document.getElementsByClassName('translate_x')[0].style.moztransition = SCROLL_SPEED + 's';
 	document.getElementsByClassName('translate_x')[0].style.transition = SCROLL_SPEED + 's';
-	PICTURE.classList.remove('translate_x');
+	*/
+    
 				
 }
 
@@ -96,15 +108,22 @@ function scrollImage_y() {
 
 	//PICTURE.style.marginTop = +overflow_h+ 'px'; 
 	console.log('Top margin:' + PICTURE.style.marginTop);
-	
+    
+    var y_rule = getCSSRule('#picture.translate_y');
+    y_rule.style.marginLeft = (overflow_h * (-1)+ 50) +'px';
+    y_rule.style.webkittransition = SCROLL_SPEED + 's';
+    y_rule.style.transition = SCROLL_SPEED + 's'
+    
 	PICTURE.classList.add('translate_y');
+    
+    /*
 	document.getElementsByClassName('translate_y')[0].style.marginTop = (overflow_h * -1+ 50) +'px';
 	document.getElementsByClassName('translate_y')[0].style.webkittransition = SCROLL_SPEED + 's';
 	document.getElementsByClassName('translate_y')[0].style.moztransition = SCROLL_SPEED + 's';
 	document.getElementsByClassName('translate_y')[0].style.transition = SCROLL_SPEED + 's';
 	
 	//alert(overflow_h * -1);
-	PICTURE.classList.remove('translate_y');
+    */
 
 }
 
