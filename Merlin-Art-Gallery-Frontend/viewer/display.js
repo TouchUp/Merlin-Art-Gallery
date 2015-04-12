@@ -1,6 +1,19 @@
+		var screendiagonal = 65;
+		var screenresolution = 1920;
+		var z = Math.sqrt((screendiagonal*screendiagonal)/337);
+		var screenwidth = z * 16;
 		
+		var screenheight = z * 9;
+		var pixelsize = (screenwidth / screenresolution)*2.54;
 
 		function nextPicture (){
+			var width;
+			var height;
+			var actual_height;
+			var actual_width;
+			// Magic number
+			var multiplier = 1.53;
+			
 			if (dp['showrandom'] == true){
 				var loop = 0;
 				var lol = 0;
@@ -21,7 +34,12 @@
 				}
 				visited[lol] = true;
 				imagename = imagearray[lol]['pkey'];
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'">';
+				width = imagearray[lol]['cmwidth'];
+				height = imagearray[lol]['cmheight'];
+				actual_width = width/pixelsize * multiplier;
+				actual_height = height/pixelsize * multiplier;
+				
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'>';
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture
@@ -47,7 +65,13 @@
 					i++;
 				}
 				imagename = imagearray[i]['pkey'];
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'">';
+				width = imagearray[i]['width'];
+				height = imagearray[i]['height'];
+				
+				actual_width = (width/pixelsize)  *multiplier;
+				actual_height = (height/pixelsize)  * multiplier;
+				
+				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = "'+actual_width+'px" height = "'+actual_height+'px">';
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture
