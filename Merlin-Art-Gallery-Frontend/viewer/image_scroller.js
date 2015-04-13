@@ -35,7 +35,7 @@ console.log("usable:", USABLE_W, USABLE_H);
 //Scrolling speed of image 
 //Doesn't work yet
 
-var SCROLL_SPEED = 3;
+var SCROLL_SPEED = 5;
 
 // This calls the div id 'picture'
 
@@ -73,12 +73,14 @@ function zoomImage() {
 	by that amount */
 	var toZoom_x = (USABLE_W / CURRENT_W);
 	var toZoom_y = (USABLE_H / CURRENT_H);
+    PICTURE.width = PICTURE.width * toZoom_x;
+    PICTURE.height = PICTURE.height * toZoom_y;
 }
 
 function getCSSRule(ruleName, deleteFlag) {               // Return requested style obejct
    ruleName=ruleName.toLowerCase();                       // Convert test string to lower case.
    if (document.styleSheets) {                            // If browser can play with stylesheets
-      for (var i=0; i<document.styleSheets.length; i++) { // For each stylesheet
+      for (i=0; i<document.styleSheets.length; i++) { // For each stylesheet
          var styleSheet=document.styleSheets[i];          // Get the current Stylesheet
          var ii=0;                                        // Initialize subCounter.
          var cssRule=false;                               // Initialize cssRule. 
@@ -132,12 +134,12 @@ function scrollImage_x() {
 	var overflow_w = (CURRENT_W - USABLE_W);
 	//Now, we translate in the positive-x axis by this overflow amount
 
-	PICTURE.style.marginLeft = +overflow_w+ 'px';
+	//PICTURE.style.marginLeft = +overflow_w+ 'px';
 	console.log('Left margin:' + PICTURE.style.marginLeft);
     
 	//Then, let's add the css class to the div such that it starts animating
     var x_rule = getCSSRule('#picture.translate_x');
-    x_rule.style.marginLeft = (overflow_w * (-1)+ 50) +'px';
+    x_rule.style.marginLeft = (overflow_w * (-1) -50) +'px';
     x_rule.style.webkittransition = SCROLL_SPEED + 's';
     x_rule.style.transition = SCROLL_SPEED + 's'
     
@@ -158,12 +160,14 @@ function scrollImage_y() {
 	var overflow_h = (CURRENT_H - USABLE_H);
 
 	//PICTURE.style.marginTop = +overflow_h+ 'px'; 
-	console.log('Top margin:' + PICTURE.style.marginTop);
+
     
     var y_rule = getCSSRule('#picture.translate_y');
-    y_rule.style.marginBottom = (overflow_h) +'px';
+    y_rule.style.marginTop = (overflow_h * (-1) - 50) +'px';
     y_rule.style.webkittransition = SCROLL_SPEED + 's';
     y_rule.style.transition = SCROLL_SPEED + 's'
+    
+    console.log('Top margin:' + y_rule.style.marginTop, 'Scroll speed', y_rule.style.transition);   
     
 	PICTURE.classList.add('translate_y');
     
@@ -175,7 +179,6 @@ function scrollImage_y() {
 	
 	//alert(overflow_h * -1);
     */
-
 }
 
 function changeImagePosition(){
@@ -183,20 +186,19 @@ function changeImagePosition(){
 	CURRENT_W =  document.getElementById("image").clientWidth;
 	CURRENT_H = document.getElementById("image").clientHeight;
 	
-	//alert(VIEWPORT_W);
+	/*//alert(VIEWPORT_W);
 	
 	if (CURRENT_W >= USABLE_W){
 		document.getElementById("picture").style.textAlign = "left";
 		
 	}
-	else{
+	else {
 		document.getElementById("picture").style.textAlign = "center";
 	}
 	if (CURRENT_H < USABLE_H){
-		document.getElementById("picture").style.marginTop = ((((USABLE_H-CURRENT_H)/USABLE_H)*(50/1.5))) + "vh";	
+		document.getElementById("picture").style.marginTop = ((((USABLE_H-CURRENT_H)/USABLE_H)*(50/1.5))) + "vh";
 	}
-	else{
-		document.getElementById("picture").style.marginTop = 0;	
-	}
-	
+	else {
+		document.getElementById("picture").style.marginTop = 0;
+	}*/
 }
