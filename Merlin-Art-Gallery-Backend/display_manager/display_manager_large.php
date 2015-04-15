@@ -193,6 +193,12 @@
 				<label for ="trans_time"></label>
 				<input type = "number" id = "trans_time" value = 15 name="transtime" min = '1'> 
 				</li>
+                
+                <h2>Scroll Speed</h2>
+				<li>
+				<label for ="scroll_speed"></label>
+				<input type = "number" id = "scroll_speed" value = 5 name="transtime" min = '1' max='10'> 
+				</li>
 
 				<h2> What to display </h2>
 
