@@ -35,8 +35,6 @@ console.log("usable:", USABLE_W, USABLE_H);
 //Scrolling speed of image 
 //Doesn't work yet
 
-var SCROLL_SPEED = 3;
-
 // This calls the div id 'picture'
 
 

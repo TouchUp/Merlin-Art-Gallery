@@ -48,6 +48,9 @@
 		$transtime = isset($_POST['transtime']) ? (int)$_POST['transtime'] : $transtime = 1;
 		$transtime = mysql_real_escape_string($transtime);
 		
+		$scrollspeed = isset($_POST['scrollspeed']) ? (int)$_POST['scrollspeed'] : $scrollspeed = 1;
+		$scrollspeed = mysql_real_escape_string($scrollspeed);
+		
 		//Get all the information of the images selected
 		$imagedata = array(array());
 		
@@ -84,7 +87,7 @@
 		var imagearray = <?php echo json_encode($imagedata) ?>;
 		var i = 0;
 		var temp;
-		
+		var SCROLL_SPEED = <?php echo $scrollspeed ?>;
 		for (a = 0; a < imagecount; a++){
 			visited[a] = false;	
 		}
@@ -116,6 +119,7 @@
 			
 			var transition_time = <?php echo $transtime; ?>;
 			temp = transition_time * 1000;
+			alert (temp);
 
 			var start = setInterval(function(){nextPicture()}, temp);
 		}

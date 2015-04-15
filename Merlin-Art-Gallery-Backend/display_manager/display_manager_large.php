@@ -46,6 +46,7 @@
 			var maxwidth = document.getElementById("width_slider_max").value;
 			var height_select =  document.getElementById("height_selector").value;
 			var width_select =  document.getElementById("width_selector").value;
+			var scrollspeed = document.getElementById("scroll_speed").value;
 			var xhr;  
 			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
 				xhr = new XMLHttpRequest();  
@@ -190,14 +191,14 @@
 				
 				<h2>Transition Time</h2>
 				<li>
-				<label for ="trans_time"></label>
+				<label for ="transtime"></label>
 				<input type = "number" id = "trans_time" value = 15 name="transtime" min = '1'> 
 				</li>
                 
                 <h2>Scroll Speed</h2>
 				<li>
 				<label for ="scroll_speed"></label>
-				<input type = "number" id = "scroll_speed" value = 5 name="transtime" min = '1' max='10'> 
+				<input type = "number" id = "scroll_speed" value = 5 name="scrollspeed" min = '1' max='10'> 
 				</li>
 
 				<h2> What to display </h2>
