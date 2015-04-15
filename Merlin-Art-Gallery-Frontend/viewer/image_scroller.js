@@ -161,7 +161,7 @@ function scrollImage_y() {
 	console.log('Top margin:' + PICTURE.style.marginTop);
     
     var y_rule = getCSSRule('#picture.translate_y');
-    y_rule.style.marginTop = (overflow_h * (-1)+ 50) +'px';
+    y_rule.style.marginBottom = (overflow_h) +'px';
     y_rule.style.webkittransition = SCROLL_SPEED + 's';
     y_rule.style.transition = SCROLL_SPEED + 's'
     
