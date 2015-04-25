@@ -71,6 +71,20 @@
   			} 
 		} 
 		
+		function removesetup(pkey){
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				qxhr = new XMLHttpRequest();  
+			}
+			else if (window.ActiveXObject) { // IE 8 and older  
+				qxhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			} 
+			var data="pkey="+pkey;
+			qxhr.open("POST", "deletefield.php", true);   
+			qxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			qxhr.send(data);  
+			var delay=setTimeout(searchsetup, 100);
+		}
+		
 		function liststuff()  { 
 			var querystring = "";
 			document.getElementById("selectedpic").innerHTML = "";  
@@ -102,6 +116,144 @@
   			}
 			 
 		} 
+		
+		function loadsetup(){
+				
+		}
+		
+		function savesetup(){
+				var temp = listed.length;
+				var pictures = "";
+				var setup = "";
+				
+				for (a = 0; a < temp; a++){
+					if (a == temp-1){
+						pictures += "" + listed[a];
+					}
+					else{
+						pictures += "" + listed[a] + "_";
+					}
+				}
+				
+				/*painting_name
+				artist_name
+				price
+				cm_height
+				cm_width
+				in_height
+				in_width
+				biography
+				other
+				random
+				trans_time
+				scroll_speed
+				*/
+				if (document.getElementById("painting_name").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("price").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("cm_height").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("cm_width").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("in_height").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("in_width").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("biography").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("other").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("random").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("trans_time").value == true){
+					setup += "1_";	
+				}
+				else{
+					setup +="0_";	
+				}
+				if (document.getElementById("scroll_speed").value == true){
+					setup += "1";	
+				}
+				else{
+					setup +="0";	
+				}
+				var newname = document.getElementById("setupname").value;
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+					wxhr = new XMLHttpRequest();  
+				}
+				else if (window.ActiveXObject) { // IE 8 and older  
+					wxhr = new ActiveXObject("Microsoft.XMLHTTP");  
+				} 
+				var data = "setup_name="+newname+ "&picturedata=" + pictures + "&setupdata=" + setup;
+				wxhr.open("POST", "savesetup.php", true);   
+				wxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+				wxhr.send(data);
+				var delay=setTimeout(searchsetup, 50);
+			}
+		
+		function searchsetup()  {  
+			var setupsearch = document.getElementById("setupsearch").value; 
+			var xhr;  
+			if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
+				zxhr = new XMLHttpRequest();  
+			} 
+			else if (window.ActiveXObject) { // IE 8 and older  
+				zxhr = new ActiveXObject("Microsoft.XMLHTTP");  
+			}  
+			var data = "setupsearch="+idsearch;  
+			zxhr.open("POST", "setups.php", true);   
+			zxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
+			zxhr.send(data);  
+			zxhr.onreadystatechange = display_data; 
+			function display_data() {  
+     			if (zxhr.readyState == 4) {  
+      				if (zxhr.status == 200) {  
+       					document.getElementById("setup_results").innerHTML = zxhr.responseText;  
+      				} 
+					else {  
+        				alert('There was a problem with the request.');  
+      				}  
+     			}  
+  			} 
+		}
+		
 		
 		
 		window.onload = searchby;
@@ -187,7 +339,17 @@
         
         <section id = "page_2_5">
         	<h1>Load Setups</h1>
-            <div id='load_setting'>
+            <div id='options'>
+            	<input type="text" id="setupname" style="width:200px">
+            	<input type="button" value="Save Setup" onClick="savesetup()">
+            </div>
+            
+            <div id='search_settings'>
+            	Search Setup : <input type="search" id="setupsearch" style="width:1000px" onKeyUp="searchsetup()">
+            	
+            </div>
+            
+            <div id='setup_results'>
             	
             </div>
         </section>

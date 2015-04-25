@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2015 at 03:16 PM
+-- Generation Time: Apr 25, 2015 at 07:57 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `imageserver`;
   USE `imageserver`;
+
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,19 @@ INSERT INTO `mediaid` (`pkey`, `media`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setups`
+--
+
+CREATE TABLE IF NOT EXISTS `setups` (
+`pkey` int(10) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `pictures` varchar(1000) DEFAULT NULL,
+  `display` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subjectid`
 --
 
@@ -120,6 +134,12 @@ ALTER TABLE `mediaid`
  ADD PRIMARY KEY (`pkey`);
 
 --
+-- Indexes for table `setups`
+--
+ALTER TABLE `setups`
+ ADD PRIMARY KEY (`pkey`);
+
+--
 -- Indexes for table `subjectid`
 --
 ALTER TABLE `subjectid`
@@ -139,6 +159,11 @@ MODIFY `pkey` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=146;
 --
 ALTER TABLE `mediaid`
 MODIFY `pkey` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `setups`
+--
+ALTER TABLE `setups`
+MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `subjectid`
 --
