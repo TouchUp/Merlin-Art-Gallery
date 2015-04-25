@@ -119,7 +119,6 @@
 			
 			var transition_time = <?php echo $transtime; ?>;
 			temp = transition_time * 1000;
-			alert (temp);
 
 			var start = setInterval(function(){nextPicture()}, temp);
 		}

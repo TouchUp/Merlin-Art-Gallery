@@ -184,6 +184,13 @@
 			</div>
 
 		</section>
+        
+        <section id = "page_2_5">
+        	<h1>Load Setups</h1>
+            <div id='load_setting'>
+            	
+            </div>
+        </section>
 
 		<section id = 'page_3'>
 			<div id = 'form'>

@@ -35,10 +35,13 @@ console.log("usable:", USABLE_W, USABLE_H);
 //Scrolling speed of image 
 //Doesn't work yet
 
+
+
 // This calls the div id 'picture'
 
 
 function sizeChecker() {
+	
 	//This function checks the size of the image
 	PICTURE = document.getElementById('picture');
 	//First, reset all animation classes 
@@ -130,7 +133,7 @@ function scrollImage_x() {
 	var overflow_w = (CURRENT_W - USABLE_W);
 	//Now, we translate in the positive-x axis by this overflow amount
 
-	PICTURE.style.marginLeft = +overflow_w+ 'px';
+	//PICTURE.style.marginLeft = +overflow_w+ 'px';
 	console.log('Left margin:' + PICTURE.style.marginLeft);
     
 	//Then, let's add the css class to the div such that it starts animating
@@ -159,7 +162,7 @@ function scrollImage_y() {
 	console.log('Top margin:' + PICTURE.style.marginTop);
     
     var y_rule = getCSSRule('#picture.translate_y');
-    y_rule.style.marginBottom = (overflow_h) +'px';
+    y_rule.style.marginTop = (overflow_h * (-1)+ 50) +'px';
     y_rule.style.webkittransition = SCROLL_SPEED + 's';
     y_rule.style.transition = SCROLL_SPEED + 's'
     

@@ -34,10 +34,10 @@
 				}
 				visited[lol] = true;
 				imagename = imagearray[lol]['pkey'];
-				width = imagearray[lol]['cmwidth'];
-				height = imagearray[lol]['cmheight'];
-				actual_width = width/pixelsize * multiplier;
-				actual_height = height/pixelsize * multiplier;
+				width = imagearray[lol]['width'];
+				height = imagearray[lol]['height'];
+				actual_width = (width/pixelsize) * multiplier;
+				actual_height = (height/pixelsize) * multiplier;
 				
 				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'>';
 				displayInfo(); //calls the function to display related info as well
