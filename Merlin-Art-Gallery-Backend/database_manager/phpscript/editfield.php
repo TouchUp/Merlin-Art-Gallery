@@ -148,7 +148,7 @@
 		echo '<label>Painting Location</label>';
 		echo '<input type ="text" " id="nplocation" value="'.$plocation.'" >';
 		echo '<label>Biography</label>';
-		echo '<textarea rows="4" cols="50" id="nbio" value="'.$bio.'"></textarea>';
+		echo '<textarea rows="4" cols="50" id="nbio" >'.$bio.'</textarea>';
 		echo '<label>Other Info</label>';
 		echo '<input type ="text" id="nothers" value="'.$others.'" >';
 

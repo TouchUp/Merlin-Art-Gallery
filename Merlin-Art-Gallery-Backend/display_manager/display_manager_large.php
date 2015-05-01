@@ -91,7 +91,7 @@
 			}
 			liststuff();
 			searchsetup();
-			searchby();	
+			searchby(1);	
 		}
 		
 		function addimage(imageid){
@@ -107,7 +107,7 @@
 			nselect --;
 			liststuff();
 		}
-		function searchby()  {  
+		function searchby(pageno)  {  
 			var idsearch = document.getElementById("idsearch").value; 
 			var namesearch = document.getElementById("namesearch").value; 
 			var artistsearch = document.getElementById("artistsearch").value;
@@ -128,7 +128,7 @@
 			else if (window.ActiveXObject) { // IE 8 and older  
 				xhr = new ActiveXObject("Microsoft.XMLHTTP");  
 			}  
-			var data = "idsearch=" + idsearch + "&namesearch="+namesearch+"&artistsearch="+artistsearch+"&othersearch="+othersearch+"&min_price="+minprice+"&max_price="+maxprice+"&min_height="+minheight+"&min_width="+minwidth+"&max_height="+maxheight+"&max_width="+maxwidth+"&height_select="+height_select+"&width_select="+width_select;  
+			var data = "idsearch=" + idsearch + "&namesearch="+namesearch+"&artistsearch="+artistsearch+"&othersearch="+othersearch+"&min_price="+minprice+"&max_price="+maxprice+"&min_height="+minheight+"&min_width="+minwidth+"&max_height="+maxheight+"&max_width="+maxwidth+"&height_select="+height_select+"&width_select="+width_select+"&pageno="+pageno;  
 			xhr.open("POST", "search.php", true);   
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 			xhr.send(data);  
@@ -340,44 +340,44 @@
                     	
                         <input type="hidden" name="doSearch" value="1">
 						<label class ="search" for ='search_box'> ID </label>
-						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()">
+						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby(1)">
 						<label  class ="search" for ='search_box'> Painting Name </label>
-						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()">
+						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby(1)">
                         <label  class ="search" for ='search_box'> Artist </label>
-						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()">
+						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby(1)">
                         <label  class ="search" for ='search_box'> Others </label>
-						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()">
+						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby(1)">
 					<label for ='price_range'>Price</label>
 					<br>
-					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby()">
+					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby(1)">
 					<output id="amount" for="price_slider">0</output> 
 					to
 
-					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value" onMouseUp="searchby()">
+					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value" onMouseUp="searchby(1)">
 					<output id="amount_max" for="price_slider_max">10000</output>
 
 					<br>
 					<div id = 'size'>
 						<label for ='size_range'> Size </label>
 						
-						<input id = 'height_slider_min' name = 'height_min' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'height_min.value=height_slider_min.value' onMouseUp='searchby()'>
-						<input id = 'height_slider_max' name = 'height_max' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'height_max.value=height_slider_max.value' onMouseUp='searchby()'>
+						<input id = 'height_slider_min' name = 'height_min' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'height_min.value=height_slider_min.value' onMouseUp='searchby(1)'>
+						<input id = 'height_slider_max' name = 'height_max' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'height_max.value=height_slider_max.value' onMouseUp='searchby(1)'>
 						<output id = 'height_min'  for = 'height_slider_min'> 0 </output> 
 						<output id = 'height_max'  for = 'height_slider_max'> 1000 </output>
 
-						<select class = 'cm_in' id = 'height_selector' name='height_select' onChange="searchby()">
+						<select class = 'cm_in' id = 'height_selector' name='height_select' onChange="searchby(1)">
 							<option value = 0> cm </option>
 							<option value = 1> in </option>
 						</select>
 
 						<div id = 'rectangle'></div>
 						
-						<input id = 'width_slider_min' name = 'width_min' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'width_min.value=width_slider_min.value' onMouseUp='searchby()'>
-						<input id = 'width_slider_max' name = 'width_max' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'width_max.value=width_slider_max.value' onMouseUp='searchby()'>
+						<input id = 'width_slider_min' name = 'width_min' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'width_min.value=width_slider_min.value' onMouseUp='searchby(1)'>
+						<input id = 'width_slider_max' name = 'width_max' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'width_max.value=width_slider_max.value' onMouseUp='searchby(1)'>
 						<output id = 'width_min' for = 'width_slider_min'> 0 </output>
 						<output id = 'width_max' for = 'width_slider_max'> 1000 </output>
 		
-						<select class = 'cm_in' id = 'width_selector' name='width_select' onChange="searchby()">
+						<select class = 'cm_in' id = 'width_selector' name='width_select' onChange="searchby(1)">
 							<option value = 0> cm </option>
 							<option value = 1> in </option>
 						</select>			

@@ -82,6 +82,12 @@
 	else{
 		$widthtype = 0;	
 	}
+	if (isset($_POST['pageno'])){
+		$pageno = $_POST['pageno'];
+	}
+	else{
+		$pageno = 1;	
+	}
 	// if heighttype = 0, cm. If heighttype = 1, inch.
 	
 	if ($heighttype == 1){
@@ -110,6 +116,21 @@
 	$total_rows = $lmao['num'];
 	$pages = round($total_rows/10, 0, PHP_ROUND_HALF_UP);
 	
+	if ($pageno > $pages){
+		$currentpage = $pages;	
+	}
+	else{
+		$currentpage = $pageno;	
+	}
+	$startlimit = ($currentpage-1) * 10;
+	$endlimit = ($currentpage)*10 -1; 
+	
+	if ($pages == 0){
+		$startlimit = 0;
+		$endlimit = 1;	
+	}
+	
+	
 	$location = "../../images/";
 	$sql = 'SELECT * FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
@@ -119,7 +140,7 @@
 	AND (price BETWEEN '.$minprice.' AND '.$maxprice.')
 	AND (height BETWEEN '.$minheight.' AND '.$maxheight.')
 	AND (width BETWEEN '.$minwidth.' AND '.$maxwidth.')
-	LIMIT 0,9 
+	LIMIT '.$startlimit.','.$endlimit.' 
 	';
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.
@@ -178,8 +199,40 @@
 		echo '<td>'.$sold.'</td>';
 		echo '<td>'.$others.'</td>';
 		echo '</tr>';
+	}
+	echo '</table><br><br>';
+	
+	
+	// ayy lmao
+	echo '<table><tr>';
+	if ($currentpage <= 6){
+		$a = 1;
+		$b = $pageno;	
+	}
+	else{
+		$a = $currentpage - 5;	
+		$b = $a + 9;
+	}
+	
+	if ($pages == 0){
+		$a = 99;
+		$b = 0;	
+	}
+	while ($a <= $b){
+		echo'<td>';
+		if ($a == $currentpage){
+			echo'<b>'.$a.'</b>';
 		}
-	echo '</table>';
+		else{
+			echo'<input type="button" value="'.$a.'" onclick="searchby('.$a.')">';	
+		}
+		echo'</td>';
+		$a++;
+	}
+	echo'</tr></table>';
+	
+	
+	
 	$result->free();
 	$mysqli->close();
 	
