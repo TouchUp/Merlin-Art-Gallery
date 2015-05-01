@@ -36,7 +36,7 @@
 		$name = $row['name'];
 		echo '<tr>';
 		echo '<td>'.$name.'</td>';
-		echo '<td><input type="button" value="Load" onMouseUp="" /><input type="button" value="Delete" onMouseUp="removesetup('.$pkey.')" /></td>';
+		echo '<td><form method="post" action="display_manager_large.php"><input type="hidden" value="('.$pkey.')" name="pkey"/><input type="submit" value="Load" /> </form><input type="button" value="Delete" onMouseUp="removesetup('.$pkey.')" /></td>';
 		echo '</tr>';
 		}
 	echo '</table>';

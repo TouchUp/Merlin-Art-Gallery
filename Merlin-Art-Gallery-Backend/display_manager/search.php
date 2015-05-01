@@ -93,6 +93,23 @@
 		$minwidth = $minwidth*2.54;
 	}
 	
+	  $query = 'SELECT COUNT(*) as num FROM images WHERE 
+	(artist LIKE "'.$artistsearch.'%") 
+	AND (code LIKE "'.$idsearch.'%") 
+	AND (name LIKE "'.$namesearch.'%") 
+	AND (others LIKE "'.$othersearch.'%")
+	AND (price BETWEEN '.$minprice.' AND '.$maxprice.')
+	AND (height BETWEEN '.$minheight.' AND '.$maxheight.')
+	AND (width BETWEEN '.$minwidth.' AND '.$maxwidth.')';
+	
+    $ayy=$mysqli->query($query); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	$lmao = $ayy->fetch_array();
+	$total_rows = $lmao['num'];
+	$pages = round($total_rows/10, 0, PHP_ROUND_HALF_UP);
+	
 	$location = "../../images/";
 	$sql = 'SELECT * FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
@@ -102,6 +119,7 @@
 	AND (price BETWEEN '.$minprice.' AND '.$maxprice.')
 	AND (height BETWEEN '.$minheight.' AND '.$maxheight.')
 	AND (width BETWEEN '.$minwidth.' AND '.$maxwidth.')
+	LIMIT 0,9 
 	';
 	$result=$mysqli->query($sql); 
 	if ($mysqli->error) { // add this check.

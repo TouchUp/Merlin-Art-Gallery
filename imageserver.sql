@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2015 at 07:57 PM
+-- Generation Time: May 01, 2015 at 03:00 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -92,9 +92,16 @@ INSERT INTO `mediaid` (`pkey`, `media`) VALUES
 CREATE TABLE IF NOT EXISTS `setups` (
 `pkey` int(10) NOT NULL,
   `name` varchar(30) DEFAULT NULL,
-  `pictures` varchar(1000) DEFAULT NULL,
+  `pictures` varchar(3000) DEFAULT NULL,
   `display` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `setups`
+--
+
+INSERT INTO `setups` (`pkey`, `name`, `pictures`, `display`) VALUES
+(7, 'asdf', '143_142_141', '1_1_1_0_0_0_0_0_0_0_18_3');
 
 -- --------------------------------------------------------
 
@@ -163,7 +170,7 @@ MODIFY `pkey` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `setups`
 --
 ALTER TABLE `setups`
-MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `pkey` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `subjectid`
 --

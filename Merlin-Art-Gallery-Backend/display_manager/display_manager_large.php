@@ -14,11 +14,85 @@
 			printf('I cannot connect to the database  because: ' . $mysqli->connect_error);
 			exit();
 		}
+		
+		
 	?>
     <script language ="javascript">
 	
 		var listed = [];
+		var setup = [];
+		var lel = 0;
+		
+		<?php
+			if(isset($_POST["pkey"])){
+				$sql = 'SELECT * FROM setups WHERE 
+				pkey = '.$_POST["pkey"].'
+				';
+				$result=$mysqli->query($sql); 
+				if ($mysqli->error) { // add this check.
+    				die('Invalid query: ' . $mysqli->error);
+				}
+				while($row=$result->fetch_array()){ 
+					$temp = $row['pictures'];
+					$temp1 = $row['display'];
+				}
+				$pictures = explode("_",$temp);
+				$display = explode("_",$temp1);
+				$temp = sizeof($pictures);
+				
+				for ($a = 0; $a < $temp; $a++){
+					echo 'listed.push('.$pictures[$a].');';	
+				}
+				$temp = sizeof($display);
+				for ($a = 0; $a < $temp; $a++){
+					echo 'setup.push('.$display[$a].');';	
+				}
+				echo 'lel = 1';
+			}
+		?>
+		
 		var nselect = 0;
+		
+		function startfunction(){
+			if (setup[0] == 1){
+				document.getElementById("painting_name").checked = true;
+			}
+			if (setup[1] == 1){
+				document.getElementById("artist_name").checked = true;
+			}
+			if (setup[2] == 1){
+				document.getElementById("price").checked = true;
+			}
+			if (setup[3] == 1){
+				document.getElementById("cm_height").checked = true;
+			}
+			if (setup[4] == 1){
+				document.getElementById("cm_width").checked = true;
+			}
+			if (setup[5] == 1){
+				document.getElementById("in_height").checked = true;
+			}
+			if (setup[6] == 1){
+				document.getElementById("in_width").checked = true;
+			}
+			if (setup[7] == 1){
+				document.getElementById("biography").checked = true;
+			}
+			if (setup[8] == 1){
+				document.getElementById("other").checked = true;
+			}
+			if (setup[9] == 1){
+				document.getElementById("random").checked = true;
+			}
+			if (lel == 1){
+				document.getElementById("trans_time").value = setup[10];
+				document.getElementById("scroll_speed").value = setup[11];
+				nselect = listed.length;
+			}
+			liststuff();
+			searchsetup();
+			searchby();	
+		}
 		
 		function addimage(imageid){
 			listed.push(imageid);
@@ -117,10 +191,6 @@
 			 
 		} 
 		
-		function loadsetup(){
-				
-		}
-		
 		function savesetup(){
 				var temp = listed.length;
 				var pictures = "";
@@ -148,72 +218,68 @@
 				trans_time
 				scroll_speed
 				*/
-				if (document.getElementById("painting_name").value == true){
+				if (document.getElementById("painting_name").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("price").value == true){
+				if (document.getElementById("artist_name").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("cm_height").value == true){
+				if (document.getElementById("price").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("cm_width").value == true){
+				if (document.getElementById("cm_height").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("in_height").value == true){
+				if (document.getElementById("cm_width").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("in_width").value == true){
+				if (document.getElementById("in_height").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("biography").value == true){
+				if (document.getElementById("in_width").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("other").value == true){
+				if (document.getElementById("biography").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("random").value == true){
+				if (document.getElementById("other").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("trans_time").value == true){
+				if (document.getElementById("random").checked == true){
 					setup += "1_";	
 				}
 				else{
 					setup +="0_";	
 				}
-				if (document.getElementById("scroll_speed").value == true){
-					setup += "1";	
-				}
-				else{
-					setup +="0";	
-				}
+				setup += document.getElementById("trans_time").value+"_";	
+				setup +=document.getElementById("scroll_speed").value;	
 				var newname = document.getElementById("setupname").value;
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...  
 					wxhr = new XMLHttpRequest();  
@@ -254,9 +320,11 @@
   			} 
 		}
 		
+		function changepage(pageno){
+			
+		}
 		
-		
-		window.onload = searchby;
+		window.onload = startfunction;
 		 
     	 
 	</script>
@@ -337,22 +405,7 @@
 
 		</section>
         
-        <section id = "page_2_5">
-        	<h1>Load Setups</h1>
-            <div id='options'>
-            	<input type="text" id="setupname" style="width:200px">
-            	<input type="button" value="Save Setup" onClick="savesetup()">
-            </div>
-            
-            <div id='search_settings'>
-            	Search Setup : <input type="search" id="setupsearch" style="width:1000px" onKeyUp="searchsetup()">
-            	
-            </div>
-            
-            <div id='setup_results'>
-            	
-            </div>
-        </section>
+       
 
 		<section id = 'page_3'>
 			<div id = 'form'>
@@ -375,47 +428,47 @@
 				<div id = "checkbox_grid">
 
 					<li>
-						<input type = "checkbox" id = "painting_name" name = "painting_checkbox" value = true>
+						<input type = "checkbox" id = "painting_name" name = "painting_checkbox">
 						<label for = "painting_name"> Painting Name </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "artist_name" name = "artist_checkbox" value = true> 
+						<input type = "checkbox" id = "artist_name" name = "artist_checkbox"> 
 						<label for = "artist_name"> Artist Name </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "price" name = "price_checkbox" value = true> 
+						<input type = "checkbox" id = "price" name = "price_checkbox"> 
 						<label for = 'price'> Price </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "cm_height" name = "cm_height_checkbox" value = true>
+						<input type = "checkbox" id = "cm_height" name = "cm_height_checkbox">
 						<label for = "cm_height"> Height (cm) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "cm_width" name = "cm_width_checkbox" value = true> 
+						<input type = "checkbox" id = "cm_width" name = "cm_width_checkbox"> 
 						<label for = "cm_width"> Width (cm) </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_height" name = "in_height_checkbox" value = true> 
+						<input type = "checkbox" id = "in_height" name = "in_height_checkbox"> 
 						<label for =  'in_height'> Height (in) </label> 
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "in_width" name = "in_width_checkbox" value = true>
+						<input type = "checkbox" id = "in_width" name = "in_width_checkbox">
 						<label for = "in_width"> Width (in) </label>
 					</li>
 					
 					<li>
-						<input type = "checkbox" id = "biography" name = "biography_checkbox" value = true> 
+						<input type = "checkbox" id = "biography" name = "biography_checkbox"> 
 						<label for = "biography"> Biography </label>
 					</li>
 
 					<li>
-						<input type = "checkbox" id = "other" name = 'other' value = true> 
+						<input type = "checkbox" id = "other" name = 'other' > 
 						<label for = 'other'> Other info </label> 
 					</li>	
 				</div>
@@ -423,7 +476,7 @@
 				<h2> Other Settings </h2>
 
 				<li>
-				<input type =  "checkbox" id = "random" name = "showrandom" value = true>
+				<input type =  "checkbox" id = "random" name = "showrandom" >
 				<label for == "random"> Randomise paintings </label>
 				</li>						
 
@@ -435,6 +488,23 @@
 			</div>
 			</form>
 		</section>
+        
+         <section id = "page_2_5">
+        	<h1>Load Setups</h1>
+            <div id='options'>
+            	<input type="text" id="setupname" style="width:200px">
+            	<input type="button" value="Save Setup" onClick="savesetup()">
+            </div>
+            
+            <div id='search_settings'>
+            	Search Setup : <input type="search" id="setupsearch" style="width:1000px" onKeyUp="searchsetup()">
+            	
+            </div>
+            
+            <div id='setup_results'>
+            	
+            </div>
+        </section>
 	</div>
 
 </body>
