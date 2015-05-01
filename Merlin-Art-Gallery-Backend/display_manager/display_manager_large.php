@@ -349,12 +349,12 @@
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby(1)">
 					<label for ='price_range'>Price</label>
 					<br>
-					<input id = 'price_slider' type = 'range' min = '0' max = '10000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby(1)">
+					<input id = 'price_slider' type = 'range' min = '0' max = '1000000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby(1)">
 					<output id="amount" for="price_slider">0</output> 
 					to
 
-					<input id = 'price_slider_max' type = 'range' min = '0' max = '10000' step = '50' value = '10000' oninput="amount_max.value=price_slider_max.value" onMouseUp="searchby(1)">
-					<output id="amount_max" for="price_slider_max">10000</output>
+					<input id = 'price_slider_max' type = 'range' min = '0' max = '1000000' step = '50' value = '1000000' oninput="amount_max.value=price_slider_max.value" onMouseUp="searchby(1)">
+					<output id="amount_max" for="price_slider_max">1000000</output>
 
 					<br>
 					<div id = 'size'>

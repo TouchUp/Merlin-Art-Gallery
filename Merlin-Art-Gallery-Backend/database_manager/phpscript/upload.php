@@ -32,7 +32,7 @@
     	if ($imgt) {
         	$old_image = $imgcreatefrom("$updir" . $id );
         	$new_image = imagecreatetruecolor($thumbnail_width, $thumbnail_height);
-        	imagecopyresized($new_image, $old_image, $dest_x, $dest_y, 0, 0, $new_width, $new_height, $original_width, $original_height);
+        	imagecopyresampled ($new_image, $old_image, $dest_x, $dest_y, 0, 0, $new_width, $new_height, $original_width, $original_height);
         	$imgt($new_image, "$updir" . $id . '_' . "$thumb_beforeword" );
     	}
 	}

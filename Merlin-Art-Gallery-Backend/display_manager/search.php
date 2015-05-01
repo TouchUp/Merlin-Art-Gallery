@@ -99,7 +99,7 @@
 		$minwidth = $minwidth*2.54;
 	}
 	
-	  $query = 'SELECT COUNT(*) as num FROM images WHERE 
+	 $query = 'SELECT COUNT(*) as num FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
 	AND (code LIKE "'.$idsearch.'%") 
 	AND (name LIKE "'.$namesearch.'%") 
@@ -114,7 +114,7 @@
 	}
 	$lmao = $ayy->fetch_array();
 	$total_rows = $lmao['num'];
-	$pages = round($total_rows/10, 0, PHP_ROUND_HALF_UP);
+	$pages = ceil($total_rows/10);
 	
 	if ($pageno > $pages){
 		$currentpage = $pages;	
@@ -123,7 +123,7 @@
 		$currentpage = $pageno;	
 	}
 	$startlimit = ($currentpage-1) * 10;
-	$endlimit = ($currentpage)*10 -1; 
+	$endlimit = ($currentpage)*10; 
 	
 	if ($pages == 0){
 		$startlimit = 0;
@@ -205,13 +205,23 @@
 	
 	// ayy lmao
 	echo '<table><tr>';
-	if ($currentpage <= 6){
+	if ($currentpage <= 5){
 		$a = 1;
-		$b = $pageno;	
+		if ($pages - $currentpage < 5){
+			$b = $pages;
+		}
+		else {
+			$b = $currentpage += 5;	
+		}
 	}
 	else{
-		$a = $currentpage - 5;	
-		$b = $a + 9;
+		$a = $currentpage - 4;	
+		if ($pages - $currentpage < 5){
+			$b = $pages;
+		}
+		else {
+			$b = $currentpage += 5;	
+		}
 	}
 	
 	if ($pages == 0){
@@ -230,6 +240,7 @@
 		$a++;
 	}
 	echo'</tr></table>';
+	
 	
 	
 	

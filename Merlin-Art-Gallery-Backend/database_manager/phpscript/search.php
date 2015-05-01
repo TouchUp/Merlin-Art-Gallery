@@ -107,10 +107,10 @@
 	if (isset($_POST['soldsearch'])){
 		$soldsearch = $_POST['soldsearch'];
 		$soldsearch = mysql_real_escape_string($soldsearch);
-		if ($soldsearch == "yes" || $soldsearch == 2){
+		if ($soldsearch == "yes" || $soldsearch == 2||$soldsearch =="Yes"){
 			$soldsearch = 2;
 		}
-		else if($soldsearch == "no" || $soldsearch == 1){
+		else if($soldsearch == "no" || $soldsearch == 1||$soldsearch=="No"){
 			$soldsearch = 1;
 		}
 		else{
@@ -141,6 +141,12 @@
 	}
 	else{
 		$searchtype = "asc";
+	}
+	if (isset($_POST['pageno'])){
+		$pageno = $_POST['pageno'];
+	}
+	else{
+		$pageno = 1;	
 	}
 	$subjectsize = 0;
 	$mediasize = 0;
@@ -187,6 +193,46 @@
 		$genresearch="%";	
 	}
 	
+	$query = 'SELECT COUNT(*) as num FROM images WHERE 
+	(artist LIKE "'.$artistsearch.'%") 
+	AND (code LIKE "'.$idsearch.'%") 
+	AND (name LIKE "'.$namesearch.'%") 
+	AND (country LIKE "'.$nationsearch.'%")
+	AND (others LIKE "'.$othersearch.'%")
+	AND (price LIKE "'.$pricesearch.'%")
+	AND (height LIKE "'.$heightsearch.'%")
+	AND (width LIKE "'.$widthsearch.'%")
+	AND (bio LIKE "%'.$biosearch.'%")
+	AND (sold LIKE "'.$soldsearch.'%")
+	AND (doby LIKE "'.$yearsearch.'%")
+	AND (pyear LIKE "'.$pyearsearch.'%")
+	AND (media LIKE "'.$mediasearch.'")
+	AND (subject LIKE "'.$genresearch.'")
+	AND (plocation LIKE "'.$locsearch.'%")
+	';
+	
+    $ayy=$mysqli->query($query); 
+	if ($mysqli->error) { // add this check.
+    	die('Invalid query: ' . $mysqli->error);
+	}
+	$lmao = $ayy->fetch_array();
+	$total_rows = $lmao['num'];
+	$pages = ceil($total_rows/10);
+	
+	if ($pageno > $pages){
+		$currentpage = $pages;	
+	}
+	else{
+		$currentpage = $pageno;	
+	}
+	$startlimit = ($currentpage-1) * 10;
+	$endlimit = ($currentpage)*10; 
+	
+	if ($pages == 0){
+		$startlimit = 0;
+		$endlimit = 1;	
+	}
+	
 	$sql = 'SELECT * FROM images WHERE 
 	(artist LIKE "'.$artistsearch.'%") 
 	AND (code LIKE "'.$idsearch.'%") 
@@ -204,7 +250,8 @@
 	AND (subject LIKE "'.$genresearch.'")
 	AND (plocation LIKE "'.$locsearch.'%")
 	
-	ORDER BY '.$orderby.'
+	ORDER BY '.$orderby.' 
+	LIMIT '.$startlimit.', '.$endlimit.'
 	
 	';
 	
@@ -287,7 +334,48 @@
 		echo '<td >'.$others.'</td>';
 		echo '</tr>';
 		}
-	echo '</table>';
+	echo '</table><br><br>';
+	
+	
+	// ayy lmao
+	echo '<table><tr>';
+	if ($currentpage <= 5){
+		$a = 1;
+		if ($pages - $currentpage < 5){
+			$b = $pages;
+		}
+		else {
+			$b = $currentpage += 5;	
+		}
+	}
+	else{
+		$a = $currentpage - 4;	
+		if ($pages - $currentpage < 5){
+			$b = $pages;
+		}
+		else {
+			$b = $currentpage += 5;	
+		}
+	}
+	
+	if ($pages == 0){
+		$a = 99;
+		$b = 0;	
+	}
+	while ($a <= $b){
+		echo'<td>';
+		if ($a == $currentpage){
+			echo'<b>'.$a.'</b>';
+		}
+		else{
+			echo'<input type="button" value="'.$a.'" onclick="searchby('.$a.')">';	
+		}
+		echo'</td>';
+		$a++;
+	}
+	echo'</tr></table>';
+	
+	
 	$result->free();
 	$mysqli->close();
 	

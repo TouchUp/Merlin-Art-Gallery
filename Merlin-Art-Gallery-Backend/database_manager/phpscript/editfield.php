@@ -85,7 +85,7 @@
 		echo '<label>Sold</label>';
 		echo '
 		<select id="nsold">
-		<option value="0" ';
+		<option value="1" ';
 		if ($sold == 1){
 			echo'selected';	
 		}

@@ -27,12 +27,12 @@
 						
 						searchtype = "DESC";
 						document.getElementById(orderby).innerHTML="▾";	
-						searchby();
+						searchby(1);
 					}
 					else if(searchtype=="DESC"){
 						searchtype = "asc";
 						document.getElementById(orderby).innerHTML="▴";
-						searchby();
+						searchby(1);
 					}
 				}
 				else{
@@ -40,7 +40,7 @@
 					searchorder = orderby;
 					document.getElementById(searchorder).innerHTML="▴";	
 					searchtype = "asc";
-					searchby();
+					searchby(1);
 				}
 				
 			}
@@ -116,7 +116,7 @@
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(); 
 				
-				var delay=setTimeout(searchby, 50); 
+				var delay=setTimeout(function(){searchby(1)}, 100); 
 			}
 			
 			function removefield(){
@@ -136,7 +136,7 @@
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 					xhr.send(data);  
 				}
-				var delay=setTimeout(searchby, 100);
+				var delay=setTimeout(function(){searchby(1)}, 100);
 			}
 			
 			function save(a){
@@ -175,11 +175,11 @@
 				xhr.open("POST", "phpscript/save.php", true);   
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				xhr.send(data);
-				var delay=setTimeout(searchby, 50);
-				var delay1=setTimeout(function(){editfield(a)}, 50);
+				var delay=setTimeout(function(){searchby(1)}, 100);
+				var delay1=setTimeout(function(){editfield(a)}, 100);
 			}
 			
-			function searchby(){
+			function searchby(pageno){
 				var idsearch = document.getElementById("idsearch").value; 
 				var namesearch = document.getElementById("namesearch").value; 
 				var artistsearch = document.getElementById("artistsearch").value;
@@ -201,7 +201,7 @@
 				else if (window.ActiveXObject) { // IE 8 and older  
 					dxhr = new ActiveXObject("Microsoft.XMLHTTP");  
 				} 
-				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch +"&mediasearch="+mediasearch+ "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch+"&pyearsearch="+pyearsearch+"&searchorder="+searchorder+"&searchtype="+searchtype;
+				var data = "idsearch=" + idsearch + "&namesearch=" + namesearch + "&artistsearch=" + artistsearch + "&yearsearch=" + yearsearch + "&nationsearch=" + nationsearch + "&genresearch=" + genresearch +"&mediasearch="+mediasearch+ "&pricesearch=" + pricesearch + "&heightsearch=" + heightsearch + "&widthsearch=" + widthsearch + "&biosearch=" + biosearch + "&othersearch=" + othersearch + "&soldsearch="+soldsearch + "&locsearch="+locsearch+"&pyearsearch="+pyearsearch+"&searchorder="+searchorder+"&searchtype="+searchtype+"&pageno="+pageno;
 				dxhr.open("POST", "phpscript/search.php", true);   
 				dxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				dxhr.send(data);  
@@ -283,7 +283,7 @@
      					}  
   					} 
 					*/
-					var delay=setTimeout(searchby, 100);
+					var delay=setTimeout(function(){searchby(1)}, 100);
 					var delay1=setTimeout(function(){editfield(pkey)}, 100);
 				}
 				
@@ -294,7 +294,7 @@
 			
 			$(document).ready (
 				function (){
-					searchby();
+					searchby(1);
 					
 					var myLayout = $('body').layout({
 					resizable:				true
@@ -348,22 +348,22 @@
             	</tr>
             	<tr>
                 	<td></td>
-            		<td><center><input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby()"></td>
-                	<td><center><input type = 'search'  results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search'  name = 'soldsearch' id = 'soldsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search'  results = '5' name = 'yearsearch' placeholder = 'YYYY' id='yearsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search'  results = '5' name = 'nationsearch' placeholder = 'Search' id='nationsearch' onKeyUp="searchby()"></center></td>
+            		<td><center><input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby(1)"></td>
+                	<td><center><input type = 'search'  results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby(1)"></center></td>
+                    <td><center><input type = 'search'  name = 'soldsearch' id = 'soldsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'yearsearch' placeholder = 'YYYY' id='yearsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'nationsearch' placeholder = 'Search' id='nationsearch' onKeyUp="searchby(1)"></center></td>
 
-                	<td><center><input type = 'search'  results = '5' name = 'genresearch' placeholder = 'Search' id='genresearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search'  results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search'  results = '5' name = 'pyearsearch' placeholder = 'YYYY' id='pyearsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text'  size='5' name = 'pricesearch' id='pricesearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text'  size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'text'  size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby()"></center></td>
-                    <td><center><input type = 'search'  results = '5' name = 'locsearch' placeholder = 'Search' id='locsearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search'  results = '5' name = 'biosearch' placeholder = 'Search' id='biosearch' onKeyUp="searchby()"></center></td>
-                	<td><center><input type = 'search'  results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby()"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'genresearch' placeholder = 'Search' id='genresearch' onKeyUp="searchby(1)"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchby(1)"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'pyearsearch' placeholder = 'YYYY' id='pyearsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'pricesearch' id='pricesearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby(1)"></center></td>
+                    <td><center><input type = 'search'  results = '5' name = 'locsearch' placeholder = 'Search' id='locsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'biosearch' placeholder = 'Search' id='biosearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'search'  results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby(1)"></center></td>
             	</tr>
         	</table>
         </div>
