@@ -175,9 +175,11 @@
     <div class="ui-layout-center">
    		<table border=1 width = "200">
         	<tr>
+                <th>ID</th>
             	<th>Name</th>
             </tr>
             <tr>
+                <td></td>
                 <td><center><input type = 'search' style="width:90%;" results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchsbjby()"></center></td>
             </tr>
         </table>

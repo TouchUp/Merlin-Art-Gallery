@@ -26,7 +26,7 @@
 		$pkey = $row['pkey'];
 		$name = $row['subject'];
 		echo '<tr onclick="editfield('.$pkey.');shade(this);" id="'.$pkey.'">';
-		
+		echo '<td>'.$pkey.'</td>';
 		//<img src="data:image/jpeg;base64,' . base64_encode($image) . '" width="80" height="80">
 		echo '<td>'.$name.'</td>';
 		echo '</tr>';
