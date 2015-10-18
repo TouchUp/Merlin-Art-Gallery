@@ -14,6 +14,10 @@ function display_image(actual_width, actual_height, scrolling_time){
   var window_h = getDimensions()[1];
   var image_x = actual_width;
   var image_y = actual_height;
+  
+  var dist_x = image_x - window_w;
+  var dist_y = image_y - window_h;
+  
   (image_x > window_w && image_y > window_h) ? scroll_x_and_y(scrolling_time, dist_x, dist_y) : 
   (image_x > window_w) ? scroll_x(scrolling_time, dist_x) : 
   (image_y > window_h) ? scroll_y(scrolling_time, dist_y) : 
