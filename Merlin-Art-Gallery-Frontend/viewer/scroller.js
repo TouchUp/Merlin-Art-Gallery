@@ -1,78 +1,71 @@
-/* Display Code */
-//The following set of functions should take in an image_array Array variable.
-//Some other variables: info_array (denotes what info to show),
-//transition_time, scrolling_time, randomise (a Boolean), and so on
+"use strict";
 
-// if randomize is true, shuffle the image_array.
-// transition_time and scrolling_time are also separate variables
-
-
-// There should be a display_image that is called after every set_timeout
-// And an "array_handler"?? or something 
-
-/*I don't want transition_time and scrolling_time to be global variables.
-  We should obtain them from the get_settings function */
+function getDimensions() {
+  var usable_w = window.innerWidth;
+  var usable_h = window.innerHeight - document.getElementById("descr_wrapper").clientHeight;
   
-function get_settings(settings_array){
-  //The settings array should have everything
-  //Extract these critical values: 
-  //transition_time;
-  //scrolling_speed;
-  //randomise;
-  //and lastly, the rest of the values to be shown
-  //Maybe it is better to have key-value pairs rather than array
-  //Depends on the PHP code.
-}
-  
-function shuffle(image_array) {
-  return(image_array.shuffle);
+  return([usable_w, usable_h]);
 }
 
-//The following function takes in an image_array, and handles the showing of each individual image.
-// display_image should take ONE image only.
-// Parameters of display_image: image, scrolling_time, info_array.
 
-function display(image_array, transition_time, scrolling_time) {
-  if (randomise === true) {
-    image_array = shuffle(image_array);
-  }
-  setInterval(function(){display_image(image, scrolling_time, info_array);}, transition_time);
-}
-
-function display_image(image, scrolling_time, info_array){
+function display_image(actual_width, actual_height, scrolling_time){
   //Check the image and window size
-  (image-x > window-x && image-y > window-y) ? scroll_x_and_y() : image-x > window-x ? scroll_x() : (image-y > window-y) ? scroll_y() : console.log("image is smaller than window");
+  var window_w = getDimensions()[0];
+  var window_h = getDimensions()[1];
+  var image_x = actual_width;
+  var image_y = actual_height;
+  (image_x > window_w && image_y > window_h) ? scroll_x_and_y(scrolling_time, dist_x, dist_y) : 
+  (image_x > window_w) ? scroll_x(scrolling_time, dist_x) : 
+  (image_y > window_h) ? scroll_y(scrolling_time, dist_y) : 
+  console.log("image is smaller than window");
 }
 
-/* Scrolling Code */
-// Rules 
-// Variables: window-x, window-y (What if the window is suddenly resized?)
-// Variables: scrolling speed as well.
-// When an image is loaded, the image dimensions are checked. 
-// If the image-x exceeds window-x, mark it as follows;
-// If image-y exceeds window-y, mark it as follows.
-
-//Scrolling Code when both image-x and image-y exceed the boundaries
-//If image-y and image-x both overflow: (TYPEWRITER movement)
-// 1. Place the image all the way to the left-top corner. 
-// 2. scroll image-x until the right bound is reached.
-// 3. Return to original image-x position
-// 4. Go down one screen of window-y
-// 5. Repeat 2, 3
-
-//The following function should take in an image variable
-
-function new_image(image) {
-  return (image-x, image-y);
+function scroll_x(scrolling_time, dist_x) {
+ 
+ var picture = document.getElementById('picture');
+ rule.add("#picture");
+ rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
+ rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
+ picture.classList.add("#picture");
+ 
+ rule.add( "#picture.translate_x");
+ rule.prop("#picture.translate_x", 'left', "'dist_x ' + px");
+ 
+ picture.addEventListener("transitionend", toggleTransition("picture.translate_x"), false);
+ 
+ function toggleTransition(rule){
+  if (rule.get(rule) == false) { //Rule doesn't exist
+    console.log("Rule doesn't exist")
+    picture.classList.add("#picture.translate_x");
+  }
+  else { 
+    picture.classList.remove("#picture.translate_x");
+  }
+ }
 }
 
-function scroll_x(image) {
+function scroll_y(scrolling_time, dist_y){
+ var picture = document.getElementById('picture');
+ rule.add("#picture");
+ rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
+ rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
+ picture.classList.add("#picture");
+ 
+ rule.add( "#picture.translate_y");
+ rule.prop("#picture.translate_y", 'top', "'dist_y ' + px");
+ 
+ picture.addEventListener("transitionend", toggleTransition("picture.translate_y"), false);
+ 
+ function toggleTransition(rule){
+  if (rule.get(rule) == false) { //Rule doesn't exist
+    console.log("Rule doesn't exist")
+    picture.classList.add("#picture.translate_y");
+  }
+  else { 
+    picture.classList.remove("#picture.translate_y");
+  }
+ }
 }
 
-function scroll_y(image){
+function scroll_x_and_y (scrolling_time, dist_x, dist_y) {
 }
-
-function scroll_x_and_y (image) {
-}
-
-//If random-order is selected, shuffle the array of images

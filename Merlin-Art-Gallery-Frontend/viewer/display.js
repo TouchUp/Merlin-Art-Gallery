@@ -79,9 +79,10 @@
 
 				getHeightWidth(i);
 			}
-			changeImagePosition();
-			sizeChecker();
+			//changeImagePosition();
+			//sizeChecker();
 			
+      display_image(actual_height, actual_width, scrolling_time);
 
 		}
 

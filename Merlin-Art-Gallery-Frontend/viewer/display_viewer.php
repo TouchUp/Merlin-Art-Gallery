@@ -144,4 +144,6 @@ i = 0
 	
 </body>
 <script src='image_scroller.js'></script>
+<script src='scroller.js'></script>
+<script src='Ruleify.js'></script>
 </html>
