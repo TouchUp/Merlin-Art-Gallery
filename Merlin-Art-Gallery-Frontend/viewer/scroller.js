@@ -26,15 +26,18 @@ function display_image(actual_width, actual_height, scrolling_time){
 
 function scroll_x(scrolling_time, dist_x) {
  
+    /*
  var picture = document.getElementById('picture');
  rule.add("#picture");
  rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
  rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
+ */
  picture.classList.add("#picture");
  
+    /*
  rule.add( "#picture.translate_x");
  rule.prop("#picture.translate_x", 'left', "'dist_x ' + px");
- 
+ */
  picture.addEventListener("transitionend", toggleTransition("picture.translate_x"), false);
  
  function toggleTransition(rule){
@@ -50,18 +53,21 @@ function scroll_x(scrolling_time, dist_x) {
 
 function scroll_y(scrolling_time, dist_y){
  var picture = document.getElementById('picture');
+    /*
  rule.add("#picture");
  rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
  rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
+ */
  picture.classList.add("#picture");
  
+    /*
  rule.add( "#picture.translate_y");
  rule.prop("#picture.translate_y", 'top', "'dist_y ' + px");
- 
+ */
  picture.addEventListener("transitionend", toggleTransition("picture.translate_y"), false);
  
  function toggleTransition(rule){
-  if (rule.get(rule) == false) { //Rule doesn't exist
+  if ( getCSSRule(rule) == false) { //Rule doesn't exist
     console.log("Rule doesn't exist")
     picture.classList.add("#picture.translate_y");
   }

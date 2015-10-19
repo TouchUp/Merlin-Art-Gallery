@@ -72,8 +72,8 @@
 	?>
     
     
-	<script src = 'display.js'></script>
-    
+	
+    <script src = 'display.js'></script>
     
     <script language="javascript">
 		var DISPLAYABLE = <?php echo json_encode($DISPLAYABLE); ?>;
@@ -128,6 +128,7 @@
 		
 
 	</script>
+    
     <script language="javascript">
 i = 0
 
@@ -136,6 +137,8 @@ i = 0
     
     
 </head>
+    <style>
+    </style>
 
 <body onload = "pageLoad()">	
 	

@@ -3,6 +3,7 @@
 
 <head>
 	<title>Display Manager</title>
+    <link rel="stylesheet" type="text/css" href="scroller.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/style_large.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/form_style.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/table_style.css">
