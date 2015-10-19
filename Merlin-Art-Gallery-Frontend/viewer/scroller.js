@@ -30,7 +30,8 @@ function scroll_y(scrolling_time, dist_y){
 
   console.log("scrolling y");
   var picture = document.getElementById('picture');
-  var speed = (dist_y/scrolling_time);
+  var speed = 1;
+  var itv = (scrolling_time*1000/dist_y);
 
   setInterval(
     (function() {
@@ -50,7 +51,7 @@ function scroll_y(scrolling_time, dist_y){
       picture1.scrollTop += speed; 
       console.log(current_y, picture1.scrollTop);
     }
-    ), 200);  
+    ), itv);  
 
 }
 
