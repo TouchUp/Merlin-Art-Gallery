@@ -4,10 +4,12 @@ function getCSSRule(ruleName, deleteFlag) {
     ruleName = ruleName.toLowerCase();
     for (var i = 0; i < document.styleSheets.length; i++) {
         var styleSheet = document.styleSheets[i];
+        console.log(styleSheet);
         var ii = 0;
         var cssRule = false;
         do {
             cssRule = styleSheet.cssRules[ii];
+            console.log(cssRule);
             if (cssRule) {
                 if (cssRule.selectorText.toLowerCase() == ruleName) {
                     if (deleteFlag == 'delete') {
