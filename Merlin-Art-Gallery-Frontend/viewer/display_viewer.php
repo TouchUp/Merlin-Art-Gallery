@@ -14,6 +14,8 @@
 		$DISPLAYABLE = array('name', 'artist', 'price', 'height', 'width', 'inheight', 'inwidth', 'bio', 'others');
 		//name of the things to be displayed. NONE is like for biography, don't want to show "Biography: " before the value.
 		$DISPLAYABLE_NAME = array('Painting name', 'Artist', 'Price', 'Height (cm)', 'Width (cm)', 'Height (in)', 'Width (in)', 'NONE', 'Other information');
+    
+        
 		
 		$mysqli = new mysqli("localhost", "root", "", "imageserver");
 		if ($mysqli->connect_errno){
@@ -41,7 +43,17 @@
 		$dp = array();
 		
 		foreach ($POST_DP_MAPPING as $postid => $dpid){
-			$dp[$dpid] = isset($_POST[$postid]) ? ($_POST[$postid] === "true") : false;
+            
+            if (isset($_POST[$postid])){
+                if ($_POST[$postid] === "on"){
+                    $dp[$dpid] = true;
+                }
+                
+            }
+            else{
+                $dp[$dpid] = false;
+            }
+            
 		}
 		$transtime = isset($_POST['transtime']) ? (int)$_POST['transtime'] : $transtime = 1;
 		$transtime = mysql_real_escape_string($transtime);

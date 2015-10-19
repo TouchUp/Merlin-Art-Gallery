@@ -27,16 +27,17 @@ function display_image(actual_width, actual_height, scrolling_time){
 var current_y = 0;
 
 function scroll_y(scrolling_time, dist_y){
+
   console.log("scrolling y");
   var picture = document.getElementById('picture');
   var speed = (dist_y/scrolling_time);
 
   setInterval(
     (function() {
-      var picture = document.getElementById('picture');
+      var picture1 = document.getElementById('picture');
       console.log('running');
-      //console.log(picture.scrollHeight);
-      if (current_y > picture.scrollHeight){
+      //console.log(picture1.scrollHeight);
+      if (current_y > picture1.scrollHeight){
         console.log('has reached maximum, reversing');
         speed = speed * -1; //Reverses the scrolling direction
       }
@@ -44,12 +45,13 @@ function scroll_y(scrolling_time, dist_y){
         console.log('have overshot, reversing');
         speed = speed * -1;
       }
-      //console.log(current_y, picture.scrollTop);
+      //console.log(current_y, picture1.scrollTop);
       current_y += speed; 
-      picture.scrollTop += speed; 
-      console.log(current_y, picture.scrollTop);
+      picture1.scrollTop += speed; 
+      console.log(current_y, picture1.scrollTop);
     }
     ), 200);  
+
 }
 
 /*function scroll_x(scrolling_time, dist_x) {

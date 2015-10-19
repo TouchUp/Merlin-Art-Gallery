@@ -103,6 +103,7 @@
 			for(var j = 0; j < DISPLAYABLE.length; j++){
 				if (dp[DISPLAYABLE[j]] == true){
 					dphtml += '<li>';
+                    
 					if(DISPLAYABLE_NAME[j]=='Height (in)'){
 						temp = imagearray[i]['height'];
 						temp = Math.round((temp*100)/2.54);
@@ -127,7 +128,7 @@
 					dphtml += '</li>';
 				}
 			}
-			dphtml += '</ul>';
+			dphtml += '</ul> ';
 			document.getElementById('description').innerHTML = dphtml;
 
 			//concatenate all the innerHTML; loops through all
