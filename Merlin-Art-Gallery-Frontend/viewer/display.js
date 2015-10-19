@@ -40,6 +40,7 @@
 				actual_height = (height/pixelsize) * multiplier;
 				
 				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'>';
+                document.getElementById('picture').scrollTop = 0;
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture
@@ -72,6 +73,7 @@
 				actual_height = (height/pixelsize) * multiplier;
 				
 				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = "'+actual_width+'px" height = "'+actual_height+'px">';
+                document.getElementById('picture').scrollTop = 0;
 				displayInfo(); //calls the function to display related info as well
 
 				//Let's get the height and width of this picture

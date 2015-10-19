@@ -421,7 +421,7 @@
                 <h2>Scroll Speed</h2>
 				<li>
 				<label for ="scroll_speed"></label>
-				<input type = "number" id = "scroll_speed" value = 5 name="scrollspeed" min = '1' max='10'> 
+				<input type = "number" id = "scroll_speed" value = 5 name="scrollspeed" min = '1' max='50'> 
 				</li>
 
 				<h2> What to display </h2>
