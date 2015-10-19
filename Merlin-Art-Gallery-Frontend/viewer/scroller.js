@@ -19,7 +19,7 @@ function display_image(actual_width, actual_height, scrolling_time){
   var dist_y = image_y - window_h;
   
   //(image_x > window_w && image_y > window_h) ? scroll_x_and_y(scrolling_time, dist_x, dist_y) : 
-  (image_x > window_w) ? scroll_x(scrolling_time, dist_x) : 
+  //(image_x > window_w) ? scroll_x(scrolling_time, dist_x) : 
   (image_y > window_h) ? scroll_y(scrolling_time, dist_y) : 
   console.log("image is smaller than window");
 }
@@ -32,7 +32,7 @@ function scroll_y(scrolling_time, dist_y){
       console.log("cleared");
       clearInterval(temp);
   }
-  
+  current_y = 0;
   console.log("scrolling y");
   var picture = document.getElementById('picture');
   var speed = 1;

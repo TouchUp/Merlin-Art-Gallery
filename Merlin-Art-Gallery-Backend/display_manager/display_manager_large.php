@@ -292,7 +292,7 @@
 				wxhr.open("POST", "savesetup.php", true);   
 				wxhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");                    
 				wxhr.send(data);
-				var delay=setTimeout(searchsetup, 50);
+				var delay=setTimeout(searchsetup, 100);
 			}
 		
 		function searchsetup()  {  
