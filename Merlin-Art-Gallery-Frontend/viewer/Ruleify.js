@@ -1,21 +1,23 @@
 'use strict';
 
 function getCSSRule(ruleName, deleteFlag) {
-    ruleName = ruleName.toLowerCase();
+    //ruleName = ruleName.toLowerCase();
     for (var i = 0; i < document.styleSheets.length; i++) {
         var styleSheet = document.styleSheets[i];
-        console.log(styleSheet);
+        //console.log(styleSheet);
         var ii = 0;
         var cssRule = false;
         do {
             cssRule = styleSheet.cssRules[ii];
-            console.log(cssRule);
+            //console.log(cssRule);
             if (cssRule) {
                 if (cssRule.selectorText.toLowerCase() == ruleName) {
                     if (deleteFlag == 'delete') {
                         styleSheet.deleteRule(ii);
                         return true; //
                     } else {
+                        console.log(cssRule.cssText);
+                        console.log(cssRule);
                         return cssRule;
                     }
                 }

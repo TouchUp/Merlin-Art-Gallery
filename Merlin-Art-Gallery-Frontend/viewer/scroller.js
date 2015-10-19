@@ -24,10 +24,38 @@ function display_image(actual_width, actual_height, scrolling_time){
   console.log("image is smaller than window");
 }
 
-function scroll_x(scrolling_time, dist_x) {
+var current_y = 0;
+
+function scroll_y(scrolling_time, dist_y){
+  console.log("scrolling y");
+  var picture = document.getElementById('picture');
+  var speed = (dist_y/scrolling_time);
+
+  setInterval(
+    (function() {
+      var picture = document.getElementById('picture');
+      console.log('running');
+      //console.log(picture.scrollHeight);
+      if (current_y > picture.scrollHeight){
+        console.log('has reached maximum, reversing');
+        speed = speed * -1; //Reverses the scrolling direction
+      }
+      else if (current_y < 0) {
+        console.log('have overshot, reversing');
+        speed = speed * -1;
+      }
+      //console.log(current_y, picture.scrollTop);
+      current_y += speed; 
+      picture.scrollTop += speed; 
+      console.log(current_y, picture.scrollTop);
+    }
+    ), 200);  
+}
+
+/*function scroll_x(scrolling_time, dist_x) {
  var picture = document.getElementById('picture');
  rule.add("#picture");
- rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
+  rule.prop( '#picture', '-webkit-transition', scrolling_time + 's' + ' linear');
  rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
  picture.classList.add("#picture");
  
@@ -47,26 +75,28 @@ function scroll_x(scrolling_time, dist_x) {
 }
 
 function scroll_y(scrolling_time, dist_y){
+  console.log('calling scroll_y');
  var picture = document.getElementById('picture');
  rule.add("#picture");
- rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + 'linear');
+ rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + ' linear');
  rule.prop("#picture", '-webkit-transform', 'translate(0, 0)');
+
+ rule.add( "translate_y");
+ rule.prop("translate_y", 'top', dist_y + "px");
+  picture.classList.add("translate_y");
   
- picture.classList.add("#picture");
- rule.add( "#picture.translate_y");
- rule.prop("#picture.translate_y", 'top', "'dist_y ' + px");
- picture.addEventListener("transitionend", toggleTransition("picture.translate_y"), false);
+ /*picture.addEventListener("transitionend", toggleTransition("translate_y"), false);
  
  function toggleTransition(rule){
   if ( getCSSRule(rule) == false) { //Rule doesn't exist
     console.log("Rule doesn't exist")
-    picture.classList.add("#picture.translate_y");
+    picture.classList.add("translate_y");
   }
   else { 
-    picture.classList.remove("#picture.translate_y");
+    picture.classList.remove("translate_y");
   }
- }
 }
 
+
 function scroll_x_and_y (scrolling_time, dist_x, dist_y) {
-}
+}*/

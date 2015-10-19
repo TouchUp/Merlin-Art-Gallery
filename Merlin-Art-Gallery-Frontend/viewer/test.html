@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script src = 'Ruleify.js'></script>
+        <script>
+            function anim() {
+                var time = 2;
+                var dist = 500;
+                rule.add( '.animated' );
+                rule.prop( '.animated', '-webkit-transition', time + 's' + ' ease-in-out');
+                rule.prop( '.animated', '-webkit-transform', 'translate(' + dist + 'px, 0)');
+                
+                document.getElementById('element').classList.add('animated');
+                
+            }
+            function reset() {
+                document.getElementById('element').classList.remove('animated');
+            }
+          
+/*function scroll_y(scrolling_time, dist_y){
+  console.log('calling scroll_y');
+  var picture = document.getElementById('picture');
+  rule.add("#picture");
+  rule.prop("#picture", '-webkit-transition', scrolling_time + 's' + ' linear');
+  
+  rule.add( ".untranslate_y");
+  rule.prop(".untranslate_y", '-webkit-transform', 'translate(0, 0)');
+  
+  rule.add( ".translate_y");
+  rule.prop(".translate_y", '-webkit-transform', 'translate(0, ' + dist_y + 'px)');
+  
+  picture.classList.add("translate_y");
+  
+  picture.addEventListener("transitionend", toggleTransition, false);  
+}
+          
+function toggleTransition(e) {
+  if (e.propertyName == "transform") {
+    if (picture.className == "translate_y"){
+      picture.classList.remove("translate_y");
+      picture.classList.add("untranslate_y");
+    }
+    else {
+      picture.classList.remove("untranslate_y");
+      picture.classList.add("translate_y");
+    }
+  }
+}*/
+          
+function scroll_y(scrolling_time, dist_y) {
+  var picture = document.getElementById('picture');
+  rule.add("@keyframes slide ");
+}
+        </script>
+        
+        <style>
+
+        </style>
+    </head>
+    <body>
+       <div id = 'element'> <h1> I'm animated! </h1></div>
+      <div id = 'picture'><h1>Testing</h1></div>
+        <button onclick = 'anim()'>Animate</button>
+        <button onclick = 'reset()'>Reset</button>
+      
+        <button onclick = 'scroll_y(1, 200)'>Animate</button>
+    </body>
+</html>

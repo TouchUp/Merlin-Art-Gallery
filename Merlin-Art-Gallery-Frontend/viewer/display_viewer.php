@@ -2,8 +2,6 @@
 <html>
 <link rel = 'stylesheet' type = 'text/css' href = 'normalize.css'>
 <link rel="stylesheet" type = "text/css" href="displaystyle.css">
-
-<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 <head>
 <title>Display Viewer </title>
 
@@ -146,7 +144,6 @@ i = 0
 	<div id = "descr_wrapper"><div id = "description"></div></div>
 	
 </body>
-<script src='image_scroller.js'></script>
 <script src='scroller.js'></script>
 <script src='Ruleify.js'></script>
 </html>
