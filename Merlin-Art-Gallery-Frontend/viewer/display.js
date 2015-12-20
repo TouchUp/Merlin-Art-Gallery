@@ -1,5 +1,5 @@
-		var screendiagonal = 65;
-		var screenresolution = 1920;
+		var screendiagonal = 75;
+		var screenresolution = 1080;
 		var z = Math.sqrt((screendiagonal*screendiagonal)/337);
 		var screenwidth = z * 16;
 		
@@ -12,7 +12,7 @@
 			var actual_height;
 			var actual_width;
 			// Magic number
-			var multiplier = 1.12;
+			var multiplier = 1.2;
 			
 			if (dp['showrandom'] == true){
 				var loop = 0;
@@ -39,7 +39,7 @@
 				actual_width = (width/pixelsize) * multiplier;
 				actual_height = (height/pixelsize) * multiplier;
 				
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'>';
+				document.getElementById('picture').innerHTML =  '<div id = "image"><img src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'></div>';
                 document.getElementById('picture').scrollTop = 0;
 				displayInfo(); //calls the function to display related info as well
 

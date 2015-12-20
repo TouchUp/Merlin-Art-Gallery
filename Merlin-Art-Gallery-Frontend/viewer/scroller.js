@@ -22,6 +22,7 @@ function display_image(actual_width, actual_height, scrolling_time){
   //(image_x > window_w) ? scroll_x(scrolling_time, dist_x) : 
   (image_y > window_h) ? scroll_y(scrolling_time, dist_y) : 
   console.log("image is smaller than window");
+  
 }
 
 var current_y = 0;
