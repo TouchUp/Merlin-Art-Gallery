@@ -3,7 +3,6 @@
 
 <head>
 	<title>Display Manager</title>
-    <link rel="stylesheet" type="text/css" href="scroller.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/style_large.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/form_style.css">
 	<link rel = "stylesheet" type = "text/css" href = "./css/table_style.css">
@@ -332,9 +331,9 @@
 </head>
 
 <body>
-	<section id = 'header'>
+	<div id = 'header'>
 		<h1>Display Manager </h1>
-	</section>	
+	</div>	
 	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
 
@@ -361,10 +360,10 @@
 					<div id = 'size'>
 						<label for ='size_range'> Size </label>
 						
-						<input id = 'height_slider_min' name = 'height_min' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'height_min.value=height_slider_min.value' onMouseUp='searchby(1)'>
-						<input id = 'height_slider_max' name = 'height_max' class = 'height_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'height_max.value=height_slider_max.value' onMouseUp='searchby(1)'>
+						<input id = 'height_slider_min' name = 'height_min' class = 'height_slider' type = 'range' min = '0' max = '300' step = '1' value = '0' oninput = 'height_min.value=height_slider_min.value' onMouseUp='searchby(1)'>
+						<input id = 'height_slider_max' name = 'height_max' class = 'height_slider' type = 'range' min = '0' max = '300' step = '1' value = '1000' oninput = 'height_max.value=height_slider_max.value' onMouseUp='searchby(1)'>
 						<output id = 'height_min'  for = 'height_slider_min'> 0 </output> 
-						<output id = 'height_max'  for = 'height_slider_max'> 1000 </output>
+						<output id = 'height_max'  for = 'height_slider_max'> 300 </output>
 
 						<select class = 'cm_in' id = 'height_selector' name='height_select' onChange="searchby(1)">
 							<option value = 0> cm </option>
@@ -373,10 +372,10 @@
 
 						<div id = 'rectangle'></div>
 						
-						<input id = 'width_slider_min' name = 'width_min' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '0' oninput = 'width_min.value=width_slider_min.value' onMouseUp='searchby(1)'>
-						<input id = 'width_slider_max' name = 'width_max' class = 'width_slider' type = 'range' min = '0' max = '1000' step = '1' value = '1000' oninput = 'width_max.value=width_slider_max.value' onMouseUp='searchby(1)'>
+						<input id = 'width_slider_min' name = 'width_min' class = 'width_slider' type = 'range' min = '0' max = '300' step = '1' value = '0' oninput = 'width_min.value=width_slider_min.value' onMouseUp='searchby(1)'>
+						<input id = 'width_slider_max' name = 'width_max' class = 'width_slider' type = 'range' min = '0' max = '300' step = '1' value = '1000' oninput = 'width_max.value=width_slider_max.value' onMouseUp='searchby(1)'>
 						<output id = 'width_min' for = 'width_slider_min'> 0 </output>
-						<output id = 'width_max' for = 'width_slider_max'> 1000 </output>
+						<output id = 'width_max' for = 'width_slider_max'> 300 </output>
 		
 						<select class = 'cm_in' id = 'width_selector' name='width_select' onChange="searchby(1)">
 							<option value = 0> cm </option>
@@ -490,7 +489,7 @@
 			</form>
 		</section>
         
-         <section id = "page_2_5">
+         <section id = "page_1">
         	<h1>Load Setups</h1>
             <div id='options'>
             	<input type="text" id="setupname" style="width:200px">
