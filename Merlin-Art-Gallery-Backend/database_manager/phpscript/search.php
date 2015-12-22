@@ -165,7 +165,7 @@
 		$subjectsize += 1;
 		$subjectdetails[$subjectsize]['name'] = $row['subject'];
 		$subjectdetails[$subjectsize]['pkey'] = $row['pkey'];
-		if ($genresearch == $subjectdetails[$subjectsize]['name']){
+		if (strtolower($genresearch) == strtolower($subjectdetails[$subjectsize]['name'])){
 			$genresearch = 	$subjectdetails[$subjectsize]['pkey'];
 			$foundsubject = 1;
 		}
@@ -180,7 +180,7 @@
 		$mediasize += 1;
 		$mediadetails[$mediasize]['name'] = $row['media'];
 		$mediadetails[$mediasize]['pkey'] = $row['pkey'];
-		if ($mediasearch ==$mediadetails[$mediasize]['name']){
+		if (strtolower($mediasearch) ==strtolower($mediadetails[$mediasize]['name'])){
 			$mediasearch = 	$mediadetails[$mediasize]['pkey'];
 			$foundmedia = 1;
 		}
@@ -298,6 +298,8 @@
 		echo '<td width="100">'.$code.'</td>';
 		echo '<td width="150">'.$name.'</td>';
 		echo '<td width="200">'.$artist.'</td>';
+        echo '<td width="120">'.round($cmheight,2).'</td>';
+		echo '<td width="120">'.round($cmwidth,2).'</td>';
 		echo '<td width="50">'.$sold.'</td>';
 		echo '<td width="100">'.$doby.'</td>';
 		echo '<td width="150">'.$country.'</td>';
@@ -327,8 +329,7 @@
 		echo '<td width="140">'.$media.'</td>';
 		echo '<td width="100">'.$pyear.'</td>';
 		echo '<td width="120">'.$price.'</td>';
-		echo '<td width="120">'.round($cmheight,2).'</td>';
-		echo '<td width="120">'.round($cmwidth,2).'</td>';
+		
 		echo '<td width="200">'.$location.'</td>';
 		echo '<td width="300"><div style="height:80px; overflow-y:auto;">'.$bio.'</div></td>';
 		echo '<td >'.$others.'</td>';

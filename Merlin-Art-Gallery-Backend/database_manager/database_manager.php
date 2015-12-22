@@ -331,8 +331,11 @@
         		<tr>
                 	<th width="100" Image <div id="image"></div></th>
             		<th width="100" onClick="setorder('code')">ID<div style="float:left;" id="code"></div></th>
-               		<th width="150" onClick="setorder('name')">Name <div style="float:left;" id="name">▴</div></th>
+               		<th width="150" onClick="setorder('name')">Title<div style="float:left;" id="name">▴</div></th>
+                    <!-- Title search uses the word "name" for its id and all related code -->
                 	<th width="200" onClick="setorder('artist')">Artist <div style="float:left;" id="artist"></div></th>
+                    <th width="120" onClick="setorder('height')"> Height (cm) <div style="float:left;" id="height"></div></th>
+                	<th width="120" onClick="setorder('width')"> Width (cm) <div style="float:left;" id="width"></div></th>
                     <th width="50" onClick="setorder('sold')">Sold <div style="float:left;" id="sold"></div></th>
                 	<th width="100" onClick="setorder('doby')"> DOB (year) <div style="float:left;" id="doby"></div></th>
                 	<th width="150" onClick="setorder('country')"> Nationality <div style="float:left;" id="country"></div></th>
@@ -340,8 +343,6 @@
                     <th width="140" > Media </th>
                     <th width="100" onClick="setorder('pyear')"> Year Painted <div style="float:left;" id="pyear"></div></th>
                 	<th width="120" onClick="setorder('price')"> Price <div style="float:left;" id="price"></div></th>
-                	<th width="120" onClick="setorder('height')"> Height (cm) <div style="float:left;" id="height"></div></th>
-                	<th width="120" onClick="setorder('width')"> Width (cm) <div style="float:left;" id="width"></div></th>
                     <th width="200" onClick="setorder('plocation')"> Painting Location <div style="float:left;" id="plocation"></div></th>
                 	<th width="300" onClick="setorder('bio')"> Biography <div style="float:left;" id="bio"></div></th>
                 	<th onClick="setorder('others')"> Other Info <div style="float:left;" id="others"></div></th>
@@ -351,6 +352,8 @@
             		<td><center><input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby(1)"></td>
                 	<td><center><input type = 'search'  results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby(1)"></center></td>
+                    <td><center><input type = 'text'  size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby(1)"></center></td>
+                	<td><center><input type = 'text'  size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby(1)"></center></td>  
                     <td><center><input type = 'search'  name = 'soldsearch' id = 'soldsearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'search'  results = '5' name = 'yearsearch' placeholder = 'YYYY' id='yearsearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'search'  results = '5' name = 'nationsearch' placeholder = 'Search' id='nationsearch' onKeyUp="searchby(1)"></center></td>
@@ -359,8 +362,7 @@
                     <td><center><input type = 'search'  results = '5' name = 'mediasearch' placeholder = 'Search' id='mediasearch' onKeyUp="searchby(1)"></center></td>
                     <td><center><input type = 'search'  results = '5' name = 'pyearsearch' placeholder = 'YYYY' id='pyearsearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'text'  size='5' name = 'pricesearch' id='pricesearch' onKeyUp="searchby(1)"></center></td>
-                	<td><center><input type = 'text'  size='5' name = 'heightsearch' id='heightsearch' onKeyUp="searchby(1)"></center></td>
-                	<td><center><input type = 'text'  size='5' name = 'widthsearch' id='widthsearch' onKeyUp="searchby(1)"></center></td>
+                	
                     <td><center><input type = 'search'  results = '5' name = 'locsearch' placeholder = 'Search' id='locsearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'search'  results = '5' name = 'biosearch' placeholder = 'Search' id='biosearch' onKeyUp="searchby(1)"></center></td>
                 	<td><center><input type = 'search'  results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby(1)"></center></td>

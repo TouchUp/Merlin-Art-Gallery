@@ -341,7 +341,7 @@
                         <input type="hidden" name="doSearch" value="1">
 						<label class ="search" for ='search_box'> ID </label>
 						<input type = 'search' results = '5' name = 'idsearch' placeholder = 'Search' id='idsearch' onKeyUp="searchby(1)">
-						<label  class ="search" for ='search_box'> Painting Name </label>
+						<label  class ="search" for ='search_box'> Painting Title </label>
 						<input type = 'search' results = '5' name = 'namesearch' placeholder = 'Search' id='namesearch' onKeyUp="searchby(1)">
                         <label  class ="search" for ='search_box'> Artist </label>
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby(1)">
