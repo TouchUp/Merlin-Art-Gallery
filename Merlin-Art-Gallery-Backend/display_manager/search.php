@@ -192,7 +192,7 @@
 		echo '<td>'.$artist.'</td>';
 		echo '<td>'.$price.'</td>';
 		echo '<td>'.(round($cmheight*100)/100).'</td>';
-		echo '<td>'.(round($cmwidth)/100).'</td>';
+		echo '<td>'.(round($cmwidth*100)/100).'</td>';
 		echo '<td>'.$inheight.'</td>';
 		echo '<td>'.$inwidth.'</td>';
 		echo '<td><div style="height:80px; overflow-y:auto;">'.$bio.'</bio></td>';

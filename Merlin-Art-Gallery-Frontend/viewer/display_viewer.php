@@ -110,6 +110,7 @@
 			z = z + speed
 			var div = document.getElementById("descr_wrapper")
 			div.scrollTop = z
+            //console.log(window.innerHeight);
 			if (z >= div.scrollHeight-300) {
 				z = 0
 				t1=setTimeout("scroll()",5000)

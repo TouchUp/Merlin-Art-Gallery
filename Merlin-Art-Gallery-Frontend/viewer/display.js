@@ -1,14 +1,28 @@
-		var screendiagonal = 75;
+		
+/*
+        //Gallery screen size
+        var screendiagonal = 75;
 		var screenresolution = 1080;
 		var z = Math.sqrt((screendiagonal*screendiagonal)/337);
 		var screenwidth = z * 16;
 		
 		var screenheight = z * 9;
 		var pixelsize = (screenwidth / screenresolution)*2.54;
+        
+*/
+        var screendiagonal = 15;
+		var screenresolution = 1366;
+		var z = Math.sqrt((screendiagonal*screendiagonal)/337);
+		var screenwidth = z * 16;
+		var d = new Date();
+		var screenheight = z * 9;
+		var pixelsize = (screenwidth / screenresolution)*2.54;
+        var displaypic = document.createElement("img");
 
 		function nextPicture (){
 			var width;
 			var height;
+            var currenttime = d.getTime();
 			var actual_height;
 			var actual_width;
 			// Magic number
@@ -39,7 +53,15 @@
 				actual_width = (width/pixelsize) * multiplier;
 				actual_height = (height/pixelsize) * multiplier;
 				
-				document.getElementById('picture').innerHTML =  '<div id = "image"><img src = "../../images/'+ imagename +'" width = '+actual_width+' height = '+actual_height+'></div>';
+                
+				//document.getElementById('picture').innerHTML =  '<div id = "image"><img src = "../../images/'+ imagename +'?'+ currenttime +'"width = '+actual_width+' height = '+actual_height+'></div>';
+                displaypic.setAttribute("src", "../../images/"+imagename+"?"+currenttime);
+                displaypic.setAttribute("height", actual_height);
+                displaypic.setAttribute("width", actual_width);
+                displaypic.setAttribute("id", "image");
+                document.getElementById('picture').appendChild(displaypic);
+                document.getElementById('image').style['min-width'] = actual_width;
+                document.getElementById('image').style['max-height'] = actual_height;
                 document.getElementById('picture').scrollTop = 0;
 				displayInfo(); //calls the function to display related info as well
 
@@ -72,10 +94,15 @@
 				actual_width = (width/pixelsize) * multiplier;
 				actual_height = (height/pixelsize) * multiplier;
 				
-				document.getElementById('picture').innerHTML =  '<img id = "image" src = "../../images/'+ imagename +'" width = "'+actual_width+'px" height = "'+actual_height+'px">';
+				displaypic.setAttribute("src", "../../images/"+imagename+"?"+currenttime);
+                displaypic.setAttribute("height", actual_height);
+                displaypic.setAttribute("width", actual_width);
+                displaypic.setAttribute("id", "image");
+                document.getElementById('picture').appendChild(displaypic);
+                document.getElementById('image').style['min-width'] = actual_width;
+                document.getElementById('image').style['max-height'] = actual_height;
                 document.getElementById('picture').scrollTop = 0;
-				displayInfo(); //calls the function to display related info as well
-
+				displayInfo();
 				//Let's get the height and width of this picture
 				//by calling a function that gets the array properties 
 
@@ -84,7 +111,7 @@
 			//changeImagePosition();
 			//sizeChecker();
 			
-      display_image(actual_height, actual_width, SCROLL_SPEED);
+      display_image(actual_width, actual_height, SCROLL_SPEED);
 
 		}
 
