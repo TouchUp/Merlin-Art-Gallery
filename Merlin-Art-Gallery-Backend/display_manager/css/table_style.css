@@ -23,6 +23,7 @@ th {
 
 .selected {
 	border: 2px solid black;
+	border-radius: 50px;
 	display: inline-block;
 	background-color: white;
 	border-collapse: collapse;
@@ -35,11 +36,13 @@ th {
 	font-size: 0.7em;
 	padding: none !important;
 	text-align:center;
+	color: black;
 }
 
 .selected img {
 	height: 150px;
 	width: 150px;
+
 }
 
 .selected:hover {

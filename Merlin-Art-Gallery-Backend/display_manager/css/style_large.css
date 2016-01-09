@@ -15,11 +15,12 @@ html, body {
 	padding: 0;
 	width:100%;
 	/*height:100%;*/
-	background-color: rgba(236, 240, 241,1.0);
+	background-color: rgba(40, 40, 40 , 1);
+	color: white;
 }
 
 #header {
-	
+
 	background-color:rgba(189, 195, 199,1.0);
     height:200px;
 }
@@ -56,7 +57,7 @@ section:first-of-type{
 	overflow: scroll;
 }
 
-/* elegant way to set div heights actually */ 
+/* elegant way to set div heights actually */
 
 section{
 	padding-top: 50px;
@@ -87,4 +88,3 @@ h2 {
 body {
 	font-size: 2em;
 }
-

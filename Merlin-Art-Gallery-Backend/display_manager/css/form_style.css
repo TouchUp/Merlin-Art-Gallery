@@ -1,5 +1,5 @@
 
-/* 
+/*
 ===== CSS Styling for Forms =====
 */
 
@@ -21,9 +21,17 @@ input[type = 'number'] {
 
 
 input[type = 'text'] {
+	-webkit-appearance:none;
+	appearance:none;
 
 	width: 100%;
 	max-width: 100%;
+	height:75px;
+	font-size: 1em;
+	box-shadow:none;
+	border: 5px solid rgba(52, 73, 94,1.0);
+
+	border-radius: 20px;
 }
 
 input[type='search']{
@@ -40,7 +48,7 @@ input[type='search']{
 	/*
 	background-color:rgba(189, 195, 199,1.0);
 	*/
-	border-radius: 5px;
+	border-radius: 20px;
 }
 
 select{
@@ -71,6 +79,18 @@ input[type='checkbox']:checked {
 }
 
 input[type='submit']{
+	/* to override browser default styling */
+	-webkit-appearance:none;
+	appearance:none;
+
+	padding: 20px;
+	font-size: 1em;
+	background-color: rgba(44, 62, 80,1.0);
+	color: white;
+	border:none;
+}
+
+input[type='button'] {
 	/* to override browser default styling */
 	-webkit-appearance:none;
 	appearance:none;
