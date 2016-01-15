@@ -15,7 +15,6 @@
 			exit();
 		}
 
-
 	?>
     <script language ="javascript">
 
@@ -331,9 +330,10 @@
 </head>
 
 <body>
-	<div id = 'header'>
-		<h1>Display Manager </h1>
-	</div>
+    
+ <div class="horizontal">
+ <div class="table">
+
 	<section id = 'page_1'>
 			<h1> Step 1: Advanced Search.</h1>
 
@@ -347,8 +347,7 @@
 						<input type = 'search' results = '5' name = 'artistsearch' placeholder = 'Search' id = 'artistsearch' onKeyUp="searchby(1)">
                         <label  class ="search" for ='search_box'> Others </label>
 						<input type = 'search' results = '5' name = 'othersearch' placeholder = 'Search' id='othersearch' onKeyUp="searchby(1)">
-					<label for ='price_range'>Price</label>
-					<br>
+					    <label class = "search" for ='price_range'>Price</label>
 					<input id = 'price_slider' type = 'range' min = '0' max = '1000000' step = '50' value = '0' oninput="amount.value=price_slider.value" onMouseUp="searchby(1)">
 					<output id="amount" for="price_slider">0</output>
 					to
@@ -388,26 +387,26 @@
 
 		<section id = "page_2">
 			<h1> Step 2: Image Select.</h1>
-			<div id="searchpic" style="height:800px; overflow:auto; width:100%;">
+			<div id="searchpic">
 
 
 			</div>
-
+           <form name="selectimages" action="../../Merlin-Art-Gallery-Frontend/viewer/display_viewer.php" method="post">  
 		</section>
-        <form name="selectimages" action="../../Merlin-Art-Gallery-Frontend/viewer/display_viewer.php" method="post">
 
-        <section id = "page_2">
-			<h1> Selected images</h1>
+
+        <section id = "page_3"> 
+
+            <h1> Selected images</h1>    
 			<div id="selectedpic">
-
-
 			</div>
-
-		</section>
-
+        </section>
 
 
-		<section id = 'page_3'>
+
+
+
+		<section id = 'page_4'>
 			<div id = 'form'>
 				<h1>Step 3: Display Settings.</h1>
 
@@ -426,7 +425,7 @@
 				<h2> What to display </h2>
 
 				<div id = "checkbox_grid">
-
+                <ul>        
 					<li>
 						<input type = "checkbox" id = "painting_name" name = "painting_checkbox">
 						<label for = "painting_name"> Painting Name </label>
@@ -471,10 +470,11 @@
 						<input type = "checkbox" id = "other" name = 'other' >
 						<label for = 'other'> Other info </label>
 					</li>
+                   </ul>
 				</div>
 
 				<h2> Other Settings </h2>
-
+                <ul>
 				<li>
 				<input type =  "checkbox" id = "random" name = "showrandom" >
 				<label for == "random"> Randomise paintings </label>
@@ -483,30 +483,33 @@
 				<li>
 				<input type = "submit" value = "Display Images" >
 				</li>
-
+                </ul>
 
 			</div>
 			</form>
 		</section>
 
-         <section id = "page_1">
+         <section id = "page_5">
         	<h1>Load Setups</h1>
             <div id='options'>
-            	<label for = "setupname"> Save Setup as: </label> <input type="text" id="setupname">
+            	<label class = "search" for = "setupname"> Save Setup as: </label> <input type="text" id="setupname">
             	<input type="button" value="Save Setup" onClick="savesetup()">
             </div>
 
             <div id='search_settings'>
-            	Search Setup : <input type="search" id="setupsearch" style="width:1000px" onKeyUp="searchsetup()">
+            	<label class = "search" for = "setupsearch"> Search Setup : </label>
+                <input type="search" id="setupsearch" onKeyUp="searchsetup()">
 
             </div>
-
+            <h1>Saved Setups</h1>
             <div id='setup_results'>
-
+            
             </div>
         </section>
+        
 	</div>
-
+</div>
+</div>
 </body>
 
 </html>

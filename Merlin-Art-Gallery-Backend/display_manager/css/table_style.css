@@ -5,9 +5,11 @@
 table,td,tr,th {
 	border: 1px solid rgba(52, 73, 94,1.0);
 	border-collapse:collapse;
-	text-align:center;
 	padding:10px;
-	font-size: 0.8em;
+}
+
+#searchpic td {
+    font-size: 0.7em;
 }
 
 table{
@@ -16,7 +18,6 @@ table{
 
 th {
 	background-color: rgba(189, 195, 199,1.0);
-
 	border-collapse: collapse;
 	font-weight: 500;
 }
@@ -25,7 +26,7 @@ th {
 	border: 2px solid black;
 	border-radius: 50px;
 	display: inline-block;
-	background-color: white;
+	background-color: rgba(0, 0, 0 , 0.3);
 	border-collapse: collapse;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -36,7 +37,7 @@ th {
 	font-size: 0.7em;
 	padding: none !important;
 	text-align:center;
-	color: black;
+	color: white;
 }
 
 .selected img {

@@ -9,82 +9,71 @@
  ===== Body: 3-paged layout =====
  */
 
-
 html, body {
-	margin: 0;
-	padding: 0;
-	width:100%;
-	/*height:100%;*/
-	background-color: rgba(40, 40, 40 , 1);
-	color: white;
-}
-
-#header {
-
-	background-color:rgba(189, 195, 199,1.0);
-    height:200px;
-}
-section:first-of-type{
-	max-height:10px;
-}
-
-#page_1 {
-	/*
-	background-color:rgba(189, 195, 199,1.0);
-	*/
-
-	width:80%;
-	margin: auto;
-}
-
-#page_2{
-
-	width:80%;
-	margin:auto;
-}
-
-#page_3 {
-	/*
-	background-color:rgba(189, 195, 199,1.0);
-	*/
-
-	width:80%;
-	margin:auto;
-	}
-
-#selectedpic {
-	max-height: 80vh !important;
-	overflow: scroll;
-}
-
-/* elegant way to set div heights actually */
-
-section{
-	padding-top: 50px;
-    min-height:120vh;
-}
-
-section:first-of-type {
-    height: 20vh;
-}
-
-
-
-
-/*
-===== CSS Styling for ELEMENTS =====
-*/
-
-h1 {
-	text-align:center;
-	padding-bottom:20px;
-}
-
-h2 {
-	padding-left: 20px;
-	padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    /*overflow-y: hidden; this line breaks the picture frame, but fixes the whitespace bug. Fix ASAP */
 }
 
 body {
-	font-size: 2em;
+    color: white;
+    font-size: 1.5em;
+}
+
+div.horizontal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: static;
+}
+
+.table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table > section {
+    width: 80vw; // The width is based on my monitor. It's replaced by jQuery anyway. Percentage widths do not work.
+    min-height: 100vh;
+    display: table-cell;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+.table > section:nth-child(1), .table > section:nth-child(4) {
+    width: 800px; 
+}
+
+.table > section:nth-child(5) {
+    width: 800px;
+}
+
+.table > section:nth-child(3) {
+    width: 1000px! important; 
+}
+
+.table > section:nth-child(2n+1) {
+    background-color: rgba(60,60,60,1);
+}
+
+.table > section:nth-child(2n+2) {
+    background-color: rgba(40,40,40,1);
+}
+
+#searchpic, #selectedpic {
+    height: 89vh;
+    overflow-y: auto;
+}
+
+#setup_results {
+    height: 35vh;
+    overflow-y: auto;
+}
+
+/* Element styling */
+h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
